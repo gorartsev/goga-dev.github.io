@@ -26,8 +26,8 @@
     body {
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at top, #151D1F 0, #050509 55%, #000 100%);
+      /* всегда тёмный фон без высветления сверху */
+      background: #050509;
       color: var(--text-main);
     }
 
@@ -279,6 +279,11 @@
       flex-wrap: wrap;
     }
 
+    .hero-preview-link {
+      margin-top: 8px;
+      font-size: 12px;
+    }
+
     /* SECTION HEADERS */
 
     .section {
@@ -362,16 +367,13 @@
       border-color: rgba(20, 120, 90, 0.6);
     }
 
-    .project-thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
     .project-name {
       font-size: 16px;
       font-weight: 500;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
     }
 
     .project-meta {
@@ -411,6 +413,51 @@
 
     .project-links a:hover {
       text-decoration: underline;
+    }
+
+    .project-links-muted {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    /* BADGE для Temple of Mind, показывающий, что есть отдельная страница */
+    .badge-page {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      padding: 2px 6px;
+      border-radius: 999px;
+      border: 1px solid rgba(15, 92, 77, 0.8);
+      color: var(--accent);
+      background: rgba(4, 10, 9, 0.95);
+    }
+
+    /* ГАЛЕРЕЯ СКРИНОВ ДЛЯ ПРОЧИХ ПРОЕКТОВ */
+
+    .project-gallery {
+      margin-top: 6px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scroll-snap-type: x mandatory;
+    }
+
+    .project-gallery-item {
+      min-width: 44%;
+      max-width: 60%;
+      scroll-snap-align: start;
+      border-radius: 12px;
+      border: 1px solid rgba(40, 90, 80, 0.8);
+      background: #020506;
+      font-size: 11px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8px;
+      white-space: normal;
     }
 
     /* ABOUT + CONTACT */
@@ -553,6 +600,11 @@
             <span>Engine: Unity (URP)</span>
             <span>Focus: exploration · mood</span>
           </div>
+          <div class="hero-preview-link">
+            <a href="temple-of-mind.html" target="_blank" rel="noopener">
+              Open detailed project page →
+            </a>
+          </div>
         </div>
       </aside>
     </section>
@@ -573,7 +625,10 @@
           <div class="project-thumb project-thumb-featured">
             Replace with key art or a wide Unity render from Temple of Mind.
           </div>
-          <div class="project-name">Temple of Mind – Atmospheric Exploration Prototype (Unity · URP)</div>
+          <div class="project-name">
+            Temple of Mind – Atmospheric Exploration Prototype (Unity · URP)
+            <span class="badge-page">Full breakdown page</span>
+          </div>
           <div class="project-meta">
             Main personal project: a surreal bioluminescent temple-city built in Unity (URP).
             Focused on environmental storytelling, silhouette-based readability, emotional pacing
@@ -595,7 +650,7 @@
         <!-- PROJECT 2: CITY RUNNER -->
         <article class="project-card">
           <div class="project-thumb">
-            Replace with a main gameplay lane screenshot from the city runner level.
+            Main lane screenshot placeholder for the city runner level.
           </div>
           <div class="project-name">ZoneCity Runner – Hybrid-Casual Level (Unity)</div>
           <div class="project-meta">
@@ -609,9 +664,23 @@
             <span class="tag-soft">Hybrid-casual Mobile</span>
             <span class="tag-soft">Patterns & progression</span>
           </div>
+
+          <!-- Галерея скринов для этого проекта -->
+          <div class="project-gallery">
+            <div class="project-gallery-item">
+              (Planned) Main lane shot with obstacles and coins.
+            </div>
+            <div class="project-gallery-item">
+              (Planned) Top-down view of level layout patterns.
+            </div>
+            <div class="project-gallery-item">
+              (Planned) Late-game section with higher density.
+            </div>
+          </div>
+
           <div class="project-footer">
-            <div class="project-links">
-              <a href="#" target="_blank" rel="noopener">Gameplay capture →</a>
+            <div class="project-links-muted">
+              Screenshots / capture will be added here.
             </div>
             <div class="project-meta">Prototype / production mix</div>
           </div>
@@ -634,9 +703,19 @@
             <span class="tag-soft">VR · Educational Simulator</span>
             <span class="tag-soft">Usability & flow</span>
           </div>
+
+          <div class="project-gallery">
+            <div class="project-gallery-item">
+              (Planned) Overview of the main training room layout.
+            </div>
+            <div class="project-gallery-item">
+              (Planned) Close-up of interaction zone / instruments.
+            </div>
+          </div>
+
           <div class="project-footer">
-            <div class="project-links">
-              <a href="#" target="_blank" rel="noopener">Design breakdown →</a>
+            <div class="project-links-muted">
+              NDA project – only safe screenshots will be shown.
             </div>
             <div class="project-meta">Real client project · NDA</div>
           </div>
@@ -645,7 +724,7 @@
         <!-- PROJECT 4: SUBWAY-STYLE RUNNER -->
         <article class="project-card">
           <div class="project-thumb">
-            Placeholder for a subway-style runner screenshot: forward camera, three lanes, obstacles.
+            Placeholder for a subway-style runner screenshot: three lanes, forward camera.
           </div>
           <div class="project-name">Subway-Style Runner Prototype – Unity</div>
           <div class="project-meta">
@@ -658,9 +737,19 @@
             <span class="tag-soft">Mobile Runner</span>
             <span class="tag-soft">Lane-based gameplay</span>
           </div>
+
+          <div class="project-gallery">
+            <div class="project-gallery-item">
+              (Planned) Early-game section with simple obstacles.
+            </div>
+            <div class="project-gallery-item">
+              (Planned) High-speed segment with tighter gaps.
+            </div>
+          </div>
+
           <div class="project-footer">
-            <div class="project-links">
-              <a href="#" target="_blank" rel="noopener">Gameplay capture →</a>
+            <div class="project-links-muted">
+              Demo video will be added here.
             </div>
             <div class="project-meta">Personal prototype</div>
           </div>
