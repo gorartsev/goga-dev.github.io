@@ -31,7 +31,6 @@
       color: var(--text-main);
     }
 
-    /* GLOBAL LINKS */
     a {
       color: var(--accent);
       text-decoration: none;
@@ -333,18 +332,7 @@
     .projects-grid-mini {
       display: grid;
       gap: 16px;
-    }
-
-    @media (min-width: 640px) {
-      .projects-grid-mini {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (min-width: 960px) {
-      .projects-grid-mini {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
+      grid-template-columns: minmax(0, 1fr);  /* ВСЕГДА одна колонка */
     }
 
     .project-card {
@@ -380,20 +368,16 @@
     }
 
     .project-mini {
-      padding: 10px 9px 10px;
+      padding: 12px 12px 14px;
     }
 
     .project-name {
       font-size: 16px;
       font-weight: 500;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 6px;
     }
 
     .project-mini .project-name {
-      font-size: 14px;
+      font-size: 15px;
     }
 
     .project-meta {
@@ -418,7 +402,7 @@
     }
 
     .project-footer {
-      margin-top: 4px;
+      margin-top: 6px;
       font-size: 12px;
       display: flex;
       justify-content: space-between;
@@ -438,6 +422,28 @@
     .project-links-muted {
       font-size: 11px;
       color: var(--text-muted);
+    }
+
+    .project-thumb {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(5, 10, 9, 0.95);
+      background: #020506;
+      aspect-ratio: 16 / 9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: var(--text-muted);
+      text-align: center;
+      padding: 10px;
+    }
+
+    .project-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     /* STATUS STRIP FOR FEATURED PROJECT */
@@ -466,94 +472,6 @@
 
     .project-feature-status a:hover {
       text-decoration: underline;
-    }
-
-    /* GALLERY */
-
-    .project-gallery {
-      margin-top: 6px;
-      display: flex;
-      gap: 8px;
-      overflow-x: auto;
-      padding-bottom: 4px;
-      scroll-snap-type: x mandatory;
-    }
-
-    .project-gallery-item {
-      min-width: 70%;
-      scroll-snap-align: start;
-      border-radius: 12px;
-      border: 1px solid rgba(40, 90, 80, 0.8);
-      background: #020506;
-      font-size: 11px;
-      color: var(--text-muted);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 8px;
-      white-space: normal;
-    }
-
-    .project-gallery-item img {
-      width: 100%;
-      height: auto;
-      border-radius: 12px;
-      display: block;
-    }
-
-    @media (min-width: 960px) {
-      .project-gallery-item {
-        min-width: 100%;
-      }
-    }
-
-    /* скрываем scrollbar галерей */
-    .project-gallery::-webkit-scrollbar {
-      height: 0;
-    }
-    .project-gallery {
-      scrollbar-width: none;
-    }
-
-    /* GALLERY ARROWS */
-
-    .gallery-nav {
-      position: relative;
-      margin-top: 6px;
-    }
-
-    .gallery-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 28px;
-      height: 28px;
-      background: rgba(15, 92, 77, 0.18);
-      border: 1px solid rgba(15, 92, 77, 0.7);
-      border-radius: 50%;
-      color: var(--accent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      backdrop-filter: blur(4px);
-      transition: 0.25s ease;
-      z-index: 5;
-      font-size: 14px;
-      user-select: none;
-    }
-
-    .gallery-arrow:hover {
-      background: rgba(15, 92, 77, 0.35);
-    }
-
-    .gallery-arrow.left {
-      left: -14px;
-    }
-
-    .gallery-arrow.right {
-      right: -14px;
     }
 
     /* ABOUT + CONTACT */
@@ -604,8 +522,6 @@
       text-decoration: underline;
     }
 
-    /* FOOTER */
-
     footer {
       margin-top: 40px;
       font-size: 11px;
@@ -614,8 +530,6 @@
       padding-top: 16px;
       border-top: 1px solid rgba(10, 26, 22, 1);
     }
-
-    /* ANIMATIONS & SCROLL */
 
     html {
       scroll-behavior: smooth;
@@ -726,7 +640,7 @@
             <a href="temple-of-mind.html" target="_blank" rel="noopener">View full page →</a>
           </div>
 
-          <div class="project-thumb project-thumb-featured">
+          <div class="project-thumb">
             Replace with key art or a wide Unity render from Temple of Mind.
           </div>
           <div class="project-name">
@@ -745,130 +659,76 @@
         </article>
       </div>
 
-      <!-- MINI PROJECTS ROW -->
+      <!-- OTHER PROJECTS – ONE PER COLUMN -->
       <div class="projects-grid-mini">
 
-        <!-- MINI PROJECT 1: ZONECITY RUNNER -->
+        <!-- ZONECITY RUNNER -->
         <article class="project-card project-mini">
-
+          <div class="project-thumb">
+            <img src="assets/zonecity/assets/zonecity/Step1.png" alt="ZoneCity Runner screenshot" />
+          </div>
           <div class="project-name">ZoneCity Runner – Hybrid-Casual Level (Unity)</div>
-
           <div class="project-meta">
-            Hybrid-casual runner level with strong lane readability, replayable obstacle patterns 
-            and smooth difficulty ramping. Built for mobile with short onboarding and tight 
+            Hybrid-casual runner level with strong lane readability, replayable obstacle patterns
+            and smooth difficulty ramping. Built for mobile with short onboarding and tight
             feedback loops.
           </div>
-
           <div class="project-tags">
             <span class="tag-soft">Unity · URP</span>
             <span class="tag-soft">Hybrid-casual Mobile</span>
             <span class="tag-soft">Patterns & progression</span>
           </div>
-
-          <div class="gallery-nav">
-            <div class="gallery-arrow left" onclick="scrollGallery(this, -1)">←</div>
-            <div class="gallery-arrow right" onclick="scrollGallery(this, 1)">→</div>
-
-            <div class="project-gallery">
-              <div class="project-gallery-item">
-                <img src="assets/zonecity/assets/zonecity/Step1.png" alt="ZoneCity Runner screenshot 1" />
-              </div>
-              <div class="project-gallery-item">
-                <img src="assets/zonecity/assets/zonecity/Step2.png" alt="ZoneCity Runner screenshot 2" />
-              </div>
-              <div class="project-gallery-item">
-                <img src="assets/zonecity/assets/zonecity/Step3.png" alt="ZoneCity Runner screenshot 3" />
-              </div>
-              <div class="project-gallery-item">
-                <img src="assets/zonecity/assets/zonecity/Step4.png" alt="ZoneCity Runner screenshot 4" />
-              </div>
-              <div class="project-gallery-item">
-                <img src="assets/zonecity/assets/zonecity/Step5.png" alt="ZoneCity Runner screenshot 5" />
-              </div>
-              <div class="project-gallery-item">
-                <img src="assets/zonecity/assets/zonecity/Step6.png" alt="ZoneCity Runner screenshot 6" />
-              </div>
-              <div class="project-gallery-item">
-                <img src="assets/zonecity/assets/zonecity/Step7.png" alt="ZoneCity Runner screenshot 7" />
-              </div>
-            </div>
-          </div>
-
           <div class="project-footer">
-            <div class="project-links-muted">
-              Live capture coming soon.
+            <div class="project-links">
+              <a href="zonecity-runner.html" target="_blank" rel="noopener">View project breakdown →</a>
             </div>
             <div class="project-meta">Prototype / production mix</div>
           </div>
         </article>
 
-        <!-- MINI PROJECT 2 -->
+        <!-- MEDICAL VR SIM -->
         <article class="project-card project-mini">
+          <div class="project-thumb">
+            Placeholder for UE5 VR training room screenshot.
+          </div>
           <div class="project-name">Medical VR Training Simulator – Unreal Engine 5</div>
           <div class="project-meta">
-            VR medical training simulator in Unreal Engine 5. Worked on level layouts
-            and interaction spaces to support clear learning flow, realistic object
-            placement and stable performance. Description kept NDA-safe.
+            VR medical training simulator in Unreal Engine 5. Worked on level layouts and interaction
+            spaces to support clear learning flow, realistic object placement and stable performance.
+            Description kept NDA-safe, full breakdown focuses on design process and decisions.
           </div>
           <div class="project-tags">
             <span class="tag-soft">Unreal Engine 5</span>
             <span class="tag-soft">VR · Educational Simulator</span>
             <span class="tag-soft">Usability & flow</span>
           </div>
-
-          <div class="gallery-nav">
-            <div class="gallery-arrow left" onclick="scrollGallery(this, -1)">←</div>
-            <div class="gallery-arrow right" onclick="scrollGallery(this, 1)">→</div>
-
-            <div class="project-gallery">
-              <div class="project-gallery-item">
-                (Planned) Overview of the main training room layout.
-              </div>
-              <div class="project-gallery-item">
-                (Planned) Close-up of interaction zone / instruments.
-              </div>
-            </div>
-          </div>
-
           <div class="project-footer">
-            <div class="project-links-muted">
-              NDA project – only safe screenshots will be shown.
+            <div class="project-links">
+              <a href="medical-vr-sim.html" target="_blank" rel="noopener">View project breakdown →</a>
             </div>
             <div class="project-meta">Real client project · NDA</div>
           </div>
         </article>
 
-        <!-- MINI PROJECT 3 -->
+        <!-- SUBWAY-STYLE RUNNER -->
         <article class="project-card project-mini">
+          <div class="project-thumb">
+            Placeholder for three-lane runner gameplay screenshot.
+          </div>
           <div class="project-name">Subway-Style Runner Prototype – Unity</div>
           <div class="project-meta">
-            Three-lane runner prototype inspired by games like Subway Surfers. Focus on
-            camera behaviour, speed curves, obstacle timing and rhythm, with clear
-            telegraphing of hazards and responsive controls.
+            Three-lane runner prototype inspired by games like Subway Surfers. Focus on camera
+            behaviour, speed curves, obstacle timing and rhythm, with clear telegraphing of hazards
+            and responsive controls. Used as a playground for experimenting with mobile-feel tuning.
           </div>
           <div class="project-tags">
             <span class="tag-soft">Unity</span>
             <span class="tag-soft">Mobile Runner</span>
             <span class="tag-soft">Lane-based gameplay</span>
           </div>
-
-          <div class="gallery-nav">
-            <div class="gallery-arrow left" onclick="scrollGallery(this, -1)">←</div>
-            <div class="gallery-arrow right" onclick="scrollGallery(this, 1)">→</div>
-
-            <div class="project-gallery">
-              <div class="project-gallery-item">
-                (Planned) Early-game section with simple obstacles.
-              </div>
-              <div class="project-gallery-item">
-                (Planned) High-speed segment with tighter gaps.
-              </div>
-            </div>
-          </div>
-
           <div class="project-footer">
-            <div class="project-links-muted">
-              Demo video will be added here.
+            <div class="project-links">
+              <a href="subway-runner.html" target="_blank" rel="noopener">View project breakdown →</a>
             </div>
             <div class="project-meta">Personal prototype</div>
           </div>
@@ -936,17 +796,8 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    function scrollGallery(el, dir) {
-      const gallery = el.parentElement.querySelector('.project-gallery');
-      if (!gallery) return;
-      const width = gallery.clientWidth;
-      gallery.scrollBy({
-        left: dir * width * 0.9,
-        behavior: 'smooth'
-      });
-    }
   </script>
 
 </body>
 </html>
+
