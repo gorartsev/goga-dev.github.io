@@ -2,21 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Goga Artsev – Level Designer & UX/UI</title>
+  <title>Yegor Artsev – 3D Level Designer & UX/UI</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
     :root {
-      --bg: #05060A;
-      --bg-alt: #0B0F18;
-      --accent: #7DD3FC;
-      --accent-soft: rgba(125, 211, 252, 0.08);
+      --bg: #050806;
+      --bg-alt: #0B1510;
+      --accent: #A3CF7F; /* pale green accent */
+      --accent-soft: rgba(163, 207, 127, 0.12);
       --text-main: #F5F5F5;
-      --text-muted: #9CA3AF;
-      --border-subtle: rgba(148, 163, 184, 0.25);
+      --text-muted: #A0ADA5;
+      --border-subtle: rgba(120, 141, 127, 0.38);
       --radius-lg: 18px;
       --radius-xl: 24px;
-      --shadow-soft: 0 24px 60px rgba(0, 0, 0, 0.65);
+      --shadow-soft: 0 24px 60px rgba(0, 0, 0, 0.7);
     }
 
     * {
@@ -26,7 +26,8 @@
     body {
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #0B1120 0, #020617 55%, #000 100%);
+      background:
+        radial-gradient(circle at top, #1A2B20 0, #020604 55%, #000 100%);
       color: var(--text-main);
     }
 
@@ -42,14 +43,20 @@
       position: sticky;
       top: 0;
       z-index: 10;
-      backdrop-filter: blur(16px);
-      background: linear-gradient(to bottom, rgba(2, 6, 23, 0.95), rgba(2, 6, 23, 0.75), transparent);
+      backdrop-filter: blur(18px);
+      background: linear-gradient(
+        to bottom,
+        rgba(4, 12, 8, 0.96),
+        rgba(4, 12, 8, 0.82),
+        transparent
+      );
+      border-bottom: 1px solid rgba(20, 42, 30, 0.9);
     }
 
     .nav-inner {
       max-width: 1080px;
       margin: 0 auto;
-      padding: 12px 16px;
+      padding: 10px 16px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -59,7 +66,7 @@
     .nav-logo {
       font-size: 18px;
       font-weight: 600;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
@@ -84,8 +91,8 @@
 
     .nav-links a:hover {
       color: var(--text-main);
-      border-color: rgba(148, 163, 184, 0.35);
-      background: rgba(15, 23, 42, 0.9);
+      border-color: rgba(140, 171, 148, 0.55);
+      background: rgba(8, 21, 14, 0.96);
     }
 
     /* HERO */
@@ -116,13 +123,20 @@
     .hero-title {
       font-size: 40px;
       line-height: 1.05;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
+    }
+
+    .hero-name {
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 10px;
     }
 
     .hero-sub {
       font-size: 15px;
       color: var(--text-muted);
-      max-width: 480px;
+      max-width: 520px;
       margin-bottom: 18px;
     }
 
@@ -137,8 +151,9 @@
       font-size: 12px;
       padding: 4px 10px;
       border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.35);
+      border: 1px solid rgba(120, 141, 127, 0.6);
       color: var(--text-muted);
+      background: rgba(7, 18, 12, 0.9);
     }
 
     .hero-cta {
@@ -158,45 +173,62 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      transition: 0.18s ease;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, border-color 0.18s ease;
     }
 
     .btn-main {
       background: var(--accent);
-      color: #020617;
+      color: #061008;
       font-weight: 500;
-      box-shadow: 0 18px 40px rgba(56, 189, 248, 0.45);
+      box-shadow: 0 18px 40px rgba(126, 180, 100, 0.45);
+      animation: glowPulse 4s ease-in-out infinite;
     }
 
     .btn-main:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 22px 50px rgba(56, 189, 248, 0.55);
+      transform: translateY(-2px);
+      box-shadow: 0 24px 52px rgba(151, 205, 124, 0.6);
     }
 
     .btn-ghost {
-      background: rgba(15, 23, 42, 0.7);
-      border-color: rgba(148, 163, 184, 0.5);
+      background: rgba(7, 18, 12, 0.9);
+      border-color: rgba(140, 171, 148, 0.7);
       color: var(--text-main);
     }
 
     .btn-ghost:hover {
-      background: rgba(15, 23, 42, 0.95);
+      background: rgba(11, 26, 18, 1);
+      transform: translateY(-1px);
     }
 
     .hero-preview {
-      background: radial-gradient(circle at top left, #22D3EE33 0, transparent 55%),
-                  radial-gradient(circle at bottom right, #4F46E533 0, transparent 60%);
+      background:
+        radial-gradient(circle at top left, rgba(163, 207, 127, 0.24) 0, transparent 55%),
+        radial-gradient(circle at bottom right, rgba(61, 99, 73, 0.38) 0, transparent 60%);
       border-radius: var(--radius-xl);
-      border: 1px solid rgba(148, 163, 184, 0.35);
+      border: 1px solid rgba(120, 141, 127, 0.7);
       padding: 16px;
       box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-preview::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at 10% 0%, rgba(163, 207, 127, 0.08), transparent 60%);
+      opacity: 0.7;
+      pointer-events: none;
+      mix-blend-mode: screen;
+      animation: slowDrift 18s linear infinite;
     }
 
     .hero-preview-inner {
+      position: relative;
       border-radius: 14px;
-      background: linear-gradient(135deg, #020617, #020617, #020617);
+      background: linear-gradient(135deg, #030806, #050D08, #020403);
       padding: 14px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
+      border: 1px solid rgba(142, 177, 150, 0.7);
     }
 
     .hero-preview-title {
@@ -209,8 +241,8 @@
 
     .hero-preview-thumb {
       border-radius: 12px;
-      border: 1px solid rgba(15, 23, 42, 0.9);
-      background: radial-gradient(circle at top, #22D3EE1c 0, #020617 55%);
+      border: 1px solid rgba(5, 12, 8, 0.95);
+      background: radial-gradient(circle at top, rgba(163, 207, 127, 0.15) 0, #020403 58%);
       aspect-ratio: 16 / 9;
       display: flex;
       align-items: center;
@@ -219,6 +251,7 @@
       color: var(--text-muted);
       text-align: center;
       padding: 12px;
+      animation: floatSoft 5.5s ease-in-out infinite;
     }
 
     .hero-preview-meta {
@@ -272,17 +305,25 @@
       border-radius: var(--radius-lg);
       border: 1px solid var(--border-subtle);
       padding: 10px 10px 12px;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.75);
       display: flex;
       flex-direction: column;
       gap: 8px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 52px rgba(0, 0, 0, 0.9);
+      border-color: rgba(175, 214, 150, 0.8);
+      background: #101E15;
     }
 
     .project-thumb {
       border-radius: 14px;
       overflow: hidden;
-      border: 1px solid rgba(15, 23, 42, 0.9);
-      background: #020617;
+      border: 1px solid rgba(5, 12, 8, 0.95);
+      background: #020403;
       aspect-ratio: 16 / 9;
       display: flex;
       align-items: center;
@@ -323,7 +364,7 @@
       border-radius: 999px;
       background: var(--accent-soft);
       color: var(--accent);
-      border: 1px solid rgba(56, 189, 248, 0.35);
+      border: 1px solid rgba(163, 207, 127, 0.6);
     }
 
     .project-footer {
@@ -348,7 +389,7 @@
     /* ABOUT + CONTACT */
 
     .about {
-      background: rgba(15, 23, 42, 0.8);
+      background: rgba(7, 18, 12, 0.9);
       border-radius: var(--radius-xl);
       border: 1px solid var(--border-subtle);
       padding: 18px 16px 18px;
@@ -401,12 +442,37 @@
       color: var(--text-muted);
       text-align: center;
       padding-top: 16px;
-      border-top: 1px solid rgba(15, 23, 42, 1);
+      border-top: 1px solid rgba(8, 22, 13, 1);
     }
 
-    /* SMOOTH SCROLL */
+    /* ANIMATIONS & SCROLL */
+
     html {
       scroll-behavior: smooth;
+    }
+
+    @keyframes glowPulse {
+      0% {
+        box-shadow: 0 18px 40px rgba(126, 180, 100, 0.15);
+      }
+      50% {
+        box-shadow: 0 24px 60px rgba(163, 207, 127, 0.65);
+      }
+      100% {
+        box-shadow: 0 18px 40px rgba(126, 180, 100, 0.15);
+      }
+    }
+
+    @keyframes floatSoft {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+      100% { transform: translateY(0); }
+    }
+
+    @keyframes slowDrift {
+      0% { transform: translate3d(0, 0, 0) rotate(0deg); }
+      50% { transform: translate3d(6%, -4%, 0) rotate(2deg); }
+      100% { transform: translate3d(0, 0, 0) rotate(0deg); }
     }
   </style>
 </head>
@@ -414,7 +480,7 @@
 
   <header class="nav">
     <div class="nav-inner">
-      <div class="nav-logo">GOGA <span>LEVEL DESIGN</span></div>
+      <div class="nav-logo">GOGA <span>ARTSEV</span></div>
       <nav class="nav-links">
         <a href="#top">Home</a>
         <a href="#projects">Projects</a>
@@ -428,21 +494,25 @@
     <!-- HERO -->
     <section class="hero">
       <div>
-        <div class="hero-kicker">Level Design & UX for Games</div>
-        <h1 class="hero-title">Designing readable, atmospheric levels<br>in Unity & Unreal Engine.</h1>
+        <div class="hero-kicker">3D Level Design · Game UX</div>
+        <h1 class="hero-title">Designing clear, engaging levels<br>for hybrid-casual, casual & VR games.</h1>
+        <div class="hero-name">Yegor Artsev · 3D Level Designer & UX/UI</div>
         <p class="hero-sub">
-          Mobile and PC levels focused on clarity, pacing, composition, and guiding the player through visual
-          cues and emotional beats. Horror temples, cities, runners, and interactive spaces built with intention.
+          3D Level Designer with experience in mobile casual & hybrid games, simulators, and VR.
+          I design landscapes, environments, and biomes in Unity and Unreal Engine 5 with a focus
+          on gameplay flow, readability, balance, and immersion. Experienced with analytics-driven
+          iteration, real educational simulators, and interactive tours.
         </p>
         <div class="hero-tags">
-          <span class="tag">Unity · URP</span>
-          <span class="tag">Unreal Engine 5</span>
-          <span class="tag">Hybrid-casual & PC</span>
-          <span class="tag">UX-driven level design</span>
+          <span class="tag">Hybrid & Casual Mobile</span>
+          <span class="tag">VR / Simulators</span>
+          <span class="tag">Unity · Unreal Engine 5</span>
+          <span class="tag">Gameplay flow & patterns</span>
+          <span class="tag">Testing & analytics</span>
         </div>
         <div class="hero-cta">
           <a class="btn-main" href="#projects">View selected projects →</a>
-          <a class="btn-ghost" href="#contact">Get in touch</a>
+          <a class="btn-ghost" href="#contact">Download CV / Contact</a>
         </div>
       </div>
 
@@ -450,7 +520,8 @@
         <div class="hero-preview-inner">
           <div class="hero-preview-title">Featured Scene · Biolum Temple</div>
           <div class="hero-preview-thumb">
-            Main screenshot placeholder — replace with your best environment render.
+            Main environment shot placeholder — a bioluminescent temple / city hub
+            with strong silhouettes and guided paths.
           </div>
           <div class="hero-preview-meta">
             <span>Engine: UE5 / Unity</span>
@@ -464,7 +535,9 @@
     <section class="section" id="projects">
       <div class="section-header">
         <h2 class="section-title">Selected Projects</h2>
-        <div class="section-sub">3–6 strongest works with clear roles, goals, and gameplay captures.</div>
+        <div class="section-sub">
+          A mix of shipped mobile levels, VR/educational simulators, and environment studies.
+        </div>
       </div>
 
       <div class="projects-grid">
@@ -472,12 +545,13 @@
         <!-- PROJECT 1 -->
         <article class="project-card">
           <div class="project-thumb">
-            Replace this with a UE5 render of the Biolum Temple environment.
+            Replace with a UE5 render of the Biolum Temple environment (wide shot).
           </div>
           <div class="project-name">Biolum Temple – UE5 Environment</div>
           <div class="project-meta">
-            A narrative-driven environment built around atmosphere, vertical navigation,
-            and emotional pacing through light, sound, and spatial rhythm.
+            Narrative-driven environment focused on atmosphere, vertical navigation,
+            and emotional pacing through lighting, sound, and spatial rhythm. Designed
+            as an exploration space that teaches players through composition and contrast.
           </div>
           <div class="project-tags">
             <span class="tag-soft">Unreal Engine 5</span>
@@ -495,68 +569,72 @@
         <!-- PROJECT 2 -->
         <article class="project-card">
           <div class="project-thumb">
-            Replace with a main gameplay lane screenshot from Zone City Runner.
+            Replace with a main gameplay lane screenshot from a hybrid-casual runner / city level.
           </div>
-          <div class="project-name">Zone City Runner – Unity Level</div>
+          <div class="project-name">Hybrid-Casual City Runner – Unity</div>
           <div class="project-meta">
-            A mobile runner level with clear lane readability, difficulty progression,
-            and strong visual anchors guiding the player at high speed.
+            Mobile runner level designed with clear lane readability, ramping difficulty,
+            and replayable patterns. Focus on short onboarding, quick feedback loops,
+            and smooth progression inspired by Idle and Tower Defense flows.
           </div>
           <div class="project-tags">
             <span class="tag-soft">Unity · URP</span>
-            <span class="tag-soft">Mobile · Hybrid-casual</span>
-            <span class="tag-soft">Pacing & readability</span>
+            <span class="tag-soft">Hybrid-casual Mobile</span>
+            <span class="tag-soft">Patterns & progression</span>
           </div>
           <div class="project-footer">
             <div class="project-links">
               <a href="#" target="_blank">Gameplay capture →</a>
             </div>
-            <div class="project-meta">Prototype</div>
+            <div class="project-meta">Production / prototype mix</div>
           </div>
         </article>
 
         <!-- PROJECT 3 -->
         <article class="project-card">
           <div class="project-thumb">
-            Placeholder screenshot of an apartment / interior scene for InsideView.
+            Placeholder for VR medical simulator scene: operating room / training setup.
           </div>
-          <div class="project-name">InsideView – Interactive Apartment Tours</div>
+          <div class="project-name">Medical VR Simulator – Khalifa University</div>
           <div class="project-meta">
-            Interactive real-estate scenes focusing on clean navigation, view framing,
-            and UX-driven movement flows inside architecturally accurate spaces.
+            3D levels and VR interfaces for a real medical training tool. Designed realistic,
+            optimized scenes for stable FPS and clear learning flow, with precise object
+            placement to simulate procedures and reduce user errors.
           </div>
           <div class="project-tags">
-            <span class="tag-soft">Unreal / Unity</span>
-            <span class="tag-soft">Archviz · UX</span>
+            <span class="tag-soft">VR · Unreal / Unity</span>
+            <span class="tag-soft">Educational Simulator</span>
+            <span class="tag-soft">Usability & flow</span>
           </div>
           <div class="project-footer">
             <div class="project-links">
-              <a href="#" target="_blank">Case study →</a>
+              <a href="#" target="_blank">Design breakdown →</a>
             </div>
-            <div class="project-meta">Case study</div>
+            <div class="project-meta">Real client project</div>
           </div>
         </article>
 
         <!-- PROJECT 4 -->
         <article class="project-card">
           <div class="project-thumb">
-            Replace with blockout screenshots: farm, city, combat arenas.
+            Placeholder for interior / apartment block from virtual tour project.
           </div>
-          <div class="project-name">Blockout Collection – LD Studies</div>
+          <div class="project-name">Virtual Tour Environments – NDA Project</div>
           <div class="project-meta">
-            A set of blockouts exploring pacing, space readability, composition,
-            and traversal design across different gameplay setups.
+            3D environments and interactive prototypes in Unreal Engine 5 / Unity for
+            virtual tours. Focused on realistic spaces, optimized navigation for VR,
+            and smooth gameplay flow with reusable systems and components.
           </div>
           <div class="project-tags">
-            <span class="tag-soft">Unity · UE5</span>
-            <span class="tag-soft">Blockout</span>
-            <span class="tag-soft">Studies</span>
+            <span class="tag-soft">Unreal Engine 5 · Unity</span>
+            <span class="tag-soft">Virtual Tours</span>
+            <span class="tag-soft">Reusable systems</span>
           </div>
           <div class="project-footer">
             <div class="project-links">
-              <a href="#" target="_blank">Gallery →</a>
+              <a href="#" target="_blank">Environment gallery →</a>
             </div>
-            <div class="project-meta">Study pack</div>
+            <div class="project-meta">NDA – visuals only</div>
           </div>
         </article>
 
@@ -567,27 +645,33 @@
     <section class="section" id="about">
       <div class="section-header">
         <h2 class="section-title">About</h2>
-        <div class="section-sub">What I focus on as a Level Designer.</div>
+        <div class="section-sub">How I think about level design and what I bring to a team.</div>
       </div>
 
       <div class="about">
         <div class="about-text">
-          I’m a Level Designer and UX/UI Designer focused on designing clear, atmospheric spaces
-          that guide players naturally through gameplay, pacing, and mood. I work in Unity and
-          Unreal Engine, creating levels for hybrid-casual mobile games and more cinematic PC scenes.
+          I’m a 3D Level Designer and UX/UI specialist focused on creating readable, engaging spaces
+          for games and simulations. I work primarily with Unity and Unreal Engine 5, building
+          landscapes, environments, and biomes for mobile hybrid/casual titles, VR projects, and
+          interactive tours.
           <br><br>
-          I enjoy building spaces where the environment itself teaches the player — through visual
-          language, rhythm, and carefully placed points of interest.
+          My experience includes designing production-ready levels at 24 Play LLC, VR training spaces
+          for Khalifa University, virtual tour environments for an NDA project, and 3D-infused UX for
+          an e-commerce platform at Green Cities. I rely on analytics, playtests, and clear visual
+          language to iterate levels until they feel intuitive and fun.
         </div>
         <div class="about-list">
           <p><strong>Strengths:</strong><br>
-            • Level pacing and “flow”<br>
-            • Readability & navigation cues<br>
-            • Camera and path composition<br>
-            • UX-driven thinking inside 3D environments
+            • Gameplay flow, patterns & balance<br>
+            • Level readability and navigation cues<br>
+            • VR-specific UX and comfort<br>
+            • Working with feedback, analytics, and tight deadlines
           </p>
           <p><strong>Tools:</strong><br>
-            Unity (URP), Unreal Engine 5, Figma, Photoshop, Miro, Blender (basic).
+            Unity, Unreal Engine 5, Figma, Adobe Photoshop / Illustrator, Miro, AI-assisted tools.
+          </p>
+          <p><strong>Languages:</strong><br>
+            English – Intermediate, Ukrainian – Native, Russian – Native.
           </p>
         </div>
       </div>
@@ -597,18 +681,19 @@
     <section class="section" id="contact">
       <div class="section-header">
         <h2 class="section-title">Contact</h2>
-        <div class="section-sub">Open to job opportunities and freelance work.</div>
+        <div class="section-sub">Open to remote opportunities, test tasks, and collaborations.</div>
       </div>
 
       <div class="contact-block">
-        <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
-        <p>LinkedIn: <a href="#" target="_blank">linkedin.com/in/your-profile</a></p>
-        <p>ArtStation / Behance: <a href="#" target="_blank">artstation.com/yourprofile</a></p>
+        <p>Email: <a href="mailto:gorartsev@gmail.com">gorartsev@gmail.com</a></p>
+        <p>Telegram: <a href="https://t.me/grarsimp" target="_blank">@grarsimp</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/yegor-artsev/" target="_blank">linkedin.com/in/yegor-artsev/</a></p>
+        <p>CV (EN): add a link to your PDF resume here.</p>
       </div>
     </section>
 
     <footer>
-      © <span id="year"></span> Goga Artsev · Level Design & UX for Games
+      © <span id="year"></span> Yegor Artsev · 3D Level Design & Game UX
     </footer>
   </main>
 
