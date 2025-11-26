@@ -21,7 +21,8 @@
 body {
   margin: 0;
   font-family: system-ui, -apple-system, sans-serif;
-  background: radial-gradient(circle at top, #11201D 0%, #040606 65%, #000 100%);
+  /* ровный тёмный фон, без высветления сверху */
+  background: #040606;
   color: var(--text-main);
 }
 
@@ -127,7 +128,7 @@ a:hover {
   border: 1px solid var(--border-subtle);
 }
 
-/* LIST INSIDE BLOCK (без ul/li, просто аккуратные br) */
+/* LIST INSIDE BLOCK */
 .block strong {
   color: var(--text-main);
 }
@@ -337,3 +338,4 @@ a:hover {
 </div>
 </body>
 </html>
+
