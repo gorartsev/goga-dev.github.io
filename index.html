@@ -2,30 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Yegor Artsev – Level Designer</title>
+  <title>Yegor Artsev – Level Designer </title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
     :root {
       --bg: #050509;
-      --bg-alt: #0C0C11;
-      --accent: #C2B59B;
-      --accent-soft: rgba(194, 181, 155, 0.12);
+      --bg-alt: #0C0F10;
+      --accent: #0F5C4D; /* dark emerald accent */
+      --accent-soft: rgba(15, 92, 77, 0.16);
       --text-main: #F5F5F5;
       --text-muted: #9A9AA4;
-      --border-subtle: rgba(120, 120, 135, 0.5);
+      --border-subtle: rgba(110, 125, 120, 0.5);
       --radius-lg: 18px;
       --radius-xl: 24px;
       --shadow-soft: 0 24px 60px rgba(0, 0, 0, 0.85);
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
-      background: radial-gradient(circle at top, #1A1C28 0, #050509 55%, #000);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top, #151C22 0, #050509 55%, #000 100%);
       color: var(--text-main);
-      font-family: system-ui, -apple-system, sans-serif;
+    }
+
+    /* глобальный цвет ссылок, чтобы не было синих */
+    a {
+      color: var(--accent);
+    }
+    a:visited {
+      color: var(--accent);
     }
 
     .page {
@@ -35,32 +46,41 @@
     }
 
     /* NAV */
+
     .nav {
       position: sticky;
       top: 0;
       z-index: 10;
       backdrop-filter: blur(18px);
-      background: rgba(5, 5, 10, 0.9);
-      border-bottom: 1px solid rgba(40, 40, 55, 0.8);
+      background: linear-gradient(
+        to bottom,
+        rgba(5, 7, 9, 0.96),
+        rgba(5, 7, 9, 0.82),
+        transparent
+      );
+      border-bottom: 1px solid rgba(20, 35, 32, 0.9);
     }
 
     .nav-inner {
       max-width: 1080px;
       margin: 0 auto;
-      padding: 12px 16px;
+      padding: 10px 16px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      gap: 16px;
     }
 
     .nav-logo {
       font-size: 18px;
       font-weight: 600;
-      text-transform: uppercase;
       letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
-    .nav-logo span { color: var(--accent); }
+    .nav-logo span {
+      color: var(--accent);
+    }
 
     .nav-links {
       display: flex;
@@ -73,36 +93,50 @@
       text-decoration: none;
       padding: 6px 10px;
       border-radius: 999px;
-      transition: 0.2s ease;
+      border: 1px solid transparent;
+      transition: 0.18s ease;
     }
 
     .nav-links a:hover {
       color: var(--text-main);
-      background: rgba(10,10,18,0.9);
-      border: 1px solid rgba(160,160,175,0.5);
+      border-color: rgba(100, 145, 132, 0.6);
+      background: rgba(6, 14, 12, 0.96);
     }
 
     /* HERO */
+
     .hero {
-      margin-top: 32px;
+      padding-top: 32px;
+      padding-bottom: 32px;
       display: grid;
-      grid-template-columns: 3fr 2fr;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.1fr);
       gap: 32px;
       align-items: center;
     }
 
-    @media (max-width: 820px) {
-      .hero { grid-template-columns: 1fr; }
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .hero-kicker {
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
     }
 
     .hero-title {
-      font-size: 38px;
+      font-size: 40px;
+      line-height: 1.05;
       margin-bottom: 8px;
-      line-height: 1.1;
     }
 
     .hero-name {
       font-size: 18px;
+      font-weight: 500;
       color: var(--text-muted);
       margin-bottom: 10px;
     }
@@ -112,7 +146,6 @@
       color: var(--text-muted);
       max-width: 520px;
       margin-bottom: 18px;
-      line-height: 1.5;
     }
 
     .hero-tags {
@@ -123,55 +156,102 @@
     }
 
     .tag {
+      font-size: 12px;
       padding: 4px 10px;
       border-radius: 999px;
-      font-size: 12px;
-      background: rgba(12, 12, 18, 0.9);
-      border: 1px solid rgba(130,130,140,0.5);
+      border: 1px solid rgba(90, 120, 110, 0.75);
       color: var(--text-muted);
+      background: rgba(6, 14, 12, 0.96);
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn-main,
+    .btn-ghost {
+      font-size: 14px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, border-color 0.18s ease;
     }
 
     .btn-main {
       background: var(--accent);
-      color: #151212;
-      padding: 8px 16px;
-      border-radius: 999px;
-      font-size: 14px;
+      color: #040908;
       font-weight: 500;
-      text-decoration: none;
-      box-shadow: 0 18px 40px rgba(0,0,0,0.8);
-      transition: 0.2s ease;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8);
+      animation: glowPulse 4s ease-in-out infinite;
     }
 
     .btn-main:hover {
       transform: translateY(-2px);
-      box-shadow: 0 26px 60px rgba(0,0,0,1);
+      box-shadow: 0 24px 52px rgba(0, 0, 0, 0.95);
     }
 
     .btn-ghost {
-      background: rgba(10,10,18,0.9);
-      border: 1px solid rgba(150,150,170,0.6);
-      padding: 8px 16px;
-      border-radius: 999px;
+      background: rgba(6, 14, 12, 0.96);
+      border-color: rgba(90, 135, 120, 0.7);
       color: var(--text-main);
-      text-decoration: none;
-      font-size: 14px;
-      transition: 0.2s ease;
     }
 
-    .btn-ghost:hover { transform: translateY(-1px); }
+    .btn-ghost:hover {
+      background: rgba(10, 22, 19, 1);
+      transform: translateY(-1px);
+    }
 
     .hero-preview {
-      background: rgba(255,255,255,0.03);
+      background:
+        radial-gradient(circle at top left, rgba(35, 110, 90, 0.28) 0, transparent 55%),
+        radial-gradient(circle at bottom right, rgba(2, 5, 4, 0.9) 0, transparent 60%);
       border-radius: var(--radius-xl);
-      border: 1px solid rgba(80,80,120,0.4);
+      border: 1px solid rgba(40, 80, 70, 0.8);
       padding: 16px;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-preview::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at 10% 0%, rgba(15, 92, 77, 0.14), transparent 60%);
+      opacity: 0.7;
+      pointer-events: none;
+      mix-blend-mode: screen;
+      animation: slowDrift 18s linear infinite;
+    }
+
+    .hero-preview-inner {
+      position: relative;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #050809, #050F0D, #030605);
+      padding: 14px;
+      border: 1px solid rgba(70, 115, 100, 0.9);
+    }
+
+    .hero-preview-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      margin-bottom: 10px;
     }
 
     .hero-preview-thumb {
-      aspect-ratio: 16/9;
       border-radius: 12px;
-      border: 1px solid rgba(40,40,60,0.8);
+      border: 1px solid rgba(4, 10, 9, 0.95);
+      background: radial-gradient(circle at top, rgba(15, 92, 77, 0.18) 0, #050509 60%);
+      aspect-ratio: 16 / 9;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -179,13 +259,44 @@
       color: var(--text-muted);
       text-align: center;
       padding: 12px;
+      animation: floatSoft 5.5s ease-in-out infinite;
     }
 
-    /* SECTIONS */
-    .section { margin-top: 40px; }
-    .section-title { font-size: 22px; }
+    .hero-preview-meta {
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
 
-    /* PROJECTS */
+    /* SECTION HEADERS */
+
+    .section {
+      margin-top: 32px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 22px;
+    }
+
+    .section-sub {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* PROJECTS GRID */
+
     .projects-grid {
       display: grid;
       gap: 16px;
@@ -193,7 +304,7 @@
 
     @media (min-width: 720px) {
       .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
@@ -201,272 +312,409 @@
       background: var(--bg-alt);
       border-radius: var(--radius-lg);
       border: 1px solid var(--border-subtle);
-      padding: 12px;
-      box-shadow: 0 18px 40px rgba(0,0,0,1);
-      transition: 0.2s ease;
+      padding: 10px 10px 12px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.9);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
     }
 
     .project-card:hover {
       transform: translateY(-4px);
-      border-color: rgba(210,200,180,0.7);
-      background: #101017;
+      box-shadow: 0 24px 52px rgba(0, 0, 0, 1);
+      border-color: rgba(70, 135, 110, 0.9);
+      background: #101417;
     }
 
     .project-thumb {
-      aspect-ratio: 16/9;
-      border-radius: 12px;
-      background: #020206;
-      border: 1px solid rgba(50,50,70,0.8);
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(5, 10, 10, 0.95);
+      background: #020506;
+      aspect-ratio: 16 / 9;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--text-muted);
       font-size: 12px;
+      color: var(--text-muted);
       text-align: center;
       padding: 10px;
-      margin-bottom: 8px;
+    }
+
+    .project-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .project-name {
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .project-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 2px;
     }
 
     .tag-soft {
-      padding: 3px 8px;
       font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
       background: var(--accent-soft);
       color: var(--accent);
-      border-radius: 999px;
-      border: 1px solid rgba(194,181,155,0.5);
+      border: 1px solid rgba(15, 92, 77, 0.7);
     }
 
     .project-footer {
+      margin-top: 4px;
+      font-size: 12px;
       display: flex;
       justify-content: space-between;
-      margin-top: 6px;
-      font-size: 12px;
+      align-items: center;
+      gap: 8px;
     }
 
-    /* ABOUT */
+    .project-links a {
+      font-size: 12px;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .project-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* ABOUT + CONTACT */
+
     .about {
-      background: rgba(10,10,18,0.9);
+      background: rgba(6, 14, 12, 0.96);
       border-radius: var(--radius-xl);
-      padding: 18px;
       border: 1px solid var(--border-subtle);
+      padding: 18px 16px 18px;
+      margin-top: 12px;
       display: grid;
       gap: 16px;
     }
 
+    @media (min-width: 820px) {
+      .about {
+        grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      }
+    }
+
+    .about-text {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .about-list {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .about-list strong {
+      color: var(--text-main);
+    }
+
+    .contact-block {
+      margin-top: 12px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .contact-block a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .contact-block a:hover {
+      text-decoration: underline;
+    }
+
+    /* FOOTER */
+
     footer {
       margin-top: 40px;
-      text-align: center;
-      font-size: 12px;
+      font-size: 11px;
       color: var(--text-muted);
-      border-top: 1px solid rgba(20,20,32,1);
+      text-align: center;
       padding-top: 16px;
+      border-top: 1px solid rgba(10, 24, 20, 1);
+    }
+
+    /* ANIMATIONS & SCROLL */
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @keyframes glowPulse {
+      0% {
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+      }
+      50% {
+        box-shadow: 0 26px 70px rgba(0, 0, 0, 0.95);
+      }
+      100% {
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+      }
+    }
+
+    @keyframes floatSoft {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+      100% { transform: translateY(0); }
+    }
+
+    @keyframes slowDrift {
+      0% { transform: translate3d(0, 0, 0) rotate(0deg); }
+      50% { transform: translate3d(6%, -4%, 0) rotate(2deg); }
+      100% { transform: translate3d(0, 0, 0) rotate(0deg); }
     }
   </style>
 </head>
-
 <body>
 
-<header class="nav">
-  <div class="nav-inner">
-    <div class="nav-logo">YEGOR <span>ARTSEV</span></div>
-    <nav class="nav-links">
-      <a href="#top">Home</a>
-      <a href="#projects">Projects</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<main class="page" id="top">
-
-  <!-- HERO -->
-  <section class="hero">
-    <div>
-      <h1 class="hero-title">Hi, I’m Yegor. I build game worlds and levels.</h1>
-      <div class="hero-name">Level Designer · Unity & Unreal Engine</div>
-
-      <p class="hero-sub">
-        I create spaces that feel good to move through – from hybrid-casual runners and VR simulators 
-        to atmospheric PC/console-style environments. Temple of Mind is my main personal project, 
-        built for myself and for studios that care about mood, flow and readability.
-      </p>
-
-      <div class="hero-tags">
-        <span class="tag">Hybrid-Casual</span>
-        <span class="tag">VR / Simulators</span>
-        <span class="tag">Unity & UE5</span>
-        <span class="tag">PC / Console-style</span>
-      </div>
-
-      <div style="display:flex; gap:10px;">
-        <a class="btn-main" href="#projects">View Projects →</a>
-        <a class="btn-ghost" href="#contact">Contact</a>
-      </div>
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="nav-logo">YEGOR <span>ARTSEV</span></div>
+      <nav class="nav-links">
+        <a href="#top">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
+  </header>
 
-    <aside class="hero-preview">
-      <div class="hero-preview-thumb">
-        Temple of Mind – atmospheric UE5 exploration world
-      </div>
-    </aside>
-  </section>
-
-  <!-- PROJECTS -->
-  <section class="section" id="projects">
-    <h2 class="section-title">Selected Projects</h2>
-
-    <div class="projects-grid">
-
-      <!-- PROJECT 1: TEMPLE OF MIND -->
-      <article class="project-card">
-        <div class="project-thumb">
-          Add Temple of Mind screenshot here
-        </div>
-        <div class="project-name">Temple of Mind — UE5 Exploration Prototype</div>
-        <div class="project-meta">
-          PC/console-style atmospheric exploration project built in UE5. 
-          Focused on environmental storytelling, silhouette-based readability and mood-driven traversal.
-        </div>
-        <div class="project-tags">
-          <span class="tag-soft">UE5</span>
-          <span class="tag-soft">Atmospheric</span>
-          <span class="tag-soft">PC / Console</span>
-        </div>
-        <div class="project-footer">
-          <a href="temple-of-mind.html" target="_blank" rel="noopener">Project breakdown →</a>
-          <span>In development</span>
-        </div>
-      </article>
-
-      <!-- PROJECT 2: CITY RUNNER -->
-      <article class="project-card">
-        <div class="project-thumb">
-          Add City Runner screenshot here
-        </div>
-        <div class="project-name">ZoneCity Runner — Hybrid-Casual Level</div>
-        <div class="project-meta">
-          Unity runner level with clear lane readability, replayable patterns 
-          and smooth difficulty ramping.
-        </div>
-        <div class="project-tags">
-          <span class="tag-soft">Unity</span>
-          <span class="tag-soft">Hybrid-Casual</span>
-          <span class="tag-soft">Flow</span>
-        </div>
-        <div class="project-footer">
-          <a href="#" target="_blank">Gameplay capture →</a>
-          <span>Prototype / production mix</span>
-        </div>
-      </article>
-
-      <!-- PROJECT 3: MEDICAL VR -->
-      <article class="project-card">
-        <div class="project-thumb">
-          Add VR Simulator screenshot here
-        </div>
-        <div class="project-name">Medical VR Training Simulator — UE5</div>
-        <div class="project-meta">
-          VR medical training project in Unreal Engine 5 focused on readable, comfortable VR spaces 
-          and stable performance.
-        </div>
-        <div class="project-tags">
-          <span class="tag-soft">UE5</span>
-          <span class="tag-soft">VR</span>
-          <span class="tag-soft">Simulator</span>
-        </div>
-        <div class="project-footer">
-          <a href="#" target="_blank">Design breakdown →</a>
-          <span>Real client project</span>
-        </div>
-      </article>
-
-      <!-- PROJECT 4: SUBWAY-STYLE RUNNER -->
-      <article class="project-card">
-        <div class="project-thumb">
-          Add subway-runner screenshot here
-        </div>
-        <div class="project-name">Subway-Style Runner — Mobile Prototype</div>
-        <div class="project-meta">
-          Fast-paced runner prototype inspired by Subway Surfers. Focus on lane clarity, timing 
-          and rhythmic flow of obstacles.
-        </div>
-        <div class="project-tags">
-          <span class="tag-soft">Unity</span>
-          <span class="tag-soft">Mobile Runner</span>
-          <span class="tag-soft">Flow & readability</span>
-        </div>
-        <div class="project-footer">
-          <a href="#" target="_blank">Gameplay capture →</a>
-          <span>Prototype</span>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="section" id="about">
-    <h2 class="section-title">About Me</h2>
-
-    <div class="about">
-      <div class="about-text">
-        I’m a Level Designer focused on creating readable, engaging environments for games.  
-        I work with Unity and Unreal Engine 5 — from mobile hybrid-casual levels and VR simulators 
-        to PC/console-style atmospheric worlds like Temple of Mind.
-        <br><br>
-        My experience includes working at 24 Play LLC (NDA), designing VR training 
-        environments for Khalifa University, hybrid-casual levels and virtual tours.
-      </div>
-
-      <div class="about-list">
-        <p><strong>Strengths:</strong><br>
-          • Gameplay flow & readability<br>
-          • Navigation cues & pacing<br>
-          • VR comfort & usability<br>
-          • Production mindset & iteration
+  <main class="page" id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <div class="hero-kicker">Level Designer </div>
+        <h1 class="hero-title">Designing readable, atmospheric levels in Unity & Unreal Engine.</h1>
+        <div class="hero-name">Yegor Artsev · Level Designer </div>
+        <p class="hero-sub">
+            Level Designer with experience in mobile casual & hybrid games, simulators and VR.
+            I design landscapes, environments and biomes in Unity and Unreal Engine 5 for mobile,
+            PC and console-style projects, with a focus on gameplay flow, readability, balance
+            and immersion.
         </p>
-
-        <p><strong>Tools:</strong><br>
-          Unity, Unreal Engine 5, Figma, Photoshop, Miro
-        </p>
-
-        <p><strong>Languages:</strong><br>
-          English – Intermediate<br>
-          Ukrainian – Native<br>
-          Russian – Native
-        </p>
+        <div class="hero-tags">
+          <span class="tag">Hybrid & Casual Mobile</span>
+          <span class="tag">VR / Simulators</span>
+          <span class="tag">Unity / Unreal Engine 5</span>
+          <span class="tag">Gameplay flow & patterns</span>
+        </div>
+        <div class="hero-cta">
+          <a class="btn-main" href="#projects">View selected projects →</a>
+          <a class="btn-ghost" href="#contact">Download CV / Contact</a>
+        </div>
       </div>
-    </div>
-  </section>
 
-  <!-- CONTACT -->
-  <section class="section" id="contact">
-    <h2 class="section-title">Contact</h2>
+      <aside class="hero-preview">
+        <div class="hero-preview-inner">
+          <div class="hero-preview-title">Featured Project · Temple of Mind</div>
+          <div class="hero-preview-thumb">
+            Atmospheric exploration prototype set inside a surreal bioluminescent temple-city,
+            focused on silhouette readability, mood and traversal.
+          </div>
+          <div class="hero-preview-meta">
+            <span>Engine: Unreal Engine 5</span>
+            <span>Focus: exploration · atmosphere</span>
+          </div>
+        </div>
+      </aside>
+    </section>
 
-    <div class="contact-block">
-      <p>Email: <a href="mailto:gorartsev@gmail.com">gorartsev@gmail.com</a></p>
-      <p>Telegram: <a href="https://t.me/grarsimp" target="_blank">@grarsimp</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/yegor-artsev/" target="_blank">linkedin.com/in/yegor-artsev</a></p>
-      <p>
-        CV (EN): 
-        <a href="Yegor_Artsev_CV.pdf" target="_blank" rel="noopener">
-          Download CV (PDF)
-        </a>
-      </p>
-    </div>
-  </section>
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="section-header">
+        <h2 class="section-title">Selected Projects</h2>
+        <div class="section-sub">
+          Personal projects and real client work across mobile, VR and PC/console-style experiences.
+        </div>
+      </div>
 
-<footer>
-  © <span id="year"></span> Yegor Artsev · Level Designer
-</footer>
+      <div class="projects-grid">
 
-</main>
+        <!-- PROJECT 1: TEMPLE OF MIND -->
+        <article class="project-card">
+          <div class="project-thumb">
+            Replace with a UE5 render or key art from Temple of Mind (wide shot).
+          </div>
+          <div class="project-name">Temple of Mind — Atmospheric Exploration Prototype (UE5)</div>
+          <div class="project-meta">
+            A surreal bioluminescent exploration game built in Unreal Engine 5.
+            The project focuses on environmental storytelling, silhouette-based readability,
+            emotional pacing and architectural rhythm. This is my main long-term personal project
+            where I design the full experience: worldbuilding, blockouts, traversal, lighting,
+            mood and gameplay systems for a PC/console-style game.
+          </div>
+          <div class="project-tags">
+            <span class="tag-soft">Unreal Engine 5</span>
+            <span class="tag-soft">PC/Console Prototype</span>
+            <span class="tag-soft">Exploration · Atmosphere</span>
+          </div>
+          <div class="project-footer">
+            <div class="project-links">
+              <a href="temple-of-mind.html" target="_blank" rel="noopener">Project breakdown →</a>
+            </div>
+            <div class="project-meta">In development</div>
+          </div>
+        </article>
 
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+        <!-- PROJECT 2: ZONECITY RUNNER -->
+        <article class="project-card">
+          <div class="project-thumb">
+            Replace with a main gameplay lane screenshot from the City/Zone runner level.
+          </div>
+          <div class="project-name">ZoneCity Runner — Hybrid-Casual Level (Unity)</div>
+          <div class="project-meta">
+            A hybrid-casual runner level designed with strong lane readability, replayable
+            obstacle patterns and smooth difficulty ramping. Focused on short onboarding,
+            quick feedback loops and a progression structure inspired by tower-defense
+            and idle game pacing for mobile players.
+          </div>
+          <div class="project-tags">
+            <span class="tag-soft">Unity · URP</span>
+            <span class="tag-soft">Hybrid-casual Mobile</span>
+            <span class="tag-soft">Patterns & progression</span>
+          </div>
+          <div class="project-footer">
+            <div class="project-links">
+              <a href="#" target="_blank" rel="noopener">Gameplay capture →</a>
+            </div>
+            <div class="project-meta">Prototype / production mix</div>
+          </div>
+        </article>
+
+        <!-- PROJECT 3: MEDICAL VR SIM -->
+        <article class="project-card">
+          <div class="project-thumb">
+            Placeholder for the UE5 VR medical simulator scene: operating room / training setup.
+          </div>
+          <div class="project-name">Medical VR Training Simulator — Unreal Engine 5</div>
+          <div class="project-meta">
+            A VR medical training simulator built in Unreal Engine 5, designed to teach clinical
+            procedures through realistic spatial setups and guided interaction. I created
+            readable, efficient VR spaces with accurate object placement, stable FPS and
+            comfort-first navigation to reduce user errors during simulated procedures.
+            NDA-friendly description based on real client work.
+          </div>
+          <div class="project-tags">
+            <span class="tag-soft">Unreal Engine 5</span>
+            <span class="tag-soft">VR · Educational Simulator</span>
+            <span class="tag-soft">Usability & flow</span>
+          </div>
+          <div class="project-footer">
+            <div class="project-links">
+              <a href="#" target="_blank" rel="noopener">Design breakdown →</a>
+            </div>
+            <div class="project-meta">Real client project · NDA</div>
+          </div>
+        </article>
+
+        <!-- PROJECT 4: SUBWAY-STYLE RUNNER -->
+        <article class="project-card">
+          <div class="project-thumb">
+            Placeholder for a subway-style runner screenshot: forward camera, three lanes, obstacles.
+          </div>
+          <div class="project-name">Subway-Style Runner Prototype — Unity</div>
+          <div class="project-meta">
+            A lane-based runner prototype inspired by games like Subway Surfers. Focused on
+            camera behaviour, speed curves, obstacle timing and rhythm, with clear telegraphing
+            of hazards and responsive controls tuned for mobile devices.
+          </div>
+          <div class="project-tags">
+            <span class="tag-soft">Unity</span>
+            <span class="tag-soft">Mobile Runner</span>
+            <span class="tag-soft">Lane-based gameplay</span>
+          </div>
+          <div class="project-footer">
+            <div class="project-links">
+              <a href="#" target="_blank" rel="noopener">Gameplay capture →</a>
+            </div>
+            <div class="project-meta">Personal prototype</div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="section-header">
+        <h2 class="section-title">About</h2>
+        <div class="section-sub">How I think about level design and what I bring to a team.</div>
+      </div>
+
+      <div class="about">
+        <div class="about-text">
+          I’m a Level Designer and UX/UI specialist focused on creating readable, engaging spaces
+          for games and simulations. I work primarily with Unity and Unreal Engine 5, building
+          landscapes, environments and biomes for mobile hybrid/casual titles, PC and console-style
+          projects, VR experiences and interactive tours.
+         <br><br>
+          My experience includes designing production-ready levels at 24 Play LLC, VR training spaces
+          for Khalifa University, virtual tour environments for an NDA project and 3D-infused UX for
+          an e-commerce platform at Green Cities. I rely on analytics, playtests and clear visual
+          language to iterate levels until they feel intuitive and fun, and I’m actively growing
+          towards designing full levels and experiences for PC and console games.
+        </div>
+        <div class="about-list">
+          <p><strong>Strengths:</strong><br>
+            • Gameplay flow, patterns & balance<br>
+            • Level readability and navigation cues<br>
+            • VR-specific UX and comfort<br>
+            • Working with feedback, analytics and tight deadlines
+          </p>
+          <p><strong>Tools:</strong><br>
+            Unity, Unreal Engine 5, Figma, Adobe Photoshop / Illustrator, Miro, AI-assisted tools.
+          </p>
+          <p><strong>Languages:</strong><br>
+            English – Intermediate, Ukrainian – Native, Russian – Native.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="section-header">
+        <h2 class="section-title">Contact</h2>
+        <div class="section-sub">Open to remote opportunities, test tasks and collaborations.</div>
+      </div>
+
+      <div class="contact-block">
+        <p>Email: <a href="mailto:gorartsev@gmail.com">gorartsev@gmail.com</a></p>
+        <p>Telegram: <a href="https://t.me/grarsimp" target="_blank">@grarsimp</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/yegor-artsev/" target="_blank">linkedin.com/in/yegor-artsev/</a></p>
+        <p>CV (EN): add a link to your PDF resume here.</p>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Yegor Artsev · Level Designer
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 
 </body>
 </html>
+
 
