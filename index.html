@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Goga Artsev – Level Designer & UX/UI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    :root {
+      --bg: #05060A;
+      --bg-alt: #0B0F18;
+      --accent: #7DD3FC;
+      --accent-soft: rgba(125, 211, 252, 0.08);
+      --text-main: #F5F5F5;
+      --text-muted: #9CA3AF;
+      --border-subtle: rgba(148, 163, 184, 0.25);
+      --radius-lg: 18px;
+      --radius-xl: 24px;
+      --shadow-soft: 0 24px 60px rgba(0, 0, 0, 0.65);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #0B1120 0, #020617 55%, #000 100%);
+      color: var(--text-main);
+    }
+
+    .page {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 24px 16px 64px;
+    }
+
+    /* NAV */
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(to bottom, rgba(2, 6, 23, 0.95), rgba(2, 6, 23, 0.75), transparent);
+    }
+
+    .nav-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nav-logo {
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .nav-logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: 0.18s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-main);
+      border-color: rgba(148, 163, 184, 0.35);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    /* HERO */
+
+    .hero {
+      padding-top: 32px;
+      padding-bottom: 32px;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.1fr);
+      gap: 32px;
+      align-items: center;
+    }
+
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .hero-kicker {
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .hero-title {
+      font-size: 40px;
+      line-height: 1.05;
+      margin-bottom: 12px;
+    }
+
+    .hero-sub {
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 480px;
+      margin-bottom: 18px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+
+    .tag {
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      color: var(--text-muted);
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn-main,
+    .btn-ghost {
+      font-size: 14px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: 0.18s ease;
+    }
+
+    .btn-main {
+      background: var(--accent);
+      color: #020617;
+      font-weight: 500;
+      box-shadow: 0 18px 40px rgba(56, 189, 248, 0.45);
+    }
+
+    .btn-main:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 22px 50px rgba(56, 189, 248, 0.55);
+    }
+
+    .btn-ghost {
+      background: rgba(15, 23, 42, 0.7);
+      border-color: rgba(148, 163, 184, 0.5);
+      color: var(--text-main);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    .hero-preview {
+      background: radial-gradient(circle at top left, #22D3EE33 0, transparent 55%),
+                  radial-gradient(circle at bottom right, #4F46E533 0, transparent 60%);
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      padding: 16px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-preview-inner {
+      border-radius: 14px;
+      background: linear-gradient(135deg, #020617, #020617, #020617);
+      padding: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+    }
+
+    .hero-preview-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .hero-preview-thumb {
+      border-radius: 12px;
+      border: 1px solid rgba(15, 23, 42, 0.9);
+      background: radial-gradient(circle at top, #22D3EE1c 0, #020617 55%);
+      aspect-ratio: 16 / 9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: var(--text-muted);
+      text-align: center;
+      padding: 12px;
+    }
+
+    .hero-preview-meta {
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    /* SECTION HEADERS */
+
+    .section {
+      margin-top: 32px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 22px;
+    }
+
+    .section-sub {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* PROJECTS GRID */
+
+    .projects-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    @media (min-width: 720px) {
+      .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .project-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      padding: 10px 10px 12px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .project-thumb {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(15, 23, 42, 0.9);
+      background: #020617;
+      aspect-ratio: 16 / 9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: var(--text-muted);
+      text-align: center;
+      padding: 10px;
+    }
+
+    .project-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .project-name {
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .project-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 2px;
+    }
+
+    .tag-soft {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+    }
+
+    .project-footer {
+      margin-top: 4px;
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .project-links a {
+      font-size: 12px;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .project-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* ABOUT + CONTACT */
+
+    .about {
+      background: rgba(15, 23, 42, 0.8);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-subtle);
+      padding: 18px 16px 18px;
+      margin-top: 12px;
+      display: grid;
+      gap: 16px;
+    }
+
+    @media (min-width: 820px) {
+      .about {
+        grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      }
+    }
+
+    .about-text {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .about-list {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .about-list strong {
+      color: var(--text-main);
+    }
+
+    .contact-block {
+      margin-top: 12px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .contact-block a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .contact-block a:hover {
+      text-decoration: underline;
+    }
+
+    /* FOOTER */
+
+    footer {
+      margin-top: 40px;
+      font-size: 11px;
+      color: var(--text-muted);
+      text-align: center;
+      padding-top: 16px;
+      border-top: 1px solid rgba(15, 23, 42, 1);
+    }
+
+    /* SMOOTH SCROLL */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="nav-logo">GOGA <span>LEVEL DESIGN</span></div>
+      <nav class="nav-links">
+        <a href="#top">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page" id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <div class="hero-kicker">Level Design & UX for Games</div>
+        <h1 class="hero-title">Designing readable, atmospheric levels<br>in Unity & Unreal Engine.</h1>
+        <p class="hero-sub">
+          Mobile and PC levels focused on clarity, pacing, composition, and guiding the player through visual
+          cues and emotional beats. Horror temples, cities, runners, and interactive spaces built with intention.
+        </p>
+        <div class="hero-tags">
+          <span class="tag">Unity · URP</span>
+          <span class="tag">Unreal Engine 5</span>
+          <span class="tag">Hybrid-casual & PC</span>
+          <span class="tag">UX-driven level design</span>
+        </div>
+        <div class="hero-cta">
+          <a class="btn-main" href="#projects">View selected projects →</a>
+          <a class="btn-ghost" href="#contact">Get in touch</a>
+        </div>
+      </div>
+
+      <aside class="hero-preview">
+        <div class="hero-preview-inner">
+          <div class="hero-preview-title">Featured Scene · Biolum Temple</div>
+          <div class="hero-preview-thumb">
+            Main screenshot placeholder — replace with your best environment render.
+          </div>
+          <div class="hero-preview-meta">
+            <span>Engine: UE5 / Unity</span>
+            <span>Focus: flow · readability · mood</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="section-header">
+        <h2 class="section-title">Selected Projects</h2>
+        <div class="section-sub">3–6 strongest works with clear roles, goals, and gameplay captures.</div>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- PROJECT 1 -->
+        <article class="project-card">
+          <div class="project-thumb">
+            Replace this with a UE5 render of the Biolum Temple environment.
+          </div>
+          <div class="project-name">Biolum Temple – UE5 Environment</div>
+          <div class="project-meta">
+            A narrative-driven environment built around atmosphere, vertical navigation,
+            and emotional pacing through light, sound, and spatial rhythm.
+          </div>
+          <div class="project-tags">
+            <span class="tag-soft">Unreal Engine 5</span>
+            <span class="tag-soft">Environment · Level Design</span>
+            <span class="tag-soft">Horror / Mystery</span>
+          </div>
+          <div class="project-footer">
+            <div class="project-links">
+              <a href="#" target="_blank">Gameplay flythrough →</a>
+            </div>
+            <div class="project-meta">In progress</div>
+          </div>
+        </article>
+
+        <!-- PROJECT 2 -->
+        <article class="project-card">
+          <div class="project-thumb">
+            Replace with a main gameplay lane screenshot from Zone City Runner.
+          </div>
+          <div class="project-name">Zone City Runner – Unity Level</div>
+          <div class="project-meta">
+            A mobile runner level with clear lane readability, difficulty progression,
+            and strong visual anchors guiding the player at high speed.
+          </div>
+          <div class="project-tags">
+            <span class="tag-soft">Unity · URP</span>
+            <span class="tag-soft">Mobile · Hybrid-casual</span>
+            <span class="tag-soft">Pacing & readability</span>
+          </div>
+          <div class="project-footer">
+            <div class="project-links">
+              <a href="#" target="_blank">Gameplay capture →</a>
+            </div>
+            <div class="project-meta">Prototype</div>
+          </div>
+        </article>
+
+        <!-- PROJECT 3 -->
+        <article class="project-card">
+          <div class="project-thumb">
+            Placeholder screenshot of an apartment / interior scene for InsideView.
+          </div>
+          <div class="project-name">InsideView – Interactive Apartment Tours</div>
+          <div class="project-meta">
+            Interactive real-estate scenes focusing on clean navigation, view framing,
+            and UX-driven movement flows inside architecturally accurate spaces.
+          </div>
+          <div class="project-tags">
+            <span class="tag-soft">Unreal / Unity</span>
+            <span class="tag-soft">Archviz · UX</span>
+          </div>
+          <div class="project-footer">
+            <div class="project-links">
+              <a href="#" target="_blank">Case study →</a>
+            </div>
+            <div class="project-meta">Case study</div>
+          </div>
+        </article>
+
+        <!-- PROJECT 4 -->
+        <article class="project-card">
+          <div class="project-thumb">
+            Replace with blockout screenshots: farm, city, combat arenas.
+          </div>
+          <div class="project-name">Blockout Collection – LD Studies</div>
+          <div class="project-meta">
+            A set of blockouts exploring pacing, space readability, composition,
+            and traversal design across different gameplay setups.
+          </div>
+          <div class="project-tags">
+            <span class="tag-soft">Unity · UE5</span>
+            <span class="tag-soft">Blockout</span>
+            <span class="tag-soft">Studies</span>
+          </div>
+          <div class="project-footer">
+            <div class="project-links">
+              <a href="#" target="_blank">Gallery →</a>
+            </div>
+            <div class="project-meta">Study pack</div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="section-header">
+        <h2 class="section-title">About</h2>
+        <div class="section-sub">What I focus on as a Level Designer.</div>
+      </div>
+
+      <div class="about">
+        <div class="about-text">
+          I’m a Level Designer and UX/UI Designer focused on designing clear, atmospheric spaces
+          that guide players naturally through gameplay, pacing, and mood. I work in Unity and
+          Unreal Engine, creating levels for hybrid-casual mobile games and more cinematic PC scenes.
+          <br><br>
+          I enjoy building spaces where the environment itself teaches the player — through visual
+          language, rhythm, and carefully placed points of interest.
+        </div>
+        <div class="about-list">
+          <p><strong>Strengths:</strong><br>
+            • Level pacing and “flow”<br>
+            • Readability & navigation cues<br>
+            • Camera and path composition<br>
+            • UX-driven thinking inside 3D environments
+          </p>
+          <p><strong>Tools:</strong><br>
+            Unity (URP), Unreal Engine 5, Figma, Photoshop, Miro, Blender (basic).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="section-header">
+        <h2 class="section-title">Contact</h2>
+        <div class="section-sub">Open to job opportunities and freelance work.</div>
+      </div>
+
+      <div class="contact-block">
+        <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+        <p>LinkedIn: <a href="#" target="_blank">linkedin.com/in/your-profile</a></p>
+        <p>ArtStation / Behance: <a href="#" target="_blank">artstation.com/yourprofile</a></p>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Goga Artsev · Level Design & UX for Games
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
