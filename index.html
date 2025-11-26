@@ -26,7 +26,6 @@
     body {
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      /* всегда тёмный фон */
       background: #050509;
       color: var(--text-main);
     }
@@ -88,7 +87,8 @@
 
     .nav-links {
       display: flex;
-      gap: 16px;
+      flex-wrap: wrap;
+      gap: 12px;
       font-size: 14px;
     }
 
@@ -105,6 +105,21 @@
       color: var(--text-main);
       border-color: rgba(80, 135, 120, 0.8);
       background: rgba(6, 15, 14, 0.96);
+      text-decoration: none;
+    }
+
+    .nav-links a.nav-highlight {
+      background: var(--accent);
+      color: #040908;
+      border-color: var(--accent);
+      font-weight: 500;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    }
+
+    .nav-links a.nav-highlight:hover {
+      background: #0c493e;
+      color: var(--text-main);
+      border-color: #0c493e;
       text-decoration: none;
     }
 
@@ -363,6 +378,15 @@
       transform: translateY(-4px);
     }
 
+    .project-featured-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
     .project-mini {
       padding: 10px 9px 10px;
     }
@@ -446,29 +470,20 @@
 
     /* STATUS LINE FOR FEATURED PROJECT */
 
-    .project-status {
-      margin-top: 6px;
-      font-size: 12px;
-      color: var(--text-muted);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      align-items: center;
-    }
-
     .status-pill {
       font-size: 10px;
       text-transform: uppercase;
       letter-spacing: 0.14em;
-      padding: 2px 6px;
+      padding: 4px 10px;
       border-radius: 999px;
-      border: 1px solid rgba(15, 92, 77, 0.8);
+      border: 1px solid rgba(15, 92, 77, 0.9);
       color: var(--accent);
       background: rgba(4, 10, 9, 0.95);
     }
 
     .status-link {
-      font-size: 12px;
+      font-size: 13px;
+      font-weight: 500;
     }
 
     /* GALLERY */
@@ -496,6 +511,13 @@
       text-align: center;
       padding: 8px;
       white-space: normal;
+    }
+
+    .project-gallery-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      display: block;
     }
 
     @media (min-width: 960px) {
@@ -604,6 +626,9 @@
         <a href="#projects">Projects</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
+        <a href="temple-of-mind.html" class="nav-highlight" target="_blank" rel="noopener">
+          Temple of Mind
+        </a>
       </nav>
     </div>
   </header>
@@ -665,6 +690,13 @@
       <!-- FEATURED PROJECT -->
       <div class="projects-featured">
         <article class="project-card project-featured">
+          <div class="project-featured-header">
+            <span class="status-pill">In progress</span>
+            <a class="status-link" href="temple-of-mind.html" target="_blank" rel="noopener">
+              View full page →
+            </a>
+          </div>
+
           <div class="project-thumb project-thumb-featured">
             Replace with key art or a wide Unity render from Temple of Mind.
           </div>
@@ -680,13 +712,6 @@
             <span class="tag-soft">Unity · URP</span>
             <span class="tag-soft">PC/Console-style</span>
             <span class="tag-soft">Exploration · Atmosphere</span>
-          </div>
-          <div class="project-status">
-            <span class="status-pill">In progress</span>
-            <span>·</span>
-            <a class="status-link" href="temple-of-mind.html" target="_blank" rel="noopener">
-              View full page →
-            </a>
           </div>
         </article>
       </div>
@@ -713,19 +738,31 @@
 
           <div class="project-gallery">
             <div class="project-gallery-item">
-              (Planned) Main lane shot with obstacles and coins.
+              <img src="assets/zonecity/Step1.png" alt="ZoneCity Runner screenshot 1" />
             </div>
             <div class="project-gallery-item">
-              (Planned) Top-down view of level layout patterns.
+              <img src="assets/zonecity/Step2.png" alt="ZoneCity Runner screenshot 2" />
             </div>
             <div class="project-gallery-item">
-              (Planned) Late-game section with higher density.
+              <img src="assets/zonecity/Step3.png" alt="ZoneCity Runner screenshot 3" />
+            </div>
+            <div class="project-gallery-item">
+              <img src="assets/zonecity/Step4.png" alt="ZoneCity Runner screenshot 4" />
+            </div>
+            <div class="project-gallery-item">
+              <img src="assets/zonecity/Step5.png" alt="ZoneCity Runner screenshot 5" />
+            </div>
+            <div class="project-gallery-item">
+              <img src="assets/zonecity/Step6.png" alt="ZoneCity Runner screenshot 6" />
+            </div>
+            <div class="project-gallery-item">
+              <img src="assets/zonecity/Step7.png" alt="ZoneCity Runner screenshot 7" />
             </div>
           </div>
 
           <div class="project-footer">
             <div class="project-links-muted">
-              Screenshots / capture will be added here.
+              Live capture coming soon.
             </div>
             <div class="project-meta">Prototype / production mix</div>
           </div>
