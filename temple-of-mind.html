@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Temple of Mind – Level Design Breakdown</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<style>
+:root {
+  --bg: #040606;
+  --bg-alt: #0A0F0E;
+  --accent: #0F5C4D;
+  --accent-soft: rgba(15, 92, 77, 0.16);
+  --text-main: #F5F5F5;
+  --text-muted: #9AA3A0;
+  --border-subtle: rgba(70, 110, 100, 0.6);
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  background: radial-gradient(circle at top, #11201D 0%, #040606 65%, #000 100%);
+  color: var(--text-main);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 16px 96px;
+}
+
+/* HEADER / BACK LINK */
+
+.back-link {
+  font-size: 13px;
+  margin-bottom: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-muted);
+}
+.back-link span {
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* HERO */
+
+.hero-title {
+  font-size: 42px;
+  margin-bottom: 8px;
+  color: var(--text-main);
+}
+
+.hero-kicker {
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.hero-sub {
+  max-width: 620px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.hero-meta {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.hero-meta span {
+  display: inline-block;
+  margin-right: 12px;
+}
+
+.hero-thumb {
+  width: 100%;
+  aspect-ratio: 16/8;
+  border-radius: var(--radius-xl);
+  background: #040909;
+  border: 1px solid rgba(30, 60, 55, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+  font-size: 14px;
+  text-align: center;
+  padding: 16px;
+}
+
+/* SECTION */
+
+.section-title {
+  margin-top: 40px;
+  font-size: 24px;
+}
+
+.section-text {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin-top: 12px;
+}
+
+.block {
+  margin-top: 24px;
+  padding: 18px 18px 16px;
+  border-radius: var(--radius-lg);
+  background: var(--bg-alt);
+  border: 1px solid var(--border-subtle);
+}
+
+/* LIST INSIDE BLOCK (без ul/li, просто аккуратные br) */
+.block strong {
+  color: var(--text-main);
+}
+
+/* GALLERY */
+
+.gallery {
+  margin-top: 20px;
+  display: grid;
+  gap: 12px;
+}
+.gallery-row {
+  display: grid;
+  gap: 12px;
+}
+@media (min-width: 720px) {
+  .gallery-row--two {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.gallery-item {
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(15, 92, 77, 0.45);
+  background: #040909;
+  min-height: 140px;
+  font-size: 13px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 12px;
+}
+
+/* FOOTER CTA */
+
+.footer-cta {
+  margin-top: 56px;
+  padding: 22px;
+  border: 1px solid var(--border-subtle);
+  background: #060A0A;
+  border-radius: var(--radius-xl);
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+.footer-cta strong {
+  color: var(--text-main);
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+  <a class="back-link" href="index.html">
+    <span>←</span> Back to portfolio
+  </a>
+
+  <div class="hero-kicker">Personal Project · In Development</div>
+  <h1 class="hero-title">Temple of Mind</h1>
+
+  <p class="hero-sub">
+    Atmospheric exploration prototype built in <strong>Unity (URP)</strong> — a surreal
+    bioluminescent temple-city that exists somewhere between architecture, consciousness
+    and memory. This is my main personal project focused on mood-driven traversal,
+    readability and environmental storytelling for a PC/console-style experience.
+  </p>
+
+  <div class="hero-meta">
+    <span><strong>Role:</strong> Level Design, Worldbuilding, Lighting</span>
+    <span><strong>Engine:</strong> Unity · URP</span>
+    <span><strong>Platform:</strong> PC (console-style target)</span>
+  </div>
+
+  <div class="hero-thumb">
+    (Main key art or wide gameplay render from Unity<br/>
+    — temple hub / main vista)
+  </div>
+
+  <!-- WORLD BUILDING -->
+  <h2 class="section-title">Worldbuilding & Concept</h2>
+  <p class="section-text">
+    The core idea behind <strong>Temple of Mind</strong> is a sacred structure 
+    assembled from fragments of consciousness instead of traditional stone and brick.
+    Each hall and corridor reflects a specific mental state: calm, doubt, conflict,
+    clarity. Light behaves like thought, space folds in subtle ways, and organic stone
+    quietly reacts to the player’s presence.
+  </p>
+
+  <div class="block">
+    <p class="section-text">
+      <strong>Visual language:</strong><br>
+      • monolithic silhouettes with minimal readable detail<br>
+      • repeating architectural motifs to build rhythm and memory<br>
+      • soft bioluminescent accents instead of aggressive UI markers<br>
+      • depth-based readability where silhouettes come first, micro-detail second
+    </p>
+    <p class="section-text">
+      The goal is to create an environment that can be explored slowly and deliberately,
+      where the player understands the path forward through composition, contrast
+      and spatial hierarchy rather than waypoints.
+    </p>
+  </div>
+
+  <!-- LEVEL DESIGN FLOW -->
+  <h2 class="section-title">Level Design & Flow</h2>
+  <p class="section-text">
+    The current version of the project is focused on one main route that passes through
+    several “mental zones”. Each zone changes the pace, lighting and density of detail
+    to create a different emotional beat. The layout is built through iterative blockouts
+    in Unity, starting from simple primitives and evolving into modular architecture.
+  </p>
+
+  <div class="block">
+    <p class="section-text">
+      <strong>Design pillars:</strong><br>
+      • <strong>Readability:</strong> clear silhouettes, foreground/background separation,
+      use of contrast and height to show direction.<br>
+      • <strong>Traversal:</strong> ramps, staircases and platforms that feel heavy and
+      architectural, not “gamey”, with deliberate pauses for vistas.<br>
+      • <strong>Mood:</strong> fog, color grading and local light sources define how
+      “safe” or “hostile” a space feels, without explicit enemies.<br>
+      • <strong>Discovery:</strong> side paths and small pockets of space reward curiosity
+      with new views, hidden shrines or visual storytelling props.
+    </p>
+  </div>
+
+  <!-- KEY MOMENTS -->
+  <h2 class="section-title">Key Moments & Beats</h2>
+  <p class="section-text">
+    The level is structured around a few memorable moments: first contact with the
+    temple, descent into the inner halls, and a calmer final area that feels like a
+    mental “release”. Each beat combines camera framing, lighting and sound to reinforce
+    the feeling of moving deeper into someone’s mind.
+  </p>
+
+  <div class="block">
+    <p class="section-text">
+      Examples of moments I’m designing for:
+      <br>• arrival at the main staircase with a strong, layered vista<br>
+      <br>• narrow, almost claustrophobic corridor that opens into a vast chamber<br>
+      <br>• elevated balconies overlooking areas the player has already visited,
+      reinforcing spatial memory<br>
+      <br>• quiet “sanctuary” zones where music and light are intentionally softer
+    </p>
+  </div>
+
+  <!-- GALLERY PLACEHOLDERS -->
+  <h2 class="section-title">Gallery</h2>
+  <p class="section-text">
+    When the project is ready, this section will include in-engine screenshots and short clips:
+    wide shots, close-ups, and examples of how lighting supports navigation.
+  </p>
+
+  <div class="gallery">
+    <div class="gallery-row gallery-row--two">
+      <div class="gallery-item">
+        (Planned) Wide shot of the main temple approach — player looking up at the structure.
+      </div>
+      <div class="gallery-item">
+        (Planned) Interior hall with strong silhouette rhythm and layered fog.
+      </div>
+    </div>
+    <div class="gallery-row">
+      <div class="gallery-item">
+        (Planned) Bioluminescent corridor that subtly guides the player through light and shadow.
+      </div>
+    </div>
+  </div>
+
+  <!-- TECH NOTES -->
+  <h2 class="section-title">Technical Notes (Unity)</h2>
+  <div class="block">
+    <p class="section-text">
+      <strong>Engine & Rendering:</strong><br>
+      • Unity (URP) with baked + mixed lighting setup<br>
+      • Atmospheric fog, simple volumetric effects for depth<br>
+      • Modular meshes for temple structures (pillars, walls, arches, stairs)
+    </p>
+    <p class="section-text">
+      <strong>Workflow:</strong><br>
+      • greybox → playtest → refine silhouettes → detail pass<br>
+      • focus on keeping navigation colliders clean and readable<br>
+      • camera tuning for slow, exploration-focused movement
+    </p>
+    <p class="section-text">
+      <strong>Next steps:</strong><br>
+      • polish traversal rhythm and pacing between “hub” and sub-areas<br>
+      • add more interactive environmental elements (small rituals, shrines)<br>
+      • build a short recorded walkthrough to show the intended experience
+    </p>
+  </div>
+
+  <!-- FOOTER CTA -->
+  <div class="footer-cta">
+    <p>
+      <strong>Temple of Mind</strong> is an ongoing personal project where I combine
+      my level design, worldbuilding and UX thinking into a single experience.
+      <br><br>
+      If you’d like to see the latest build or discuss collaboration, you can reach me
+      via <a href="mailto:gorartsev@gmail.com">gorartsev@gmail.com</a> or on Telegram
+      <a href="https://t.me/grarsimp" target="_blank">@grarsimp</a>.
+    </p>
+  </div>
+
+</div>
+</body>
+</html>
