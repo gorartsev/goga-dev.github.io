@@ -9,8 +9,8 @@
     :root {
       --bg: #050509;
       --bg-alt: #070A0A;
-      --accent: #0F5C4D;          /* тёмный изумруд, общий акцент */
-      --accent-bright: #d1e231;   /* яркий акцент для Temple of Mind */
+      --accent: #0F5C4D;          /* тёмный изумруд, основной акцент */
+      --accent-bright: #d1e231;   /* яркий акцент для кнопки в навигации */
       --accent-soft: rgba(15, 92, 77, 0.14);
       --text-main: #F5F5F5;
       --text-muted: #9A9AA4;
@@ -383,26 +383,6 @@
       padding: 10px 9px 10px;
     }
 
-    .project-thumb {
-      border-radius: 14px;
-      overflow: hidden;
-      border: 1px solid rgba(4, 9, 9, 0.95);
-      background: #020506;
-      aspect-ratio: 16 / 9;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      color: var(--text-muted);
-      text-align: center;
-      padding: 10px;
-    }
-
-    .project-thumb-featured {
-      aspect-ratio: 16 / 7;
-      border-color: rgba(20, 120, 90, 0.6);
-    }
-
     .project-name {
       font-size: 16px;
       font-weight: 500;
@@ -469,15 +449,16 @@
       gap: 10px;
       padding: 6px 12px;
       border-radius: 999px;
-      border: 1px solid var(--accent-bright);
-      color: var(--accent-bright);
+      border: 1px solid var(--accent);
+      color: var(--accent);
       margin-bottom: 12px;
       background: rgba(5, 5, 5, 0.9);
       font-size: 12px;
+      backdrop-filter: blur(4px);
     }
 
     .project-feature-status a {
-      color: var(--accent-bright);
+      color: var(--accent);
       font-weight: 500;
       text-decoration: none;
       font-size: 12px;
@@ -525,6 +506,54 @@
       .project-gallery-item {
         min-width: 100%;
       }
+    }
+
+    /* скрываем scrollbar галерей */
+    .project-gallery::-webkit-scrollbar {
+      height: 0;
+    }
+    .project-gallery {
+      scrollbar-width: none;
+    }
+
+    /* GALLERY ARROWS */
+
+    .gallery-nav {
+      position: relative;
+      margin-top: 6px;
+    }
+
+    .gallery-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 28px;
+      height: 28px;
+      background: rgba(15, 92, 77, 0.18);
+      border: 1px solid rgba(15, 92, 77, 0.7);
+      border-radius: 50%;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      backdrop-filter: blur(4px);
+      transition: 0.25s ease;
+      z-index: 5;
+      font-size: 14px;
+      user-select: none;
+    }
+
+    .gallery-arrow:hover {
+      background: rgba(15, 92, 77, 0.35);
+    }
+
+    .gallery-arrow.left {
+      left: -14px;
+    }
+
+    .gallery-arrow.right {
+      right: -14px;
     }
 
     /* ABOUT + CONTACT */
@@ -719,44 +748,49 @@
       <!-- MINI PROJECTS ROW -->
       <div class="projects-grid-mini">
 
-        <!-- MINI PROJECT 1 -->
+        <!-- MINI PROJECT 1: ZONECITY RUNNER -->
         <article class="project-card project-mini">
-          <div class="project-thumb">
-            Main lane screenshot placeholder for the city runner level.
-          </div>
+
           <div class="project-name">ZoneCity Runner – Hybrid-Casual Level (Unity)</div>
+
           <div class="project-meta">
-            Hybrid-casual runner level with strong lane readability, replayable
-            obstacle patterns and smooth difficulty ramping. Built for mobile with
-            short onboarding and tight feedback loops.
+            Hybrid-casual runner level with strong lane readability, replayable obstacle patterns 
+            and smooth difficulty ramping. Built for mobile with short onboarding and tight 
+            feedback loops.
           </div>
+
           <div class="project-tags">
             <span class="tag-soft">Unity · URP</span>
             <span class="tag-soft">Hybrid-casual Mobile</span>
             <span class="tag-soft">Patterns & progression</span>
           </div>
 
-          <div class="project-gallery">
-            <div class="project-gallery-item">
-              <img src="assets/zonecity/assets/zonecity/Step1.png" alt="ZoneCity Runner screenshot 1" />
-            </div>
-            <div class="project-gallery-item">
-              <img src="assets/zonecity/assets/zonecity/Step2.png" alt="ZoneCity Runner screenshot 2" />
-            </div>
-            <div class="project-gallery-item">
-              <img src="assets/zonecity/assets/zonecity/Step3.png" alt="ZoneCity Runner screenshot 3" />
-            </div>
-            <div class="project-gallery-item">
-              <img src="assets/zonecity/assets/zonecity/Step4.png" alt="ZoneCity Runner screenshot 4" />
-            </div>
-            <div class="project-gallery-item">
-              <img src="assets/zonecity/assets/zonecity/Step5.png" alt="ZoneCity Runner screenshot 5" />
-            </div>
-            <div class="project-gallery-item">
-              <img src="assets/zonecity/assets/zonecity/Step6.png" alt="ZoneCity Runner screenshot 6" />
-            </div>
-            <div class="project-gallery-item">
-              <img src="assets/zonecity/assets/zonecity/Step7.png" alt="ZoneCity Runner screenshot 7" />
+          <div class="gallery-nav">
+            <div class="gallery-arrow left" onclick="scrollGallery(this, -1)">←</div>
+            <div class="gallery-arrow right" onclick="scrollGallery(this, 1)">→</div>
+
+            <div class="project-gallery">
+              <div class="project-gallery-item">
+                <img src="assets/zonecity/assets/zonecity/Step1.png" alt="ZoneCity Runner screenshot 1" />
+              </div>
+              <div class="project-gallery-item">
+                <img src="assets/zonecity/assets/zonecity/Step2.png" alt="ZoneCity Runner screenshot 2" />
+              </div>
+              <div class="project-gallery-item">
+                <img src="assets/zonecity/assets/zonecity/Step3.png" alt="ZoneCity Runner screenshot 3" />
+              </div>
+              <div class="project-gallery-item">
+                <img src="assets/zonecity/assets/zonecity/Step4.png" alt="ZoneCity Runner screenshot 4" />
+              </div>
+              <div class="project-gallery-item">
+                <img src="assets/zonecity/assets/zonecity/Step5.png" alt="ZoneCity Runner screenshot 5" />
+              </div>
+              <div class="project-gallery-item">
+                <img src="assets/zonecity/assets/zonecity/Step6.png" alt="ZoneCity Runner screenshot 6" />
+              </div>
+              <div class="project-gallery-item">
+                <img src="assets/zonecity/assets/zonecity/Step7.png" alt="ZoneCity Runner screenshot 7" />
+              </div>
             </div>
           </div>
 
@@ -770,9 +804,6 @@
 
         <!-- MINI PROJECT 2 -->
         <article class="project-card project-mini">
-          <div class="project-thumb">
-            Placeholder for VR medical simulator scene: operating room / training setup.
-          </div>
           <div class="project-name">Medical VR Training Simulator – Unreal Engine 5</div>
           <div class="project-meta">
             VR medical training simulator in Unreal Engine 5. Worked on level layouts
@@ -785,12 +816,17 @@
             <span class="tag-soft">Usability & flow</span>
           </div>
 
-          <div class="project-gallery">
-            <div class="project-gallery-item">
-              (Planned) Overview of the main training room layout.
-            </div>
-            <div class="project-gallery-item">
-              (Planned) Close-up of interaction zone / instruments.
+          <div class="gallery-nav">
+            <div class="gallery-arrow left" onclick="scrollGallery(this, -1)">←</div>
+            <div class="gallery-arrow right" onclick="scrollGallery(this, 1)">→</div>
+
+            <div class="project-gallery">
+              <div class="project-gallery-item">
+                (Planned) Overview of the main training room layout.
+              </div>
+              <div class="project-gallery-item">
+                (Planned) Close-up of interaction zone / instruments.
+              </div>
             </div>
           </div>
 
@@ -804,9 +840,6 @@
 
         <!-- MINI PROJECT 3 -->
         <article class="project-card project-mini">
-          <div class="project-thumb">
-            Placeholder for a subway-style runner screenshot: three lanes, forward camera.
-          </div>
           <div class="project-name">Subway-Style Runner Prototype – Unity</div>
           <div class="project-meta">
             Three-lane runner prototype inspired by games like Subway Surfers. Focus on
@@ -819,12 +852,17 @@
             <span class="tag-soft">Lane-based gameplay</span>
           </div>
 
-          <div class="project-gallery">
-            <div class="project-gallery-item">
-              (Planned) Early-game section with simple obstacles.
-            </div>
-            <div class="project-gallery-item">
-              (Planned) High-speed segment with tighter gaps.
+          <div class="gallery-nav">
+            <div class="gallery-arrow left" onclick="scrollGallery(this, -1)">←</div>
+            <div class="gallery-arrow right" onclick="scrollGallery(this, 1)">→</div>
+
+            <div class="project-gallery">
+              <div class="project-gallery-item">
+                (Planned) Early-game section with simple obstacles.
+              </div>
+              <div class="project-gallery-item">
+                (Planned) High-speed segment with tighter gaps.
+              </div>
             </div>
           </div>
 
@@ -898,11 +936,17 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    function scrollGallery(el, dir) {
+      const gallery = el.parentElement.querySelector('.project-gallery');
+      if (!gallery) return;
+      const width = gallery.clientWidth;
+      gallery.scrollBy({
+        left: dir * width * 0.9,
+        behavior: 'smooth'
+      });
+    }
   </script>
 
 </body>
 </html>
-
-
-
-
