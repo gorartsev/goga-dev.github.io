@@ -212,7 +212,7 @@
       color: var(--text-main);
     }
 
-    /* GALLERY */
+    /* GALLERY (пока оставляем на будущее) */
     .gallery {
       margin-top: 16px;
       display: grid;
@@ -244,11 +244,91 @@
       padding: 12px;
     }
 
-    /* чтобы картинки в галерее красиво растягивались */
     .gallery-item img {
       width: 100%;
       border-radius: var(--radius);
       display: block;
+    }
+
+    /* CAROUSEL */
+    .carousel {
+      position: relative;
+      width: 100%;
+      border-radius: var(--radius);
+      border: 1px solid rgba(15,92,77,0.25);
+      overflow: hidden;
+      background: #FFFFFF;
+      margin-top: 16px;
+    }
+
+    .carousel-inner {
+      position: relative;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .carousel-image {
+      width: 100%;
+      display: block;
+      border-radius: var(--radius);
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(15,92,77,0.85);
+      border: none;
+      color: #FFFFFF;
+      padding: 8px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 18px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s ease, transform 0.1s ease;
+    }
+
+    .carousel-btn:hover {
+      background: #0A4A3E;
+      transform: translateY(-50%) scale(1.05);
+    }
+
+    .carousel-btn:active {
+      transform: translateY(-50%) scale(0.97);
+    }
+
+    .carousel-btn.prev {
+      left: 12px;
+    }
+
+    .carousel-btn.next {
+      right: 12px;
+    }
+
+    .carousel-dots {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 6px;
+    }
+
+    .carousel-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.18);
+    }
+
+    .carousel-dot.is-active {
+      width: 14px;
+      background: var(--accent);
     }
 
     /* FOOTER CTA */
@@ -422,7 +502,7 @@
     </div>
   </section>
 
-  <!-- BLOCKING FIRST LOCATION -->
+  <!-- BLOCKING FIRST LOCATION – CAROUSEL -->
   <section>
     <h2 class="section-title">Blocking – First Location (Hub Approach)</h2>
     <p class="section-text">
@@ -431,50 +511,15 @@
       rhythm of pillars and readability of the critical path before adding detail.
     </p>
 
-    <div class="gallery">
-      <div class="gallery-row gallery-row--two">
-        <div class="gallery-item">
-          <img src="/assets/blocking/image.png" alt="Blocking — wide shot of the hub approach">
-        </div>
-        <div class="gallery-item">
-          <img src="/assets/blocking/image%20(1).png" alt="Greybox — player-scale test near entrance">
-        </div>
-      </div>
-
-      <div class="gallery-row gallery-row--two">
-        <div class="gallery-item">
-          <img src="/assets/blocking/image%20(2).png" alt="View toward the main gate — composition test">
-        </div>
-        <div class="gallery-item">
-          <img src="/assets/blocking/image%20(3).png" alt="Blocking pillars and elevation changes">
-        </div>
-      </div>
-
-      <div class="gallery-row gallery-row--two">
-        <div class="gallery-item">
-          <img src="/assets/blocking/image%20(4).png" alt="Side angle — reading the hub silhouette">
-        </div>
-        <div class="gallery-item">
-          <img src="/assets/blocking/image%20(5).png" alt="Entrance framing — corridor into open space">
-        </div>
-      </div>
-
-      <div class="gallery-row gallery-row--two">
-        <div class="gallery-item">
-          <img src="/assets/blocking/image%20(6).png" alt="Experimenting with stairs and platforms">
-        </div>
-        <div class="gallery-item">
-          <img src="/assets/blocking/image%20(7).png" alt="Player POV — approach line to the temple">
-        </div>
-      </div>
-
-      <div class="gallery-row gallery-row--two">
-        <div class="gallery-item">
-          <img src="/assets/blocking/image%20(8).png" alt="Alternative composition for approach path">
-        </div>
-        <div class="gallery-item">
-          <img src="/assets/blocking/image%20(9).png" alt="Refining distances between key landmarks">
-        </div>
+    <div
+      class="carousel"
+      data-images="/assets/blocking/image.png,/assets/blocking/image (1).png,/assets/blocking/image (2).png,/assets/blocking/image (3).png,/assets/blocking/image (4).png,/assets/blocking/image (5).png,/assets/blocking/image (6).png,/assets/blocking/image (7).png,/assets/blocking/image (8).png,/assets/blocking/image (9).png"
+    >
+      <div class="carousel-inner">
+        <button class="carousel-btn prev" type="button" aria-label="Previous image">←</button>
+        <img class="carousel-image" src="" alt="Blocking – first location">
+        <button class="carousel-btn next" type="button" aria-label="Next image">→</button>
+        <div class="carousel-dots"></div>
       </div>
     </div>
   </section>
@@ -542,11 +587,68 @@
       <br><br>
       If you’d like to see the latest build, puzzle prototypes, or discuss collaboration,
       you can reach me via <a href="mailto:gorartsev@gmail.com">gorartsev@gmail.com</a> or on Telegram
-      <a href="https://t.me/grarchimp" target="_blank" rel="noopener">@grarchimp</a>.
+      <a href="https://t.me/grarsimp" target="_blank" rel="noopener">@grarsimp</a>.
     </p>
   </section>
 
 </main>
+
+<script>
+  // Универсальный скрипт для всех каруселей на странице (вариант B: по разделам)
+  document.addEventListener('DOMContentLoaded', function () {
+    const carousels = document.querySelectorAll('.carousel');
+
+    carousels.forEach((carousel) => {
+      const imagesAttr = carousel.getAttribute('data-images') || '';
+      const images = imagesAttr
+        .split(',')
+        .map((s) => s.trim())
+        .filter((s) => s.length > 0);
+
+      if (!images.length) return;
+
+      const imgEl = carousel.querySelector('.carousel-image');
+      const prevBtn = carousel.querySelector('.carousel-btn.prev');
+      const nextBtn = carousel.querySelector('.carousel-btn.next');
+      const dotsContainer = carousel.querySelector('.carousel-dots');
+
+      let index = 0;
+
+      // Создаём точки
+      dotsContainer.innerHTML = '';
+      const dots = images.map((_, i) => {
+        const dot = document.createElement('div');
+        dot.className = 'carousel-dot' + (i === 0 ? ' is-active' : '');
+        dotsContainer.appendChild(dot);
+        dot.addEventListener('click', () => {
+          index = i;
+          update();
+        });
+        return dot;
+      });
+
+      function update() {
+        imgEl.src = images[index];
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('is-active', i === index);
+        });
+      }
+
+      prevBtn.addEventListener('click', () => {
+        index = (index - 1 + images.length) % images.length;
+        update();
+      });
+
+      nextBtn.addEventListener('click', () => {
+        index = (index + 1) % images.length;
+        update();
+      });
+
+      // Инициализация
+      update();
+    });
+  });
+</script>
 
 </body>
 </html>
