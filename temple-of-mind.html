@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Temple of the Mind – Level Design Breakdown</title>
+  <title>Temple of the Mind – Puzzle Adventure Level Design Breakdown</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <style>
@@ -284,97 +284,133 @@
   </a>
 
   <header class="hero-head">
-    <div class="hero-kicker">Personal project · In development</div>
+    <div class="hero-kicker">Personal project · Puzzle Adventure · In development</div>
     <h1 class="hero-title">Temple of the Mind</h1>
 
     <p class="hero-sub">
-      Atmospheric exploration prototype built in <strong>Unity (URP)</strong> — a surreal
-      bioluminescent temple-city that exists somewhere between architecture, consciousness
-      and memory. This is my main personal project focused on mood-driven traversal,
-      readability and environmental storytelling for a PC/console-style experience.
+      <strong>Temple of the Mind</strong> is a first-person <strong>puzzle adventure</strong>
+      built in <strong>Unity (URP)</strong>. The player explores an ancient temple-hub and
+      opens magical gates to <strong>five distinct biomes</strong> — each with its own
+      architecture, atmosphere and environmental puzzles inspired by
+      <em>The Room</em>, <em>The Witness</em> and <em>Uncharted</em>.
+      All clues are embedded directly into the environment: architecture, reliefs,
+      rock carvings and props.
     </p>
 
     <div class="hero-meta">
       <span><strong>Role:</strong> Level Design, Worldbuilding, Lighting</span>
-      <span><strong>Engine:</strong> Unity · URP</span>
-      <span><strong>Target:</strong> PC / console-style experience</span>
+      <span><strong>Engine:</strong> Unity · URP · First-person</span>
+      <span><strong>Target:</strong> PC · Puzzle Adventure</span>
     </div>
   </header>
 
   <div class="hero-thumb">
-    (Main key art or wide gameplay render from Unity — temple hub / main vista)
+    (Planned) Main key art or wide gameplay render from Unity — the central temple hub with active portals to biomes.
   </div>
 
   <!-- WORLD BUILDING -->
   <section>
-    <h2 class="section-title">Worldbuilding & Concept</h2>
+    <h2 class="section-title">Worldbuilding & Fantasy</h2>
     <p class="section-text">
-      The core idea behind <strong>Temple of the Mind</strong> is a sacred structure 
-      assembled from fragments of consciousness instead of traditional stone and brick.
-      Each hall and corridor reflects a specific mental state: calm, doubt, conflict,
-      clarity. Light behaves like thought, space folds in subtle ways, and organic stone
-      quietly reacts to the player’s presence.
+      <strong>Temple of the Mind</strong> is presented as a forgotten sacred complex hidden
+      in the desert. The player is an explorer who discovers a mosaic about the
+      <strong>“Riddle of Humanity”</strong> — an artefact sealed in the heart of the temple.
+      To reach it, they must unlock the first ritual gate, pass through five biomes and
+      combine the fragments of a single key.
     </p>
 
     <div class="block">
       <p class="section-text">
-        <strong>Visual language:</strong><br>
-        • monolithic silhouettes with minimal readable detail<br>
-        • repeating architectural motifs to build rhythm and memory<br>
-        • soft bioluminescent accents instead of aggressive UI markers<br>
-        • depth-based readability where silhouettes come first, micro-detail second
+        <strong>Tone & atmosphere:</strong><br>
+        • ancient, mystical, slightly unsettling but calm<br>
+        • “sounding silence”: sand, stone, distant echoes instead of loud music<br>
+        • architecture itself is a puzzle – walls, pillars and floors hide mechanisms<br>
+        • every space looks like it has a secret, even before you touch anything
       </p>
       <p class="section-text" style="margin-top: 10px;">
-        The goal is to create an environment that can be explored slowly and deliberately,
-        where the player understands the path forward through composition, contrast
-        and spatial hierarchy rather than waypoints.
+        The core fantasy is to feel like an Indiana Jones–style researcher standing on the
+        threshold of a lost civilisation, where <strong>architecture, light and materials
+        are the main storytellers</strong>, not dialogue or UI.
       </p>
     </div>
   </section>
 
   <!-- LEVEL DESIGN FLOW -->
   <section>
-    <h2 class="section-title">Level Design & Flow</h2>
+    <h2 class="section-title">Structure, Biomes & Flow</h2>
     <p class="section-text">
-      The current version of the project focuses on one main route that passes through
-      several “mental zones”. Each zone changes the pace, lighting and density of detail
-      to create a different emotional beat. The layout is built through iterative blockouts
-      in Unity, starting from simple primitives and evolving into modular architecture.
+      Structurally the game is built around a <strong>central temple hub</strong> and
+      <strong>five biomes</strong> accessed through ritual gates:
+      Forest, Pyramid, Ruined Temple, Coastal Biome and Ice Cave – followed by the
+      final Tomb. Each biome introduces its own materials, puzzle formats and mood,
+      while feeding back into the same overarching goal: assemble the key and open
+      the central chamber.
     </p>
 
     <div class="block">
       <p class="section-text">
-        <strong>Design pillars:</strong><br>
-        • <strong>Readability:</strong> clear silhouettes, foreground/background separation,
-        and use of contrast and height to show direction.<br>
-        • <strong>Traversal:</strong> ramps, staircases and platforms that feel heavy and
-        architectural, not “gamey”, with deliberate pauses for vistas.<br>
-        • <strong>Mood:</strong> fog, colour grading and local light sources define how
-        “safe” or “hostile” a space feels, without explicit enemies.<br>
-        • <strong>Discovery:</strong> side paths and small pockets of space reward curiosity
-        with new views, hidden shrines or visual storytelling props.
+        <strong>High-level flow:</strong><br>
+        • solve a hub puzzle → open a gate → enter a biome<br>
+        • complete 3 mid-sized puzzles (or 1 large + 1–2 supporting)<br>
+        • earn a fragment of the key (totem / symbol / crystal – TBD)<br>
+        • return through the portal → activate a slot in the hub<br>
+        • once all fragments are placed, the final tomb opens
+      </p>
+      <p class="section-text" style="margin-top: 10px;">
+        Each completed biome also activates a <strong>visible “energy channel”</strong>
+        in the temple — a glowing line or conduit that helps players read progression
+        and understand which gate unlocks next, similar to cable language in
+        <em>The Witness</em>.
+      </p>
+    </div>
+  </section>
+
+  <!-- PUZZLES -->
+  <section>
+    <h2 class="section-title">Environmental Puzzles</h2>
+    <p class="section-text">
+      The entire experience is built around <strong>environmental puzzles</strong> and
+      <strong>embedded clues</strong>. There are no floating markers or pop-up hints:
+      the player is expected to observe, compare and connect information entirely
+      through space, composition and detail.
+    </p>
+
+    <div class="block">
+      <p class="section-text">
+        <strong>Puzzle ingredients:</strong><br>
+        • totems and ritual statues<br>
+        • sliding stone slabs and rotating elements<br>
+        • hidden niches and secret compartments in walls<br>
+        • symbol matching across architecture and props<br>
+        • layered architectural mechanisms that shift the whole space
+      </p>
+      <p class="section-text" style="margin-top: 10px;">
+        <strong>Design philosophy:</strong><br>
+        • understand the goal in ~5 seconds (what needs to change)<br>
+        • explore the surroundings to find clues embedded in the environment<br>
+        • apply the clue, experiment, resolve<br>
+        • get strong feedback: stone movement, light changes, rumbling audio
       </p>
     </div>
   </section>
 
   <!-- KEY MOMENTS -->
   <section>
-    <h2 class="section-title">Key Moments & Beats</h2>
+    <h2 class="section-title">Key Moments & Emotional Beats</h2>
     <p class="section-text">
-      The level is structured around a few memorable moments: first contact with the
-      temple, descent into the inner halls, and a calmer final area that feels like a
-      mental “release”. Each beat combines camera framing, lighting and sound to reinforce
-      the feeling of moving deeper into someone’s mind.
+      The level structure is built around a chain of memorable beats that combine
+      composition, pacing and sound. The aim is to move from curiosity and light
+      unease to a sense of clarity and completion.
     </p>
 
     <div class="block">
       <p class="section-text">
         Examples of moments I’m designing for:
-        <br>• arrival at the main staircase with a strong, layered vista<br>
-        <br>• narrow, almost claustrophobic corridor that opens into a vast chamber<br>
-        <br>• elevated balconies overlooking areas the player has already visited,
-        reinforcing spatial memory<br>
-        <br>• quiet “sanctuary” zones where music and light are intentionally softer
+        <br>• first approach to the temple hub with a strong layered vista and sealed gates<br>
+        <br>• reading the main mosaic that hints at the five biomes and the final artefact<br>
+        <br>• entering each biome through a narrow stone corridor into a radically different world<br>
+        <br>• returning to the hub and seeing newly lit “energy channels” connecting gates<br>
+        <br>• final descent into the tomb where all previous motifs converge into one space
       </p>
     </div>
   </section>
@@ -384,21 +420,21 @@
     <h2 class="section-title">Gallery</h2>
     <p class="section-text">
       As the project evolves, this section will include in-engine screenshots and short clips:
-      wide shots, close-ups, and examples of how lighting supports navigation.
+      hub overviews, biome entrances and close-ups of puzzle setups and clue placement.
     </p>
 
     <div class="gallery">
       <div class="gallery-row gallery-row--two">
         <div class="gallery-item">
-          (Planned) Wide shot of the main temple approach — the player looking up at the structure.
+          (Planned) Wide shot of the central temple hub with inactive gates and the “Riddle of Humanity” mosaic.
         </div>
         <div class="gallery-item">
-          (Planned) Interior hall with strong silhouette rhythm and layered fog.
+          (Planned) Interior corridor leading into the first biome – tight framing that opens into a vast chamber.
         </div>
       </div>
       <div class="gallery-row">
         <div class="gallery-item">
-          (Planned) Bioluminescent corridor that subtly guides the player through light and shadow.
+          (Planned) Environmental puzzle where architectural elements (totems, slabs, symbols) align to unlock a ritual mechanism.
         </div>
       </div>
     </div>
@@ -410,21 +446,25 @@
     <div class="block">
       <p class="section-text">
         <strong>Engine & rendering:</strong><br>
-        • Unity (URP) with baked + mixed lighting setup<br>
-        • atmospheric fog, simple volumetric effects for depth<br>
-        • modular meshes for temple structures (pillars, walls, arches, stairs)
+        • Unity (URP), PC target<br>
+        • first-person controller with slow, deliberate movement<br>
+        • baked + mixed lighting for a stable, atmospheric look<br>
+        • fog and simple volumetric effects to layer depth in large halls<br>
+        • modular meshes for temple structures and biome-specific kits
       </p>
       <p class="section-text" style="margin-top: 10px;">
-        <strong>Workflow:</strong><br>
-        • greybox → playtest → refine silhouettes → detail pass<br>
-        • focus on keeping navigation colliders clean and readable<br>
-        • camera tuning for slow, exploration-focused movement
+        <strong>Interaction:</strong><br>
+        • raycast-based interaction for looking at and using objects<br>
+        • click / hold to rotate and drag movable elements<br>
+        • subtle outline / glow shader for interactive pieces (diegetic, not “UI yellow”)<br>
+        • minimal on-screen interface – focus on world readability
       </p>
       <p class="section-text" style="margin-top: 10px;">
-        <strong>Next steps:</strong><br>
-        • polish traversal rhythm and pacing between the “hub” and sub-areas<br>
-        • add more interactive environmental elements (small rituals, shrines)<br>
-        • build a short recorded walkthrough to show the intended experience
+        <strong>Workflow & next steps:</strong><br>
+        • hub greybox → first biome → iteration on puzzle readability<br>
+        • add clear visual “progress channels” from hub to each gate<br>
+        • refine pacing between puzzles and calm traversal spaces<br>
+        • build a short recorded walkthrough of the hub and one biome to demonstrate the full loop
       </p>
     </div>
   </section>
@@ -433,10 +473,11 @@
   <section class="footer-cta">
     <p>
       <strong>Temple of the Mind</strong> is an ongoing personal project where I combine
-      my level design, worldbuilding and UX thinking into a single experience.
+      level design, environmental puzzle design and worldbuilding into a single
+      first-person adventure.
       <br><br>
-      If you’d like to see the latest build or discuss collaboration, you can reach me
-      via <a href="mailto:gorartsev@gmail.com">gorartsev@gmail.com</a> or on Telegram
+      If you’d like to see the latest build, puzzle prototypes, or discuss collaboration,
+      you can reach me via <a href="mailto:gorartsev@gmail.com">gorartsev@gmail.com</a> or on Telegram
       <a href="https://t.me/grarsimp" target="_blank" rel="noopener">@grarsimp</a>.
     </p>
   </section>
