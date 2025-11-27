@@ -1,304 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Temple of the Mind – Level Design Breakdown</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <style>
-    :root {
-      --accent: #0F5C4D;
-      --accent-light: rgba(15, 92, 77, 0.16);
-      --text-main: #1A1A1A;
-      --text-muted: #575757;
-      --bg: #FFFFFF;
-      --bg-alt: #F7F7F7;
-      --border: rgba(0,0,0,0.12);
-      --radius: 16px;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, sans-serif;
-      background: var(--bg);
-      color: var(--text-main);
-    }
-
-    .page {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 24px 16px 80px;
-    }
-
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    /* NAV */
-    .nav {
-      position: sticky;
-      top: 0;
-      background: rgba(255,255,255,0.9);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--border);
-      z-index: 20;
-    }
-    .nav-inner {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 12px 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .nav-logo { font-weight: 700; font-size: 18px; }
-    .nav-links { display: flex; gap: 16px; }
-    .nav-links a {
-      color: var(--text-muted);
-      transition: 0.2s;
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: 14px;
-    }
-    .nav-links a.nav-link-primary {
-      background: var(--accent);
-      color: #fff;
-      font-weight: 600;
-    }
-
-    /* HEADERS */
-    .hero-head { margin-top: 24px; margin-bottom: 24px; }
-    .hero-kicker {
-      font-size: 13px;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 6px;
-    }
-    .hero-title {
-      font-size: 36px;
-      margin: 0 0 8px;
-    }
-    .hero-sub {
-      max-width: 720px;
-      font-size: 15px;
-      line-height: 1.6;
-      color: var(--text-muted);
-      margin-bottom: 16px;
-    }
-
-    .section-title {
-      font-size: 24px;
-      margin-top: 40px;
-      margin-bottom: 8px;
-    }
-    .section-text {
-      font-size: 15px;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    .block {
-      padding: 16px;
-      background: var(--bg-alt);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      margin-top: 12px;
-    }
-
-    /* CAROUSEL */
-    .carousel {
-      position: relative;
-      width: 100%;
-      border-radius: var(--radius);
-      border: 1px solid rgba(15,92,77,0.25);
-      overflow: hidden;
-      background: #fff;
-      margin-top: 16px;
-    }
-
-    .carousel-inner {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .carousel-image {
-      width: 100%;
-      display: block;
-      border-radius: var(--radius);
-    }
-
-    .carousel-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(15,92,77,0.85);
-      color: #fff;
-      border: none;
-      padding: 8px 12px;
-      border-radius: 999px;
-      cursor: pointer;
-      font-size: 18px;
-    }
-
-    .carousel-btn.prev { left: 12px; }
-    .carousel-btn.next { right: 12px; }
-
-    .carousel-dots {
-      position: absolute;
-      bottom: 10px;
-      left: 50%;
-      display: flex;
-      gap: 6px;
-      transform: translateX(-50%);
-    }
-
-    .carousel-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: rgba(0,0,0,0.2);
-    }
-    .carousel-dot.is-active {
-      width: 12px;
-      background: var(--accent);
-    }
-
-    /* FOOTER */
-    .footer-cta {
-      margin-top: 40px;
-      padding: 20px;
-      border-radius: 20px;
-      background: var(--bg-alt);
-      border: 1px solid var(--border);
-      text-align: center;
-      font-size: 14px;
-      color: var(--text-muted);
-    }
-  </style>
-</head>
-
-<body>
-
-<header class="nav">
-  <div class="nav-inner">
-    <div class="nav-logo">YEGOR ARTSEV</div>
-    <nav class="nav-links">
-      <a href="index.html#top">Home</a>
-      <a href="index.html#projects">Projects</a>
-      <a href="index.html#about">About</a>
-      <a href="index.html#contact">Contact</a>
-      <a href="temple-of-mind.html" class="nav-link-primary">Temple of the Mind</a>
-    </nav>
-  </div>
-</header>
-
-<main class="page">
-
-  <a class="back-link" href="index.html#projects">
-    ← Back to portfolio
-  </a>
-
-  <!-- HERO -->
-  <header class="hero-head">
-    <div class="hero-kicker">Puzzle Adventure · Unity · In development</div>
-    <h1 class="hero-title">Temple of the Mind</h1>
-
-    <p class="hero-sub">
-      A first-person puzzle adventure built in Unity (URP).  
-      The player enters an ancient temple hub and unlocks five biomes by solving  
-      environmental, architecture-driven puzzles.  
-      My main focus: spatial clarity, visual guidance, and clean greybox flow.
-    </p>
-  </header>
-
-  <!-- LEVEL GOALS -->
-  <section>
-    <h2 class="section-title">Level Goals</h2>
-    <div class="block">
-      <p class="section-text">
-        • Build a readable approach to the main temple hub.<br>
-        • Establish silhouette, rhythm, and first-playable pacing.<br>
-        • Guide the player with composition instead of UI.<br>
-        • Prepare a solid greybox foundation for future biomes.
-      </p>
-    </div>
-  </section>
-
-  <!-- FLOW -->
-  <section>
-    <h2 class="section-title">Player Flow</h2>
-    <p class="section-text">
-      The core loop: explore → read environment → solve mechanism → unlock gate.  
-      The hub visually reflects progress through lighting lines and activated doors.
-    </p>
-  </section>
-
-  <!-- BLOCKING -->
-  <section>
-    <h2 class="section-title">Blocking – First Location</h2>
-    <p class="section-text">
-      Early greybox for the entrance path: focus on scale, sightlines and  
-      the reveal of the hub. No details yet — only pure layout.
-    </p>
-
-    <div class="carousel"
-      data-images="assets/blocking/image.png,
-                   assets/blocking/image (1).png,
-                   assets/blocking/image (2).png,
-                   assets/blocking/image (3).png,
-                   assets/blocking/image (4).png,
-                   assets/blocking/image (5).png,
-                   assets/blocking/image (6).png,
-                   assets/blocking/image (7).png,
-                   assets/blocking/image (8).png,
-                   assets/blocking/image (9).png">
-      <div class="carousel-inner">
-        <button class="carousel-btn prev">←</button>
-        <img class="carousel-image" src="" alt="Blocking images">
-        <button class="carousel-btn next">→</button>
-        <div class="carousel-dots"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PUZZLES -->
-  <section>
-    <h2 class="section-title">Puzzle Logic</h2>
-    <div class="block">
-      <p class="section-text">
-        • All clues are embedded into architecture (shapes, alignment, symbols).  
-        • No UI hints — the player reads space visually.  
-        • Puzzles give strong feedback: movement of stone, light shifts, sound cues.  
-        • Each biome introduces a new mechanic variation.
-      </p>
-    </div>
-  </section>
-
-  <!-- TECH -->
-  <section>
-    <h2 class="section-title">Technical Notes</h2>
-    <div class="block">
-      <p class="section-text">
-        Unity URP · First-person controller · Baked + mixed lighting  
-        Raycast interaction · Modular kits · Clean greybox workflow
-      </p>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="footer-cta">
-    <p>
-      Want to see the latest build or puzzle prototypes?<br>
-      gorartsev@gmail.com · Telegram: @grarsimp
-    </p>
-  </section>
-
-</main>
-
 <script>
   // Карусель без задержек + предзагрузка всех изображений
   document.addEventListener('DOMContentLoaded', function () {
@@ -306,7 +5,10 @@
 
     carousels.forEach((carousel) => {
       const imagesAttr = carousel.getAttribute('data-images') || '';
-      const images = imagesAttr.split(',').map(s => s.trim());
+      const images = imagesAttr
+        .split(',')
+        .map((s) => s.trim())
+        .filter((s) => s.length > 0);
 
       if (!images.length) return;
 
@@ -317,33 +19,45 @@
 
       let index = 0;
 
-      // preload
+      // ПРЕДЗАГРУЗКА ВСЕХ КАРТИНОК
       images.forEach(src => {
-        const pre = new Image();
-        pre.src = src;
+        const preload = new Image();
+        preload.src = src;
       });
 
+      // Точки
       dotsContainer.innerHTML = '';
       const dots = images.map((_, i) => {
         const dot = document.createElement('div');
         dot.className = 'carousel-dot' + (i === 0 ? ' is-active' : '');
         dotsContainer.appendChild(dot);
-        dot.addEventListener('click', () => { index = i; update(); });
+
+        dot.addEventListener('click', () => {
+          index = i;
+          update();
+        });
+
         return dot;
       });
 
       function update() {
-        imgEl.src = images[index];
-        dots.forEach((dot, i) => dot.classList.toggle('is-active', i === index));
+        imgEl.src = images[index]; // моментальная подмена
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('is-active', i === index);
+        });
       }
 
-      prevBtn.onclick = () => { index = (index - 1 + images.length) % images.length; update(); };
-      nextBtn.onclick = () => { index = (index + 1) % images.length; update(); };
+      prevBtn.addEventListener('click', () => {
+        index = (index - 1 + images.length) % images.length;
+        update();
+      });
+
+      nextBtn.addEventListener('click', () => {
+        index = (index + 1) % images.length;
+        update();
+      });
 
       update();
     });
   });
 </script>
-
-</body>
-</html>
