@@ -190,13 +190,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 360px;
+      min-height: 320px;
     }
 
     .hero-preview model-viewer {
       width: 100%;
-      max-width: 420px;
-      height: 420px;
+      max-width: 360px;   /* уменьшил визуальный размер */
+      height: 360px;
       --progress-bar-color: transparent;
       --progress-bar-height: 0px;
     }
@@ -273,7 +273,7 @@
     .project-image img {
       width: 100%;
       height: 100%;
-      object-fit: cover; /* обложка храма аккуратно кадрируется под 16:9 */
+      object-fit: cover;
       display: block;
     }
 
@@ -431,13 +431,10 @@
         disable-zoom
         interaction-prompt="none"
 
-        scale="0.08 0.08 0.08"
-        camera-orbit="0deg 80deg 3.5m"
-        min-camera-orbit="auto auto 3.5m"
-        max-camera-orbit="auto auto 3.5m"
-
-        field-of-view="35deg"
-        camera-target="0m 1m 0m"
+        scale="0.035 0.035 0.035"
+        camera-orbit="0deg 70deg auto"
+        field-of-view="45deg"
+        camera-target="0m 0.9m 0m"
 
         exposure="1.1"
         shadow-intensity="0.8"
