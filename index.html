@@ -89,41 +89,17 @@
       color: #FFFFFF;
     }
 
-    @media (max-width: 600px) {
-      .nav-inner {
-        padding: 10px 12px;
-      }
-
-      .nav-logo {
-        font-size: 16px;
-      }
-
-      .nav-links {
-        gap: 10px;
-        font-size: 13px;
-      }
-
-      .nav-links a {
-        white-space: nowrap;
-        padding: 4px 10px;
-      }
-    }
-
     /* HERO */
     .hero {
       display: grid;
       grid-template-columns: 2fr 1.5fr;
       gap: 32px;
       padding-top: 32px;
-      margin-bottom: 32px;
+      margin-bottom: 48px; /* увеличено */
     }
 
     @media (max-width: 800px) {
       .hero { grid-template-columns: 1fr; }
-    }
-
-    .hero > div:first-child {
-      padding: 16px 0;
     }
 
     .hero-kicker {
@@ -208,11 +184,11 @@
     .section-title {
       font-size: 26px;
       margin-top: 0;
-      margin-bottom: 8px; /* было 18px — уменьшил */
+      margin-bottom: 8px;
     }
 
     #projects {
-      margin-top: 8px;
+      margin-top: 24px;
     }
 
     .project-card {
@@ -254,6 +230,25 @@
       border-radius: 999px;
       color: var(--accent);
       border: 1px solid rgba(15,92,77,0.4);
+    }
+
+    /* CTA BUTTON (ONLY TEMPLE OF THE MIND) */
+    .project-cta {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 10px 18px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .project-cta:hover {
+      background: #0A4A3E;
+      transform: translateY(-2px);
     }
 
     /* SLIDER */
@@ -323,8 +318,8 @@
     .project-video iframe {
       width: 100%;
       height: 100%;
-      display: block;
       border-radius: 14px;
+      display: block;
     }
 
     /* ABOUT / CONTACT */
@@ -332,17 +327,13 @@
       background: var(--bg-alt);
       border-radius: var(--radius);
       border: 1px solid var(--border);
-      padding: 14px 18px;  /* было 24px — меньше внутри */
-      margin-top: 10px;    /* было 20px — меньше снаружи */
+      padding: 14px 18px;
+      margin-top: 10px;
     }
 
-    #about {
-      margin-top: 10px;    /* уменьшил общий отступ секции */
-    }
+    #about { margin-top: 10px; }
 
-    #contact {
-      margin-top: 6px;     /* ещё более компактно */
-    }
+    #contact { margin-top: 20px; }
 
     .contact-block a {
       color: var(--accent);
@@ -356,6 +347,7 @@
     }
   </style>
 </head>
+
 <body>
 
 <header class="nav">
@@ -398,7 +390,6 @@
     </div>
 
     <div class="hero-preview">
-      <!-- Ключевой арт Temple of the Mind -->
       <img src="assets/temple/Shot1.png" alt="Temple of the Mind main shot">
     </div>
   </section>
@@ -407,51 +398,53 @@
   <section id="projects">
     <h2 class="section-title">Selected projects</h2>
 
-    <!-- Temple of the Mind -->
+    <!-- TEMPLE OF THE MIND -->
     <article class="project-card">
       <div class="slider" id="slider-temple">
-        <span class="slider-btn left"  onclick="prevSlide('slider-temple')">←</span>
+        <span class="slider-btn left" onclick="prevSlide('slider-temple')">←</span>
         <span class="slider-btn right" onclick="nextSlide('slider-temple')">→</span>
 
-        <img src="assets/temple/Shot1.png" class="active" alt="Temple of the Mind shot 1">
-        <img src="assets/temple/Shot2.png" alt="Temple of the Mind shot 2">
-        <img src="assets/temple/Shot3.png" alt="Temple of the Mind shot 3">
+        <img src="assets/temple/Shot1.png" class="active">
+        <img src="assets/temple/Shot2.png">
+        <img src="assets/temple/Shot3.png">
       </div>
 
       <div class="project-name">Temple of the Mind – Atmospheric Exploration Prototype (Unity · URP)</div>
       <div class="project-meta">
         Personal project in development: a surreal bioluminescent temple-city built in Unity (URP).
-        Focus on environmental storytelling, silhouette readability and slow, mood-driven traversal
-        for a PC/console-style experience.
+        Focus on environmental storytelling, silhouette readability and slow, mood-driven traversal.
       </div>
+
       <div class="project-tags">
         <span class="tag-soft">Unity · URP</span>
         <span class="tag-soft">PC-style exploration</span>
         <span class="tag-soft">Atmosphere & mood</span>
       </div>
+
+      <!-- CTA BUTTON -->
+      <a href="temple-of-mind.html" class="project-cta">View full project →</a>
     </article>
 
-    <!-- ZoneCity Runner -->
+    <!-- ZONECITY RUNNER -->
     <article class="project-card">
       <div class="slider" id="slider-zonecity">
-        <span class="slider-btn left"  onclick="prevSlide('slider-zonecity')">←</span>
+        <span class="slider-btn left" onclick="prevSlide('slider-zonecity')">←</span>
         <span class="slider-btn right" onclick="nextSlide('slider-zonecity')">→</span>
 
-        <img src="assets/zonecity/assets/zonecity/Step1.png" class="active" alt="ZoneCity Runner shot 1">
-        <img src="assets/zonecity/assets/zonecity/Step2.png" alt="ZoneCity Runner shot 2">
-        <img src="assets/zonecity/assets/zonecity/Step3.png" alt="ZoneCity Runner shot 3">
-        <img src="assets/zonecity/assets/zonecity/Step4.png" alt="ZoneCity Runner shot 4">
-        <img src="assets/zonecity/assets/zonecity/Step5.png" alt="ZoneCity Runner shot 5">
-        <img src="assets/zonecity/assets/zonecity/Step6.png" alt="ZoneCity Runner shot 6">
-        <img src="assets/zonecity/assets/zonecity/Step7.png" alt="ZoneCity Runner shot 7">
+        <img src="assets/zonecity/assets/zonecity/Step1.png" class="active">
+        <img src="assets/zonecity/assets/zonecity/Step2.png">
+        <img src="assets/zonecity/assets/zonecity/Step3.png">
+        <img src="assets/zonecity/assets/zonecity/Step4.png">
+        <img src="assets/zonecity/assets/zonecity/Step5.png">
+        <img src="assets/zonecity/assets/zonecity/Step6.png">
+        <img src="assets/zonecity/assets/zonecity/Step7.png">
       </div>
 
       <div class="project-name">ZoneCity Runner – Hybrid-Casual Level (Unity)</div>
       <div class="project-meta">
-        Hybrid-casual runner level with strong lane readability, replayable obstacle patterns
-        and smooth difficulty ramping. Built for mobile with short onboarding and tight
-        feedback loops.
+        ZoneCity is a runner prototype built around exploring a compact city surrounded by dense forest. The player moves through streets, alleys, and small green areas to find and collect 10 hidden artifacts. The flow is shaped by the contrast between urban structure and nature: clean lane patterns, clear visual markers, and rhythmic environmental changes maintain readability and keep the experience engaging along the entire route.
       </div>
+
       <div class="project-tags">
         <span class="tag-soft">Unity · URP</span>
         <span class="tag-soft">Hybrid-casual mobile</span>
@@ -459,54 +452,47 @@
       </div>
     </article>
 
-    <!-- Medical VR Simulator -->
+    <!-- MEDICAL VR -->
     <article class="project-card">
       <div class="slider" id="slider-medical">
-        <span class="slider-btn left"  onclick="prevSlide('slider-medical')">←</span>
+        <span class="slider-btn left" onclick="prevSlide('slider-medical')">←</span>
         <span class="slider-btn right" onclick="nextSlide('slider-medical')">→</span>
 
-        <img src="assets/medical/1.jpg" class="active" alt="Medical VR shot 1">
-        <img src="assets/medical/2.jpg" alt="Medical VR shot 2">
-        <img src="assets/medical/3.jpg" alt="Medical VR shot 3">
-        <img src="assets/medical/4.jpg" alt="Medical VR shot 4">
+        <img src="assets/medical/1.jpg" class="active">
+        <img src="assets/medical/2.jpg">
+        <img src="assets/medical/3.jpg">
+        <img src="assets/medical/4.jpg">
       </div>
 
-      <div class="project-name">Medical VR Training Simulator – Unreal Engine 5</div>
+      <div class="project-name">Medical VR Training Simulator – Unreal Engine</div>
       <div class="project-meta">
-        VR medical training simulator in Unreal Engine. Worked on level layouts and interaction
-        spaces to support clear learning flow, realistic object placement and stable performance.
-        Description is NDA-safe; focus is on design choices and player guidance.
+        VR medical training simulator with focus on clear learning flow, realistic spatial design
+        and stable performance. NDA-safe description.
       </div>
+
       <div class="project-tags">
-        <span class="tag-soft">Unreal Engine</span>
-        <span class="tag-soft">VR · Educational simulator</span>
-        <span class="tag-soft">Usability & flow</span>
+        <span class="tag-soft">Unreal Engine 5</span>
+        <span class="tag-soft">VR Simulator</span>
+        <span class="tag-soft">Level Layout & Flow</span>
       </div>
     </article>
 
-    <!-- Runner Prototype – video only -->
+    <!-- RUNNER PROTOTYPE -->
     <article class="project-card">
-
       <div class="project-video">
-        <iframe
-          src="https://www.youtube.com/embed/yW1VZEHcZSM"
-          title="Runner Prototype"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen>
-        </iframe>
+        <iframe src="https://www.youtube.com/embed/yW1VZEHcZSM" allowfullscreen></iframe>
       </div>
 
       <div class="project-name">Runner Prototype – Unity</div>
       <div class="project-meta">
-        Three-lane runner prototype inspired by games like Subway Surfers. Focus on camera behaviour,
-        speed curves, obstacle timing and rhythm, with clear telegraphing of hazards and responsive
-        controls. Used as a sandbox for tuning mobile game feel.
+        Three-lane runner prototype focusing on camera feel, speed curves, hazard telegraphing
+        and smooth game rhythm.
       </div>
+
       <div class="project-tags">
         <span class="tag-soft">Unity</span>
         <span class="tag-soft">Runner</span>
-        <span class="tag-soft">Lane-based gameplay</span>
+        <span class="tag-soft">Lane gameplay</span>
       </div>
     </article>
   </section>
@@ -517,16 +503,11 @@
       <h2 class="section-title">About</h2>
       <p>
         I’m a Level Designer and UX/UI specialist focused on creating readable, engaging spaces
-        for games and simulations. I work primarily with Unity and Unreal Engine 5, building
-        landscapes, environments and biomes for mobile hybrid/casual titles, PC and console-style
-        projects, VR experiences and interactive tours.
+        for games and simulations. I work primarily with Unity and Unreal Engine 5.
       </p>
       <p>
         My experience includes designing production-ready levels at 24 Play LLC, VR training spaces
-        for Khalifa University, virtual tour environments for an NDA project and 3D-infused UX for
-        an e-commerce platform at Green Cities. I rely on analytics, playtests and clear visual
-        language to iterate levels until they feel intuitive and fun, and I’m actively growing
-        towards designing full levels and experiences for PC and console games.
+        for Khalifa University and 3D-infused UX for an e-commerce platform.
       </p>
     </div>
   </section>
@@ -535,17 +516,10 @@
   <section id="contact">
     <div class="about">
       <h2 class="section-title">Contact</h2>
-      <div class="contact-block">
-        <p>Email: <a href="mailto:gorartsev@gmail.com">gorartsev@gmail.com</a></p>
-        <p>Telegram: <a href="https://t.me/grarsimp" target="_blank" rel="noopener">@grarsimp</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/yegor-artsev/" target="_blank" rel="noopener">linkedin.com/in/yegor-artsev/</a></p>
-        <p>
-          CV (EN):
-          <a href="assets/cv/Yegor_Artsev_Level_Designer_CV_EN.pdf" target="_blank" rel="noopener">
-            Download PDF
-          </a>
-        </p>
-      </div>
+      <p>Email: <a href="mailto:gorartsev@gmail.com">gorartsev@gmail.com</a></p>
+      <p>Telegram: <a href="https://t.me/grarsimp">@grarsimp</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/yegor-artsev/">linkedin.com/in/yegor-artsev/</a></p>
+      <p>CV (EN): <a href="assets/cv/Yegor_Artsev_Level_Designer_CV_EN.pdf">Download PDF</a></p>
     </div>
   </section>
 
@@ -560,11 +534,8 @@
 
   function nextSlide(id) {
     const slider = document.getElementById(id);
-    if (!slider) return;
     const images = slider.querySelectorAll('img');
-    if (!images.length) return;
-    let index = Array.from(images).findIndex(img => img.classList.contains('active'));
-    if (index === -1) index = 0;
+    let index = [...images].findIndex(img => img.classList.contains('active'));
     images[index].classList.remove('active');
     index = (index + 1) % images.length;
     images[index].classList.add('active');
@@ -572,11 +543,8 @@
 
   function prevSlide(id) {
     const slider = document.getElementById(id);
-    if (!slider) return;
     const images = slider.querySelectorAll('img');
-    if (!images.length) return;
-    let index = Array.from(images).findIndex(img => img.classList.contains('active'));
-    if (index === -1) index = 0;
+    let index = [...images].findIndex(img => img.classList.contains('active'));
     images[index].classList.remove('active');
     index = (index - 1 + images.length) % images.length;
     images[index].classList.add('active');
