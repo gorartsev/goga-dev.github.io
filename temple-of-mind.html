@@ -134,4 +134,419 @@
 
     .hero-kicker {
       font-size: 13px;
-      letter-spac
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .hero-title {
+      font-size: 36px;
+      margin: 0 0 8px;
+      color: var(--text-main);
+    }
+
+    .hero-sub {
+      max-width: 720px;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-muted);
+      margin: 0 0 16px;
+    }
+
+    .hero-sub strong {
+      color: var(--text-main);
+    }
+
+    .hero-meta {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .hero-meta span {
+      display: inline-block;
+      margin-right: 16px;
+    }
+
+    .hero-thumb {
+      width: 100%;
+      aspect-ratio: 16/8;
+      border-radius: 20px;
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      font-size: 14px;
+      text-align: center;
+      padding: 16px;
+    }
+
+    /* SECTIONS */
+    .section-title {
+      font-size: 24px;
+      margin-top: 32px;
+      margin-bottom: 8px;
+    }
+
+    .section-text {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-muted);
+      margin-top: 4px;
+      margin-bottom: 0;
+    }
+
+    .block {
+      margin-top: 16px;
+      padding: 18px 18px 16px;
+      border-radius: var(--radius);
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+    }
+
+    .block strong {
+      color: var(--text-main);
+    }
+
+    /* GALLERY */
+    .gallery {
+      margin-top: 16px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .gallery-row {
+      display: grid;
+      gap: 12px;
+    }
+
+    @media (min-width: 720px) {
+      .gallery-row--two {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .gallery-item {
+      border-radius: var(--radius);
+      border: 1px solid rgba(15, 92, 77, 0.25);
+      background: #FFFFFF;
+      min-height: 120px;
+      font-size: 13px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 12px;
+    }
+
+    /* чтобы картинки в галерее красиво растягивались */
+    .gallery-item img {
+      width: 100%;
+      border-radius: var(--radius);
+      display: block;
+    }
+
+    /* FOOTER CTA */
+    .footer-cta {
+      margin-top: 40px;
+      padding: 20px 20px 18px;
+      border: 1px solid var(--border);
+      background: var(--bg-alt);
+      border-radius: 20px;
+      text-align: center;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .footer-cta strong {
+      color: var(--text-main);
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="nav-logo">YEGOR ARTSEV</div>
+    <nav class="nav-links">
+      <a href="index.html#top">Home</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="temple-of-mind.html" class="nav-link-primary">Temple of the Mind</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page">
+
+  <a class="back-link" href="index.html#projects">
+    <span>←</span> Back to portfolio
+  </a>
+
+  <header class="hero-head">
+    <div class="hero-kicker">Personal project · Puzzle Adventure · In development</div>
+    <h1 class="hero-title">Temple of the Mind</h1>
+
+    <p class="hero-sub">
+      <strong>Temple of the Mind</strong> is a first-person <strong>puzzle adventure</strong>
+      built in <strong>Unity (URP)</strong>. The player explores an ancient temple-hub and
+      opens magical gates to <strong>five distinct biomes</strong> — each with its own
+      architecture, atmosphere and environmental puzzles inspired by
+      <em>The Room</em>, <em>The Witness</em> and <em>Uncharted</em>.
+      All clues are embedded directly into the environment: architecture, reliefs,
+      rock carvings and props.
+    </p>
+
+    <div class="hero-meta">
+      <span><strong>Role:</strong> Level Design, Worldbuilding, Lighting</span>
+      <span><strong>Engine:</strong> Unity · URP · First-person</span>
+      <span><strong>Target:</strong> PC · Puzzle Adventure</span>
+    </div>
+  </header>
+
+  <div class="hero-thumb">
+    (Planned) Main key art or wide gameplay render from Unity — the central temple hub with active portals to biomes.
+  </div>
+
+  <!-- WORLD BUILDING -->
+  <section>
+    <h2 class="section-title">Worldbuilding & Fantasy</h2>
+    <p class="section-text">
+      <strong>Temple of the Mind</strong> is presented as a forgotten sacred complex hidden
+      in the desert. The player is an explorer who discovers a mosaic about the
+      <strong>“Riddle of Humanity”</strong> — an artefact sealed in the heart of the temple.
+      To reach it, they must unlock the first ritual gate, pass through five biomes and
+      combine the fragments of a single key.
+    </p>
+
+    <div class="block">
+      <p class="section-text">
+        <strong>Tone & atmosphere:</strong><br>
+        • ancient, mystical, slightly unsettling but calm<br>
+        • “sounding silence”: sand, stone, distant echoes instead of loud music<br>
+        • architecture itself is a puzzle – walls, pillars and floors hide mechanisms<br>
+        • every space looks like it has a secret, even before you touch anything
+      </p>
+      <p class="section-text" style="margin-top: 10px;">
+        The core fantasy is to feel like an Indiana Jones–style researcher standing on the
+        threshold of a lost civilisation, where <strong>architecture, light and materials
+        are the main storytellers</strong>, not dialogue or UI.
+      </p>
+    </div>
+  </section>
+
+  <!-- LEVEL DESIGN FLOW -->
+  <section>
+    <h2 class="section-title">Structure, Biomes & Flow</h2>
+    <p class="section-text">
+      Structurally the game is built around a <strong>central temple hub</strong> and
+      <strong>five biomes</strong> accessed through ritual gates:
+      Forest, Pyramid, Ruined Temple, Coastal Biome and Ice Cave – followed by the
+      final Tomb. Each biome introduces its own materials, puzzle formats and mood,
+      while feeding back into the same overarching goal: assemble the key and open
+      the central chamber.
+    </p>
+
+    <div class="block">
+      <p class="section-text">
+        <strong>High-level flow:</strong><br>
+        • solve a hub puzzle → open a gate → enter a biome<br>
+        • complete 3 mid-sized puzzles (or 1 large + 1–2 supporting)<br>
+        • earn a fragment of the key (totem / symbol / crystal – TBD)<br>
+        • return through the portal → activate a slot in the hub<br>
+        • once all fragments are placed, the final tomb opens
+      </p>
+      <p class="section-text" style="margin-top: 10px;">
+        Each completed biome also activates a <strong>visible “energy channel”</strong>
+        in the temple — a glowing line or conduit that helps players read progression
+        and understand which gate unlocks next, similar to cable language in
+        <em>The Witness</em>.
+      </p>
+    </div>
+  </section>
+
+  <!-- PUZZLES -->
+  <section>
+    <h2 class="section-title">Environmental Puzzles</h2>
+    <p class="section-text">
+      The entire experience is built around <strong>environmental puzzles</strong> and
+      <strong>embedded clues</strong>. There are no floating markers or pop-up hints:
+      the player is expected to observe, compare and connect information entirely
+      through space, composition and detail.
+    </p>
+
+    <div class="block">
+      <p class="section-text">
+        <strong>Puzzle ingredients:</strong><br>
+        • totems and ritual statues<br>
+        • sliding stone slabs and rotating elements<br>
+        • hidden niches and secret compartments in walls<br>
+        • symbol matching across architecture and props<br>
+        • layered architectural mechanisms that shift the whole space
+      </p>
+      <p class="section-text" style="margin-top: 10px;">
+        <strong>Design philosophy:</strong><br>
+        • understand the goal in ~5 seconds (what needs to change)<br>
+        • explore the surroundings to find clues embedded in the environment<br>
+        • apply the clue, experiment, resolve<br>
+        • get strong feedback: stone movement, light changes, rumbling audio
+      </p>
+    </div>
+  </section>
+
+  <!-- KEY MOMENTS -->
+  <section>
+    <h2 class="section-title">Key Moments & Emotional Beats</h2>
+    <p class="section-text">
+      The level structure is built around a chain of memorable beats that combine
+      composition, pacing and sound. The aim is to move from curiosity and light
+      unease to a sense of clarity and completion.
+    </p>
+
+    <div class="block">
+      <p class="section-text">
+        Examples of moments I’m designing for:
+        <br>• first approach to the temple hub with a strong layered vista and sealed gates<br>
+        <br>• reading the main mosaic that hints at the five biomes and the final artefact<br>
+        <br>• entering each biome through a narrow stone corridor into a radically different world<br>
+        <br>• returning to the hub and seeing newly lit “energy channels” connecting gates<br>
+        <br>• final descent into the tomb where all previous motifs converge into one space
+      </p>
+    </div>
+  </section>
+
+  <!-- BLOCKING FIRST LOCATION -->
+  <section>
+    <h2 class="section-title">Blocking – First Location (Hub Approach)</h2>
+    <p class="section-text">
+      Early greybox pass for the first playable area: the approach to the central
+      temple hub. Here I focus on player height, sightlines to the main vista,
+      rhythm of pillars and readability of the critical path before adding detail.
+    </p>
+
+    <div class="gallery">
+      <div class="gallery-row gallery-row--two">
+        <div class="gallery-item">
+          <img src="/assets/blocking/image.png" alt="Blocking — wide shot of the hub approach">
+        </div>
+        <div class="gallery-item">
+          <img src="/assets/blocking/image%20(1).png" alt="Greybox — player-scale test near entrance">
+        </div>
+      </div>
+
+      <div class="gallery-row gallery-row--two">
+        <div class="gallery-item">
+          <img src="/assets/blocking/image%20(2).png" alt="View toward the main gate — composition test">
+        </div>
+        <div class="gallery-item">
+          <img src="/assets/blocking/image%20(3).png" alt="Blocking pillars and elevation changes">
+        </div>
+      </div>
+
+      <div class="gallery-row gallery-row--two">
+        <div class="gallery-item">
+          <img src="/assets/blocking/image%20(4).png" alt="Side angle — reading the hub silhouette">
+        </div>
+        <div class="gallery-item">
+          <img src="/assets/blocking/image%20(5).png" alt="Entrance framing — corridor into open space">
+        </div>
+      </div>
+
+      <div class="gallery-row gallery-row--two">
+        <div class="gallery-item">
+          <img src="/assets/blocking/image%20(6).png" alt="Experimenting with stairs and platforms">
+        </div>
+        <div class="gallery-item">
+          <img src="/assets/blocking/image%20(7).png" alt="Player POV — approach line to the temple">
+        </div>
+      </div>
+
+      <div class="gallery-row gallery-row--two">
+        <div class="gallery-item">
+          <img src="/assets/blocking/image%20(8).png" alt="Alternative composition for approach path">
+        </div>
+        <div class="gallery-item">
+          <img src="/assets/blocking/image%20(9).png" alt="Refining distances between key landmarks">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section>
+    <h2 class="section-title">Gallery</h2>
+    <p class="section-text">
+      As the project evolves, this section will include in-engine screenshots and short clips:
+      hub overviews, biome entrances and close-ups of puzzle setups and clue placement.
+    </p>
+
+    <div class="gallery">
+      <div class="gallery-row gallery-row--two">
+        <div class="gallery-item">
+          (Planned) Wide shot of the central temple hub with inactive gates and the “Riddle of Humanity” mosaic.
+        </div>
+        <div class="gallery-item">
+          (Planned) Interior corridor leading into the first biome – tight framing that opens into a vast chamber.
+        </div>
+      </div>
+      <div class="gallery-row">
+        <div class="gallery-item">
+          (Planned) Environmental puzzle where architectural elements (totems, slabs, symbols) align to unlock a ritual mechanism.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECH NOTES -->
+  <section>
+    <h2 class="section-title">Technical Notes (Unity)</h2>
+    <div class="block">
+      <p class="section-text">
+        <strong>Engine & rendering:</strong><br>
+        • Unity (URP), PC target<br>
+        • first-person controller with slow, deliberate movement<br>
+        • baked + mixed lighting for a stable, atmospheric look<br>
+        • fog and simple volumetric effects to layer depth in large halls<br>
+        • modular meshes for temple structures and biome-specific kits
+      </p>
+      <p class="section-text" style="margin-top: 10px;">
+        <strong>Interaction:</strong><br>
+        • raycast-based interaction for looking at and using objects<br>
+        • click / hold to rotate and drag movable elements<br>
+        • subtle outline / glow shader for interactive pieces (diegetic, not “UI yellow”)<br>
+        • minimal on-screen interface – focus on world readability
+      </p>
+      <p class="section-text" style="margin-top: 10px;">
+        <strong>Workflow & next steps:</strong><br>
+        • hub greybox → first biome → iteration on puzzle readability<br>
+        • add clear visual “progress channels” from hub to each gate<br>
+        • refine pacing between puzzles and calm traversal spaces<br>
+        • build a short recorded walkthrough of the hub and one biome to demonstrate the full loop
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER CTA -->
+  <section class="footer-cta">
+    <p>
+      <strong>Temple of the Mind</strong> is an ongoing personal project where I combine
+      level design, environmental puzzle design and worldbuilding into a single
+      first-person adventure.
+      <br><br>
+      If you’d like to see the latest build, puzzle prototypes, or discuss collaboration,
+      you can reach me via <a href="mailto:gorartsev@gmail.com">gorartsev@gmail.com</a> or on Telegram
+      <a href="https://t.me/grarchimp" target="_blank" rel="noopener">@grarchimp</a>.
+    </p>
+  </section>
+
+</main>
+
+</body>
+</html>
