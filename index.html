@@ -208,8 +208,8 @@
       background: var(--bg-alt);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 20px;
-      margin-bottom: 32px;
+      padding: 16px;
+      margin-bottom: 24px;
       transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
     }
 
@@ -245,34 +245,17 @@
       border: 1px solid rgba(15,92,77,0.4);
     }
 
-    /* CTA BUTTON (ONLY TEMPLE OF THE MIND) */
-    .project-cta {
-      display: inline-block;
-      margin-top: 14px;
-      padding: 10px 18px;
-      background: var(--accent);
-      color: #fff;
-      border-radius: 999px;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 500;
-      transition: background 0.2s ease, transform 0.2s ease;
-    }
-
-    .project-cta:hover {
-      background: #0A4A3E;
-      transform: translateY(-2px);
-    }
-
-    /* SLIDER */
-    .slider {
+    /* SLIDER / VIDEO – уменьшенный масштаб */
+    .slider,
+    .project-video {
       position: relative;
       width: 100%;
+      max-width: 840px;   /* меньше ширина → меньше высота */
       aspect-ratio: 16/9;
       border-radius: 14px;
       overflow: hidden;
       background: #DDD;
-      margin-bottom: 16px;
+      margin: 0 auto 14px;
       border: 1px solid var(--border);
     }
 
@@ -314,18 +297,6 @@
 
     .slider-btn.left { left: 8px; }
     .slider-btn.right { right: 8px; }
-
-    /* VIDEO */
-    .project-video {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16/9;
-      border-radius: 14px;
-      overflow: hidden;
-      background: #DDD;
-      margin-bottom: 16px;
-      border: 1px solid var(--border);
-    }
 
     .project-video iframe {
       width: 100%;
@@ -410,13 +381,13 @@
         disable-zoom
         interaction-prompt="none"
 
-        scale="0.015 0.015 0.015"
-        camera-orbit="0deg 80deg 11m"
-        min-camera-orbit="auto auto 11m"
-        max-camera-orbit="auto auto 11m"
+        scale="0.03 0.03 0.03"
+        camera-orbit="0deg 80deg 9m"
+        min-camera-orbit="auto auto 9m"
+        max-camera-orbit="auto auto 9m"
 
-        field-of-view="40deg"
-        camera-target="-0.25m 1.1m 0m"
+        field-of-view="38deg"
+        camera-target="-0.25m 1.2m 0m"
 
         exposure="1.1"
         shadow-intensity="0.8"
