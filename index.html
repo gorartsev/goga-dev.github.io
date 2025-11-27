@@ -38,6 +38,16 @@
       padding: 24px 16px 80px;
     }
 
+    /* GLOBAL LINKS — убираем фиолетовый visited */
+    a,
+    a:visited {
+      color: var(--accent);
+    }
+
+    a:hover {
+      color: #0A4A3E;
+    }
+
     /* NAV */
     .nav {
       position: sticky;
@@ -67,13 +77,14 @@
       gap: 16px;
     }
 
-    .nav-links a {
+    .nav-links a,
+    .nav-links a:visited {
       text-decoration: none;
       color: var(--text-muted);
-      transition: 0.2s;
       padding: 6px 12px;
       border-radius: 999px;
       font-size: 14px;
+      transition: 0.2s;
     }
 
     .nav-links a:hover {
@@ -81,7 +92,8 @@
       background: var(--accent-light);
     }
 
-    .nav-links a.nav-link-primary {
+    .nav-links a.nav-link-primary,
+    .nav-links a.nav-link-primary:visited {
       background: var(--accent);
       color: #FFFFFF;
       font-weight: 600;
@@ -245,35 +257,34 @@
       border: 1px solid rgba(15,92,77,0.4);
     }
 
-    /* PROJECT IMAGE (Temple of the Mind) */
-    .project-image {
+    /* ЕДИНЫЙ ФОРМАТ МЕДИА-БЛОКОВ 16:9, БЕЗ ПОЛЕЙ ПО БОКАМ */
+    .project-image,
+    .slider,
+    .project-video {
       width: 100%;
-      max-width: 720px;
-      margin: 0 auto 16px;
+      aspect-ratio: 16/9;
       border-radius: 14px;
       overflow: hidden;
-      border: 1px solid var(--border);
       background: #000;
+      margin: 0 0 16px;
+      border: 1px solid var(--border);
     }
 
     .project-image img {
       width: 100%;
+      height: 100%;
+      object-fit: cover; /* обложка храма аккуратно кадрируется под 16:9 */
       display: block;
-      object-fit: cover;
     }
 
-    /* SLIDER / VIDEO – уменьшенный масштаб (для остальных проектов) */
-    .slider,
+    .slider {
+      position: relative;
+      background: #DDD;
+    }
+
     .project-video {
       position: relative;
-      width: 100%;
-      max-width: 720px;
-      aspect-ratio: 16/9;
-      border-radius: 14px;
-      overflow: hidden;
       background: #DDD;
-      margin: 0 auto 16px;
-      border: 1px solid var(--border);
     }
 
     .slider img {
@@ -322,6 +333,27 @@
       display: block;
     }
 
+    /* CTA BUTTON */
+    .project-cta,
+    .project-cta:visited {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 18px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .project-cta:hover {
+      background: #0A4A3E;
+      transform: translateY(-2px);
+      color: #fff;
+    }
+
     /* ABOUT / CONTACT */
     .about {
       background: var(--bg-alt);
@@ -335,7 +367,8 @@
 
     #contact { margin-top: 32px; }
 
-    .contact-block a {
+    .contact-block a,
+    .contact-block a:visited {
       color: var(--accent);
     }
 
@@ -390,16 +423,26 @@
     </div>
 
     <div class="hero-preview">
-     <div class="hero-preview">
-  <model-viewer
-    src="assets/hero/hero-dance.glb"
-    autoplay
-    loop
-    camera-controls
-    disable-zoom
-    interaction-prompt="none"
-    style="background-color: transparent; width: 100%; max-width: 380px; height: 380px;"
-  ></model-viewer>
+      <model-viewer
+        src="assets/hero/hero-dance.glb"
+        autoplay
+        loop
+        camera-controls
+        disable-zoom
+        interaction-prompt="none"
+
+        scale="0.08 0.08 0.08"
+        camera-orbit="0deg 80deg 3.5m"
+        min-camera-orbit="auto auto 3.5m"
+        max-camera-orbit="auto auto 3.5m"
+
+        field-of-view="35deg"
+        camera-target="0m 1m 0m"
+
+        exposure="1.1"
+        shadow-intensity="0.8"
+        style="background-color: transparent;"
+      ></model-viewer>
     </div>
 
   </section>
@@ -408,7 +451,7 @@
   <section id="projects">
     <h2 class="section-title">Selected projects</h2>
 
-    <!-- TEMPLE OF THE MIND (одна обложка) -->
+    <!-- TEMPLE OF THE MIND -->
     <article class="project-card">
       <div class="project-image">
         <img src="assets/temple/mind.png" alt="Temple of the Mind key art">
