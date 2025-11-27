@@ -68,10 +68,25 @@
       text-decoration: none;
       color: var(--text-muted);
       transition: 0.2s;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 14px;
     }
 
     .nav-links a:hover {
       color: var(--accent);
+      background: var(--accent-light);
+    }
+
+    .nav-links a.nav-link-primary {
+      background: var(--accent);
+      color: #FFFFFF;
+      font-weight: 600;
+    }
+
+    .nav-links a.nav-link-primary:hover {
+      background: #0A4A3E;
+      color: #FFFFFF;
     }
 
     @media (max-width: 600px) {
@@ -90,6 +105,7 @@
 
       .nav-links a {
         white-space: nowrap;
+        padding: 4px 10px;
       }
     }
 
@@ -191,7 +207,8 @@
     /* PROJECTS */
     .section-title {
       font-size: 26px;
-      margin-bottom: 18px;
+      margin-top: 0;
+      margin-bottom: 8px; /* было 18px — уменьшил */
     }
 
     #projects {
@@ -315,16 +332,16 @@
       background: var(--bg-alt);
       border-radius: var(--radius);
       border: 1px solid var(--border);
-      padding: 24px;
-      margin-top: 20px;
+      padding: 14px 18px;  /* было 24px — меньше внутри */
+      margin-top: 10px;    /* было 20px — меньше снаружи */
     }
 
     #about {
-      margin-top: 20px;
+      margin-top: 10px;    /* уменьшил общий отступ секции */
     }
 
     #contact {
-      margin-top: 12px;
+      margin-top: 6px;     /* ещё более компактно */
     }
 
     .contact-block a {
@@ -332,7 +349,7 @@
     }
 
     footer {
-      margin-top: 60px;
+      margin-top: 40px;
       text-align: center;
       color: var(--text-muted);
       font-size: 13px;
@@ -350,7 +367,7 @@
       <a href="#projects">Projects</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
-      <a href="temple-of-mind.html" style="color: var(--accent); font-weight:600;">Temple of the Mind</a>
+      <a href="temple-of-mind.html" class="nav-link-primary">Temple of the Mind</a>
     </nav>
   </div>
 </header>
@@ -516,7 +533,7 @@
 
   <!-- CONTACT -->
   <section id="contact">
-    <div class="about" style="margin-top:24px;">
+    <div class="about">
       <h2 class="section-title">Contact</h2>
       <div class="contact-block">
         <p>Email: <a href="mailto:gorartsev@gmail.com">gorartsev@gmail.com</a></p>
