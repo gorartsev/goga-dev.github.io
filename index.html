@@ -245,34 +245,24 @@
       border: 1px solid rgba(15,92,77,0.4);
     }
 
-    /* ОБЛОЖКА ПРОЕКТА */
-    .project-cover {
+    /* PROJECT IMAGE (Temple of the Mind) */
+    .project-image {
       width: 100%;
+      max-width: 720px;
+      margin: 0 auto 16px;
       border-radius: 14px;
+      overflow: hidden;
       border: 1px solid var(--border);
-      margin-bottom: 16px;
+      background: #000;
+    }
+
+    .project-image img {
+      width: 100%;
       display: block;
+      object-fit: cover;
     }
 
-    /* ССЫЛКА "View full project" */
-    .project-cta {
-      display: inline-block;
-      margin-top: 4px;
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    .project-cta:hover {
-      text-decoration: underline;
-    }
-
-    .project-cta:visited {
-      color: var(--accent);
-    }
-
-    /* SLIDER / VIDEO – уменьшенный масштаб */
+    /* SLIDER / VIDEO – уменьшенный масштаб (для остальных проектов) */
     .slider,
     .project-video {
       position: relative;
@@ -400,7 +390,7 @@
     </div>
 
     <div class="hero-preview">
-      <model-viewer
+     <model-viewer
   src="assets/hero/hero-dance.glb"
   autoplay
   loop
@@ -408,19 +398,17 @@
   disable-zoom
   interaction-prompt="none"
 
-  scale="0.045 0.045 0.045"
-  camera-orbit="0deg 80deg 3.5m"
-  min-camera-orbit="auto auto 3.5m"
-  max-camera-orbit="auto auto 3.5m"
+  scale="0.03 0.03 0.03"
+  camera-orbit="0deg 80deg 6m"
+  min-camera-orbit="auto auto 6m"
+  max-camera-orbit="auto auto 6m"
 
   field-of-view="35deg"
   camera-target="0m 1m 0m"
-
   exposure="1.1"
   shadow-intensity="0.8"
   style="background-color: transparent;"
 ></model-viewer>
-
 
     </div>
 
@@ -430,20 +418,10 @@
   <section id="projects">
     <h2 class="section-title">Selected projects</h2>
 
-    <!-- TEMPLE OF THE MIND -->
+    <!-- TEMPLE OF THE MIND (одна обложка) -->
     <article class="project-card">
-      <!-- обложка -->
-      <img src="assets/temple/mind.png"
-           alt="Temple of the Mind cover"
-           class="project-cover">
-
-      <div class="slider" id="slider-temple">
-        <span class="slider-btn left" onclick="prevSlide('slider-temple')">←</span>
-        <span class="slider-btn right" onclick="nextSlide('slider-temple')">→</span>
-
-        <img src="assets/temple/Shot1.png" class="active" alt="Temple of the Mind shot 1">
-        <img src="assets/temple/Shot2.png" alt="Temple of the Mind shot 2">
-        <img src="assets/temple/Shot3.png" alt="Temple of the Mind shot 3">
+      <div class="project-image">
+        <img src="assets/temple/mind.png" alt="Temple of the Mind key art">
       </div>
 
       <div class="project-name">Temple of the Mind</div>
