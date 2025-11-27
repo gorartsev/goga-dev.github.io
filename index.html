@@ -245,6 +245,33 @@
       border: 1px solid rgba(15,92,77,0.4);
     }
 
+    /* ОБЛОЖКА ПРОЕКТА */
+    .project-cover {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    /* ССЫЛКА "View full project" */
+    .project-cta {
+      display: inline-block;
+      margin-top: 4px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .project-cta:hover {
+      text-decoration: underline;
+    }
+
+    .project-cta:visited {
+      color: var(--accent);
+    }
+
     /* SLIDER / VIDEO – уменьшенный масштаб */
     .slider,
     .project-video {
@@ -381,13 +408,13 @@
         disable-zoom
         interaction-prompt="none"
 
-        scale="0.022 0.022 0.022"
-        camera-orbit="0deg 78deg 9m"
-        min-camera-orbit="auto auto 9m"
-        max-camera-orbit="auto auto 9m"
+        scale="0.08 0.08 0.08"
+        camera-orbit="0deg 80deg 3.5m"
+        min-camera-orbit="auto auto 3.5m"
+        max-camera-orbit="auto auto 3.5m"
 
-        field-of-view="34deg"
-        camera-target="-0.25m 1.05m 0m"
+        field-of-view="35deg"
+        camera-target="0m 1m 0m"
 
         exposure="1.1"
         shadow-intensity="0.8"
@@ -403,6 +430,11 @@
 
     <!-- TEMPLE OF THE MIND -->
     <article class="project-card">
+      <!-- обложка -->
+      <img src="assets/temple/mind.png"
+           alt="Temple of the Mind cover"
+           class="project-cover">
+
       <div class="slider" id="slider-temple">
         <span class="slider-btn left" onclick="prevSlide('slider-temple')">←</span>
         <span class="slider-btn right" onclick="nextSlide('slider-temple')">→</span>
