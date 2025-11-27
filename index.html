@@ -375,31 +375,43 @@ footer {
     </div>
   </article>
 
-  <!-- Subway-style Runner -->
   <article class="project-card">
-    <div class="slider" id="slider-subway">
-      <span class="slider-btn left"  onclick="prevSlide('slider-subway')">←</span>
-      <span class="slider-btn right" onclick="nextSlide('slider-subway')">→</span>
 
-  <!-- Добавляем видео прямо сюда: -->
-  <div class="project-video" style="margin-top:12px;">
+  <!-- VIDEO ONLY -->
+  <div class="project-video" style="
+    margin-bottom: 18px;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.08);
+    background: #f2f2f2;
+  ">
     <iframe 
       width="100%" 
-      height="315"
+      height="400"
       src="https://www.youtube.com/embed/yW1VZEHcZSM"
-      title="Subway-Style Runner Prototype"
+      title="Runner Prototype"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen>
     </iframe>
   </div>
 
-  <div class="project-name">Subway-Style Runner Prototype – Unity</div>
+  <div class="project-name">Runner Prototype – Unity</div>
+
   <div class="project-meta">
-    ...
+    Three-lane runner prototype inspired by games like Subway Surfers. Focus on camera behaviour,
+    speed curves, obstacle timing and rhythm, with clear telegraphing of hazards and responsive
+    controls. Used as a sandbox for tuning mobile game feel.
+  </div>
+
+  <div class="project-tags">
+    <span class="tag-soft">Unity</span>
+    <span class="tag-soft">Mobile runner</span>
+    <span class="tag-soft">Lane-based gameplay</span>
   </div>
 
 </article>
+
       
       <!-- Скрины трёхполосного раннера -->
       <img src="assets/subway/Shot1.png" class="active" alt="Subway-style runner shot 1">
