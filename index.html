@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Yegor Artsev – Level Designer (Unity & Unreal Engine)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Portfolio of Level Designer Yegor Artsev: Unity & Unreal Engine projects, hybrid-casual runners, VR simulators and atmospheric PC-style environments.">
+  <meta name="description" content="Portfolio of Level Designer Yegor Artsev: Unity & Unreal Engine projects, hybrid-casual runners, VR simulators and atmospheric 3D environments for PC-style projects.">
 
   <!-- 3D viewer -->
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
@@ -250,12 +250,12 @@
     .project-video {
       position: relative;
       width: 100%;
-      max-width: 840px;   /* меньше ширина → меньше высота */
+      max-width: 720px;
       aspect-ratio: 16/9;
       border-radius: 14px;
       overflow: hidden;
       background: #DDD;
-      margin: 0 auto 14px;
+      margin: 0 auto 16px;
       border: 1px solid var(--border);
     }
 
@@ -373,27 +373,26 @@
     </div>
 
     <div class="hero-preview">
-     <model-viewer
-  src="assets/hero/hero-dance.glb"
-  autoplay
-  loop
-  camera-controls
-  disable-zoom
-  interaction-prompt="none"
+      <model-viewer
+        src="assets/hero/hero-dance.glb"
+        autoplay
+        loop
+        camera-controls
+        disable-zoom
+        interaction-prompt="none"
 
-  scale="0.022 0.022 0.022"
-  camera-orbit="0deg 78deg 9m"
-  min-camera-orbit="auto auto 9m"
-  max-camera-orbit="auto auto 9m"
+        scale="0.022 0.022 0.022"
+        camera-orbit="0deg 78deg 9m"
+        min-camera-orbit="auto auto 9m"
+        max-camera-orbit="auto auto 9m"
 
-  field-of-view="34deg"
-  camera-target="-0.25m 1.05m 0m"
+        field-of-view="34deg"
+        camera-target="-0.25m 1.05m 0m"
 
-  exposure="1.1"
-  shadow-intensity="0.8"
-  style="background-color: transparent;"
-></model-viewer>
-
+        exposure="1.1"
+        shadow-intensity="0.8"
+        style="background-color: transparent;"
+      ></model-viewer>
     </div>
 
   </section>
