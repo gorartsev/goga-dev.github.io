@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Yegor Artsev – Level Designer (Unity & Unreal Engine)</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Portfolio of Level Designer Yegor Artsev: Unity & Unreal Engine projects, hybrid-casual runners, VR simulators and atmospheric 3D environments for PC-style projects.">
-
-  <!-- 3D viewer -->
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-
-  <style>
+<style>
     :root {
       --accent: #0F5C4D;
       --accent-light: rgba(15, 92, 77, 0.16);
@@ -39,7 +28,8 @@
     }
 
     /* GLOBAL LINKS — убираем фиолетовый visited */
-    a, a:visited {
+    a,
+    a:visited {
       color: var(--accent);
     }
 
@@ -76,7 +66,8 @@
       gap: 16px;
     }
 
-    .nav-links a, .nav-links a:visited {
+    .nav-links a,
+    .nav-links a:visited {
       text-decoration: none;
       color: var(--text-muted);
       padding: 6px 12px;
@@ -197,7 +188,7 @@
 
     .hero-preview model-viewer {
       width: 100%;
-      max-width: 360px; /* уменьшил визуальный размер */
+      max-width: 360px;
       height: 360px;
       --progress-bar-color: transparent;
       --progress-bar-height: 0px;
@@ -287,8 +278,10 @@
       border: 1px solid rgba(15,92,77,0.4);
     }
 
-    /* ЕДИНЫЙ ФОРМАТ МЕДИА-БЛОКОВ 16:9, БЕЗ ПОЛЕЙ ПО БОКАМ */
-    .project-image, .slider, .project-video {
+    /* ЕДИНЫЙ ФОРМАТ МЕДИА-БЛОКОВ 16:9, БЕЗ ПОЛЕЙ */
+    .project-image,
+    .slider,
+    .project-video {
       width: 100%;
       aspect-ratio: 16/9;
       border-radius: 14px;
@@ -310,13 +303,8 @@
       background: #DDD;
     }
 
-    .project-video {
-      position: relative;
-      background: #DDD;
-    }
-
-    /* ТУТ МИНИМАЛЬНОЕ ИЗМЕНЕНИЕ: было .slider img / .slider img.active */
-    .slider .slide {
+    /* ТВОЙ СТАРЫЙ КОД */
+    .slider img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -325,9 +313,16 @@
       transition: opacity 0.25s ease;
     }
 
-    .slider .slide.active {
+    .slider img.active {
       display: block;
       opacity: 1;
+    }
+
+    /* FIX: remove black borders from YouTube */
+    .slider iframe {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .slider-btn {
@@ -354,294 +349,3 @@
 
     .slider-btn.left { left: 8px; }
     .slider-btn.right { right: 8px; }
-
-    .project-video iframe {
-      width: 100%;
-      height: 100%;
-      border-radius: 14px;
-      display: block;
-    }
-
-    /* CTA BUTTON */
-    .project-cta, .project-cta:visited {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 18px;
-      background: var(--accent);
-      color: #fff;
-      border-radius: 999px;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 500;
-      transition: background 0.2s ease, transform 0.2s ease;
-    }
-
-    .project-cta:hover {
-      background: #0A4A3E;
-      transform: translateY(-2px);
-      color: #fff;
-    }
-
-    /* ABOUT / CONTACT */
-    .about {
-      background: var(--bg-alt);
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      padding: 18px 18px 16px;
-      margin-top: 16px;
-    }
-
-    #about { margin-top: 40px; }
-
-    #contact { margin-top: 32px; }
-
-    .contact-block a, .contact-block a:visited {
-      color: var(--accent);
-    }
-
-    footer {
-      margin-top: 40px;
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 13px;
-    }
-  </style>
-</head>
-<body>
-
-<header class="nav">
-  <div class="nav-inner">
-    <div class="nav-logo">YEGOR ARTSEV</div>
-    <nav class="nav-links">
-      <a href="#top">Home</a>
-      <a href="#projects">Projects</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-      <a href="temple-of-mind.html" class="nav-link-primary">Temple of the Mind</a>
-    </nav>
-  </div>
-</header>
-
-<main class="page" id="top">
-
-  <!-- HERO -->
-  <section class="hero">
-    <div>
-      <div class="hero-kicker">Level Designer</div>
-      <h1 class="hero-title">Designing readable, atmospheric levels.</h1>
-      <div class="hero-name">Yegor Artsev · Level Designer</div>
-      <p class="hero-sub">
-        Level Designer with experience in mobile hybrid-casual games, VR simulators and atmospheric 3D environments for PC-style projects.
-      </p>
-      <div class="hero-tags">
-        <span class="tag">Unity</span>
-        <span class="tag">Unreal Engine</span>
-        <span class="tag">Hybrid & Casual</span>
-        <span class="tag">VR / Simulators</span>
-      </div>
-      <a class="btn-main" href="#projects">View projects</a>
-    </div>
-    <div class="hero-preview">
-      <model-viewer
-        src="assets/hero/hero-dance.glb"
-        autoplay loop
-        camera-controls="false"
-        disable-zoom
-        interaction-prompt="none"
-        scale="0.012 0.012 0.012"
-        camera-orbit="0deg 80deg 8m"
-        field-of-view="30deg"
-        camera-target="0m -0,5m 0m"
-        exposure="1.1"
-        shadow-intensity="0.8"
-        style="background-color: transparent;">
-      </model-viewer>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects">
-    <h2 class="section-title">Selected projects</h2>
-
-    <!-- TEMPLE OF THE MIND -->
-    <article class="project-card project-card-highlight">
-      <div class="project-flag">In development </div>
-      <div class="project-image">
-        <img src="assets/temple/mind.png" alt="Temple of the Mind key art">
-      </div>
-      <div class="project-name">Temple of the Mind</div>
-      <div class="project-meta">
-        Personal project in development built in Unity (URP). First-person puzzle adventure built in Unity (URP).
-        You explore an ancient temple that connects five unique biomes, each filled with environmental puzzles inspired by The Witness, The Room and Uncharted. All clues are embedded directly into architecture, materials and symbols, creating a slow, atmospheric journey through a mystical forgotten civilization.
-      </div>
-      <div class="project-tags">
-        <span class="tag-soft">Unity</span>
-        <span class="tag-soft">PC-style exploration</span>
-        <span class="tag-soft">Atmosphere & mood</span>
-      </div>
-      <a href="temple-of-mind.html" class="project-cta">View full project →</a>
-    </article>
-
-    <!-- ZONECITY RUNNER -->
-    <article class="project-card">
-      <div class="slider" id="slider-zonecity">
-        <span class="slider-btn left" onclick="prevSlide('slider-zonecity')">←</span>
-        <span class="slider-btn right" onclick="nextSlide('slider-zonecity')">→</span>
-
-        <!-- ВИДЕО КАК ПЕРВЫЙ СЛАЙД -->
-        <iframe
-          class="slide active"
-          src="https://www.youtube.com/embed/zwzeJUWJRWY"
-          title="ZoneCity playthrough"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen>
-        </iframe>
-
-        <!-- СТАРЫЕ КАДРЫ, ТОЛЬКО ДОБАВЛЕН class="slide" -->
-        <img src="assets/zonecity/assets/zonecity/Step1.png" class="slide" alt="ZoneCity step 1">
-        <img src="assets/zonecity/assets/zonecity/Step2.png" class="slide" alt="ZoneCity step 2">
-        <img src="assets/zonecity/assets/zonecity/Step3.png" class="slide" alt="ZoneCity step 3">
-        <img src="assets/zonecity/assets/zonecity/Step4.png" class="slide" alt="ZoneCity step 4">
-        <img src="assets/zonecity/assets/zonecity/Step5.png" class="slide" alt="ZoneCity step 5">
-        <img src="assets/zonecity/assets/zonecity/Step6.png" class="slide" alt="ZoneCity step 6">
-        <img src="assets/zonecity/assets/zonecity/Step7.png" class="slide" alt="ZoneCity step 7">
-      </div>
-
-      <div class="project-name">ZoneCity</div>
-      <div class="project-meta">
-        ZoneCity is a runner prototype built around exploring a compact city surrounded by dense forest.
-        The player moves through streets, alleys and small green areas to find and collect 10 hidden artifacts.
-        The flow is shaped by the contrast between urban structure and nature: clean lane patterns, clear visual
-        markers and rhythmic environmental changes maintain readability and keep the experience engaging along the entire route.
-      </div>
-      <div class="project-tags">
-        <span class="tag-soft">Unity</span>
-        <span class="tag-soft">Hybrid-casual</span>
-        <span class="tag-soft">Patterns & progression</span>
-      </div>
-    </article>
-
-    <!-- RUNNER PROTOTYPE -->
-    <article class="project-card">
-      <div class="project-video">
-        <iframe
-          src="https://www.youtube.com/embed/yW1VZEHcZSM"
-          title="Runner Prototype"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen>
-        </iframe>
-      </div>
-      <div class="project-name">Runner Prototype</div>
-      <div class="project-meta">
-        Three-lane runner prototype focusing on camera feel, speed curves, hazard telegraphing and smooth game rhythm.
-      </div>
-      <div class="project-tags">
-        <span class="tag-soft">Unity</span>
-        <span class="tag-soft">Runner</span>
-        <span class="tag-soft">Lane gameplay</span>
-      </div>
-    </article>
-  </section>
-
-  <!-- MEDICAL VR -->
-  <article class="project-card">
-    <div class="slider" id="slider-medical">
-      <span class="slider-btn left" onclick="prevSlide('slider-medical')">←</span>
-      <span class="slider-btn right" onclick="nextSlide('slider-medical')">→</span>
-
-      <!-- тут только добавлен class="slide" и у первой ещё active -->
-      <img src="assets/medical/1.jpg" class="slide active" alt="Medical VR shot 1">
-      <img src="assets/medical/2.JPG" class="slide" alt="Medical VR shot 2">
-      <img src="assets/medical/3.jpg" class="slide" alt="Medical VR shot 3">
-      <img src="assets/medical/4.jpg" class="slide" alt="Medical VR shot 4">
-      <img src="assets/medical/5.jpg" class="slide" alt="Medical VR shot 5">
-      <img src="assets/medical/6.JPG" class="slide" alt="Medical VR shot 6">
-      <img src="assets/medical/7.JPG" class="slide" alt="Medical VR shot 7">
-      <img src="assets/medical/8.JPG" class="slide" alt="Medical VR shot 8">
-      <img src="assets/medical/9.JPG" class="slide" alt="Medical VR shot 9">
-    </div>
-
-    <div class="project-name">Medical VR Training Simulator</div>
-    <div class="project-meta">
-      VR simulator focused on clear learning flow, realistic spatial layout and stable performance.
-      I built training environments and designed the in-VR UI/UX so medical students could complete practice tasks using an interactive tablet system.
-    </div>
-    <div class="project-tags">
-      <span class="tag-soft">Unreal Engine 5</span>
-      <span class="tag-soft">VR Simulator</span>
-      <span class="tag-soft">Level Layout & Flow</span>
-    </div>
-  </article>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="about">
-      <h2 class="section-title">About</h2>
-      <p>
-        I’m a Level Designer focused on building readable, atmospheric spaces for games and simulations. I work with Unity and Unreal Engine 5, creating everything from hybrid-casual runners to first-person puzzle adventures and VR training environments.
-      </p>
-      <p>
-        My experience includes production-ready level design at 24 Play LLC, VR medical simulators for Khalifa University, interactive 3D tours for commercial projects and environment-driven UX for e-commerce platforms. I combine technical understanding, strong visual composition and player-centric thinking to design spaces that guide, teach and immerse.
-      </p>
-      <p>
-        I’m currently developing Temple of the Mind — a first-person puzzle adventure with five biomes, environmental riddles and a focus on architectural storytelling. I’m steadily moving toward building full exploration-based experiences for PC and console.
-      </p>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="about">
-      <h2 class="section-title">Contact</h2>
-      <div class="contact-block">
-        <p>Email: <a href="mailto:gorartsev@gmail.com">gorartsev@gmail.com</a></p>
-        <p>Telegram: <a href="https://t.me/grarchimp" target="_blank" rel="noopener">@grarchimp</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/yegor-artsev/" target="_blank" rel="noopener">linkedin.com/in/yegor-artsev/</a></p>
-        <p>
-          CV (EN):
-          <a href="assets/cv/CV_Artcev%20Yegor_ENG.pdf" target="_blank" rel="noopener">
-            Download PDF
-          </a>
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    © <span id="year"></span> Yegor Artsev · Level Designer
-  </footer>
-
-</main>
-
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  function nextSlide(id) {
-    const slider = document.getElementById(id);
-    if (!slider) return;
-    const images = slider.querySelectorAll('.slide'); // было 'img'
-    if (!images.length) return;
-    let index = Array.from(images).findIndex(img => img.classList.contains('active'));
-    if (index === -1) index = 0;
-    images[index].classList.remove('active');
-    index = (index + 1) % images.length;
-    images[index].classList.add('active');
-  }
-
-  function prevSlide(id) {
-    const slider = document.getElementById(id);
-    if (!slider) return;
-    const images = slider.querySelectorAll('.slide'); // было 'img'
-    if (!images.length) return;
-    let index = Array.from(images).findIndex(img => img.classList.contains('active'));
-    if (index === -1) index = 0;
-    images[index].classList.remove('active');
-    index = (index - 1 + images.length) % images.length;
-    images[index].classList.add('active');
-  }
-</script>
-
-</body>
-</html>
