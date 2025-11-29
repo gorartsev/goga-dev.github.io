@@ -263,6 +263,134 @@
       color: var(--text-muted);
     }
     .footer-cta strong { color: var(--text-main); }
+
+    /* ==================== MOBILE TYPOGRAPHY ==================== */
+    @media (max-width: 600px) {
+      .page {
+        padding: 20px 14px 60px;
+      }
+
+      /* Back link */
+      .back-link {
+        font-size: 12px;
+        margin-bottom: 12px;
+      }
+      .back-link span {
+        font-size: 16px;
+      }
+
+      /* Hero */
+      .hero-head {
+        margin-top: 16px;
+        margin-bottom: 20px;
+      }
+
+      .hero-kicker {
+        font-size: 11px;
+        margin-bottom: 4px;
+      }
+
+      .hero-title {
+        font-size: 28px;
+        margin-bottom: 6px;
+        line-height: 1.15;
+      }
+
+      .hero-sub {
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 14px;
+      }
+
+      .hero-meta {
+        font-size: 12px;
+        margin-bottom: 20px;
+      }
+
+      .hero-meta span {
+        display: block;
+        margin-right: 0;
+        margin-bottom: 4px;
+      }
+
+      .hero-thumb {
+        aspect-ratio: 16/9;
+        border-radius: 16px;
+        font-size: 13px;
+        padding: 12px;
+        margin-bottom: 24px;
+      }
+
+      /* Sections */
+      .section-title {
+        font-size: 20px;
+        margin-top: 24px;
+        margin-bottom: 6px;
+      }
+
+      .section-text {
+        font-size: 14px;
+        line-height: 1.55;
+      }
+
+      .block {
+        padding: 14px 14px 12px;
+        margin-top: 14px;
+      }
+
+      /* Carousel */
+      .carousel {
+        border-radius: 12px;
+        margin-top: 14px;
+      }
+
+      .carousel-image {
+        border-radius: 12px;
+      }
+
+      .carousel-btn {
+        padding: 6px 10px;
+        font-size: 16px;
+      }
+
+      .carousel-btn.prev {
+        left: 8px;
+      }
+
+      .carousel-btn.next {
+        right: 8px;
+      }
+
+      .carousel-dots {
+        bottom: 8px;
+        gap: 5px;
+      }
+
+      .carousel-dot {
+        width: 5px;
+        height: 5px;
+      }
+
+      .carousel-dot.is-active {
+        width: 12px;
+      }
+
+      /* Gallery items */
+      .gallery-item {
+        min-height: 100px;
+        font-size: 12px;
+        padding: 10px;
+        border-radius: 12px;
+      }
+
+      /* Footer CTA */
+      .footer-cta {
+        margin-top: 32px;
+        padding: 16px;
+        border-radius: 16px;
+        font-size: 13px;
+      }
+    }
   </style>
 </head>
 
@@ -315,7 +443,7 @@
     <h2 class="section-title">Worldbuilding & Fantasy</h2>
     <p class="section-text">
       The temple is a forgotten ritual complex in the desert. At its centre lies the
-      <strong>“Riddle of Humanity”</strong> – an artefact sealed behind a multi-stage ritual.
+      <strong>"Riddle of Humanity"</strong> – an artefact sealed behind a multi-stage ritual.
       To reach it, the player must activate the hub, travel through five biomes and return
       with fragments of a single key.
     </p>
@@ -342,7 +470,7 @@
         • read a clue in the hub → open a gate<br>
         • explore a biome and solve 2–3 architecture-driven puzzles<br>
         • earn a key fragment and return to the hub<br>
-        • activate a slot and light a new “energy channel” in the architecture<br>
+        • activate a slot and light a new "energy channel" in the architecture<br>
         • when all channels are active, the final tomb opens
       </p>
 
