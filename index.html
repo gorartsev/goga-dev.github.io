@@ -39,8 +39,7 @@
     }
 
     /* GLOBAL LINKS — убираем фиолетовый visited */
-    a,
-    a:visited {
+    a, a:visited {
       color: var(--accent);
     }
 
@@ -77,8 +76,7 @@
       gap: 16px;
     }
 
-    .nav-links a,
-    .nav-links a:visited {
+    .nav-links a, .nav-links a:visited {
       text-decoration: none;
       color: var(--text-muted);
       padding: 6px 12px;
@@ -238,8 +236,7 @@
     /* ХАЙЛАЙТ ДЛЯ TEMPLE OF THE MIND */
     .project-card-highlight {
       position: relative;
-      background: radial-gradient(circle at top left, rgba(15,92,77,0.18), transparent 55%),
-      var(--bg);
+      background: radial-gradient(circle at top left, rgba(15,92,77,0.18), transparent 55%), var(--bg);
       border: 1px solid rgba(15,92,77,0.6);
       box-shadow: 0 18px 40px rgba(0,0,0,0.16);
       margin-bottom: 32px;
@@ -291,9 +288,7 @@
     }
 
     /* ЕДИНЫЙ ФОРМАТ МЕДИА-БЛОКОВ 16:9, БЕЗ ПОЛЕЙ ПО БОКАМ */
-    .project-image,
-    .slider,
-    .project-video {
+    .project-image, .slider, .project-video {
       width: 100%;
       aspect-ratio: 16/9;
       border-radius: 14px;
@@ -320,7 +315,8 @@
       background: #DDD;
     }
 
-    .slider img {
+    /* ТУТ МИНИМАЛЬНОЕ ИЗМЕНЕНИЕ: было .slider img / .slider img.active */
+    .slider .slide {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -329,7 +325,7 @@
       transition: opacity 0.25s ease;
     }
 
-    .slider img.active {
+    .slider .slide.active {
       display: block;
       opacity: 1;
     }
@@ -367,8 +363,7 @@
     }
 
     /* CTA BUTTON */
-    .project-cta,
-    .project-cta:visited {
+    .project-cta, .project-cta:visited {
       display: inline-block;
       margin-top: 10px;
       padding: 10px 18px;
@@ -400,8 +395,7 @@
 
     #contact { margin-top: 32px; }
 
-    .contact-block a,
-    .contact-block a:visited {
+    .contact-block a, .contact-block a:visited {
       color: var(--accent);
     }
 
@@ -413,8 +407,8 @@
     }
   </style>
 </head>
-
 <body>
+
 <header class="nav">
   <div class="nav-inner">
     <div class="nav-logo">YEGOR ARTSEV</div>
@@ -429,6 +423,7 @@
 </header>
 
 <main class="page" id="top">
+
   <!-- HERO -->
   <section class="hero">
     <div>
@@ -436,8 +431,7 @@
       <h1 class="hero-title">Designing readable, atmospheric levels.</h1>
       <div class="hero-name">Yegor Artsev · Level Designer</div>
       <p class="hero-sub">
-        Level Designer with experience in mobile hybrid-casual games, VR simulators
-        and atmospheric 3D environments for PC-style projects.
+        Level Designer with experience in mobile hybrid-casual games, VR simulators and atmospheric 3D environments for PC-style projects.
       </p>
       <div class="hero-tags">
         <span class="tag">Unity</span>
@@ -447,7 +441,6 @@
       </div>
       <a class="btn-main" href="#projects">View projects</a>
     </div>
-
     <div class="hero-preview">
       <model-viewer
         src="assets/hero/hero-dance.glb"
@@ -473,52 +466,46 @@
     <!-- TEMPLE OF THE MIND -->
     <article class="project-card project-card-highlight">
       <div class="project-flag">In development </div>
-
       <div class="project-image">
         <img src="assets/temple/mind.png" alt="Temple of the Mind key art">
       </div>
-
       <div class="project-name">Temple of the Mind</div>
       <div class="project-meta">
-        Personal project in development built in Unity (URP).
-        First-person puzzle adventure built in Unity (URP).
+        Personal project in development built in Unity (URP). First-person puzzle adventure built in Unity (URP).
         You explore an ancient temple that connects five unique biomes, each filled with environmental puzzles inspired by The Witness, The Room and Uncharted. All clues are embedded directly into architecture, materials and symbols, creating a slow, atmospheric journey through a mystical forgotten civilization.
       </div>
-
       <div class="project-tags">
         <span class="tag-soft">Unity</span>
         <span class="tag-soft">PC-style exploration</span>
         <span class="tag-soft">Atmosphere & mood</span>
       </div>
-
       <a href="temple-of-mind.html" class="project-cta">View full project →</a>
     </article>
 
     <!-- ZONECITY RUNNER -->
     <article class="project-card">
+      <div class="slider" id="slider-zonecity">
+        <span class="slider-btn left" onclick="prevSlide('slider-zonecity')">←</span>
+        <span class="slider-btn right" onclick="nextSlide('slider-zonecity')">→</span>
 
-      <!-- ▼▼▼ ДОБАВЛЕНО: ВИДЕО С ЮТУБ ▼▼▼ -->
-      <div class="project-video">
+        <!-- ВИДЕО КАК ПЕРВЫЙ СЛАЙД -->
         <iframe
+          class="slide active"
           src="https://www.youtube.com/embed/zwzeJUWJRWY"
-          title="ZoneCity – Playthrough"
+          title="ZoneCity playthrough"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen>
         </iframe>
-      </div>
-      <!-- ▲▲▲ ВОТ ЭТО Я ДОБАВИЛ, ОСТАЛЬНОЕ НЕ ТРОГАЛ ▲▲▲ -->
 
-      <div class="slider" id="slider-zonecity">
-        <span class="slider-btn left" onclick="prevSlide('slider-zonecity')">←</span>
-        <span class="slider-btn right" onclick="nextSlide('slider-zonecity')">→</span>
-        <img src="assets/zonecity/assets/zonecity/Step1.png" class="active" alt="ZoneCity step 1">
-        <img src="assets/zonecity/assets/zonecity/Step2.png" alt="ZoneCity step 2">
-        <img src="assets/zonecity/assets/zonecity/Step3.png" alt="ZoneCity step 3">
-        <img src="assets/zonecity/assets/zonecity/Step4.png" alt="ZoneCity step 4">
-        <img src="assets/zonecity/assets/zonecity/Step5.png" alt="ZoneCity step 5">
-        <img src="assets/zonecity/assets/zonecity/Step6.png" alt="ZoneCity step 6">
-        <img src="assets/zonecity/assets/zonecity/Step7.png" alt="ZoneCity step 7">
+        <!-- СТАРЫЕ КАДРЫ, ТОЛЬКО ДОБАВЛЕН class="slide" -->
+        <img src="assets/zonecity/assets/zonecity/Step1.png" class="slide" alt="ZoneCity step 1">
+        <img src="assets/zonecity/assets/zonecity/Step2.png" class="slide" alt="ZoneCity step 2">
+        <img src="assets/zonecity/assets/zonecity/Step3.png" class="slide" alt="ZoneCity step 3">
+        <img src="assets/zonecity/assets/zonecity/Step4.png" class="slide" alt="ZoneCity step 4">
+        <img src="assets/zonecity/assets/zonecity/Step5.png" class="slide" alt="ZoneCity step 5">
+        <img src="assets/zonecity/assets/zonecity/Step6.png" class="slide" alt="ZoneCity step 6">
+        <img src="assets/zonecity/assets/zonecity/Step7.png" class="slide" alt="ZoneCity step 7">
       </div>
 
       <div class="project-name">ZoneCity</div>
@@ -526,10 +513,8 @@
         ZoneCity is a runner prototype built around exploring a compact city surrounded by dense forest.
         The player moves through streets, alleys and small green areas to find and collect 10 hidden artifacts.
         The flow is shaped by the contrast between urban structure and nature: clean lane patterns, clear visual
-        markers and rhythmic environmental changes maintain readability and keep the experience engaging
-        along the entire route.
+        markers and rhythmic environmental changes maintain readability and keep the experience engaging along the entire route.
       </div>
-
       <div class="project-tags">
         <span class="tag-soft">Unity</span>
         <span class="tag-soft">Hybrid-casual</span>
@@ -548,13 +533,10 @@
           allowfullscreen>
         </iframe>
       </div>
-
       <div class="project-name">Runner Prototype</div>
       <div class="project-meta">
-        Three-lane runner prototype focusing on camera feel, speed curves, hazard telegraphing
-        and smooth game rhythm.
+        Three-lane runner prototype focusing on camera feel, speed curves, hazard telegraphing and smooth game rhythm.
       </div>
-
       <div class="project-tags">
         <span class="tag-soft">Unity</span>
         <span class="tag-soft">Runner</span>
@@ -568,15 +550,17 @@
     <div class="slider" id="slider-medical">
       <span class="slider-btn left" onclick="prevSlide('slider-medical')">←</span>
       <span class="slider-btn right" onclick="nextSlide('slider-medical')">→</span>
-      <img src="assets/medical/1.jpg" class="active" alt="Medical VR shot 1">
-      <img src="assets/medical/2.JPG" alt="Medical VR shot 2">
-      <img src="assets/medical/3.jpg" alt="Medical VR shot 3">
-      <img src="assets/medical/4.jpg" alt="Medical VR shot 4">
-      <img src="assets/medical/5.jpg" alt="Medical VR shot 5">
-      <img src="assets/medical/6.JPG" alt="Medical VR shot 6">
-      <img src="assets/medical/7.JPG" alt="Medical VR shot 7">
-      <img src="assets/medical/8.JPG" alt="Medical VR shot 8">
-      <img src="assets/medical/9.JPG" alt="Medical VR shot 9">
+
+      <!-- тут только добавлен class="slide" и у первой ещё active -->
+      <img src="assets/medical/1.jpg" class="slide active" alt="Medical VR shot 1">
+      <img src="assets/medical/2.JPG" class="slide" alt="Medical VR shot 2">
+      <img src="assets/medical/3.jpg" class="slide" alt="Medical VR shot 3">
+      <img src="assets/medical/4.jpg" class="slide" alt="Medical VR shot 4">
+      <img src="assets/medical/5.jpg" class="slide" alt="Medical VR shot 5">
+      <img src="assets/medical/6.JPG" class="slide" alt="Medical VR shot 6">
+      <img src="assets/medical/7.JPG" class="slide" alt="Medical VR shot 7">
+      <img src="assets/medical/8.JPG" class="slide" alt="Medical VR shot 8">
+      <img src="assets/medical/9.JPG" class="slide" alt="Medical VR shot 9">
     </div>
 
     <div class="project-name">Medical VR Training Simulator</div>
@@ -584,7 +568,6 @@
       VR simulator focused on clear learning flow, realistic spatial layout and stable performance.
       I built training environments and designed the in-VR UI/UX so medical students could complete practice tasks using an interactive tablet system.
     </div>
-
     <div class="project-tags">
       <span class="tag-soft">Unreal Engine 5</span>
       <span class="tag-soft">VR Simulator</span>
@@ -629,6 +612,7 @@
   <footer>
     © <span id="year"></span> Yegor Artsev · Level Designer
   </footer>
+
 </main>
 
 <script>
@@ -637,7 +621,7 @@
   function nextSlide(id) {
     const slider = document.getElementById(id);
     if (!slider) return;
-    const images = slider.querySelectorAll('img');
+    const images = slider.querySelectorAll('.slide'); // было 'img'
     if (!images.length) return;
     let index = Array.from(images).findIndex(img => img.classList.contains('active'));
     if (index === -1) index = 0;
@@ -649,7 +633,7 @@
   function prevSlide(id) {
     const slider = document.getElementById(id);
     if (!slider) return;
-    const images = slider.querySelectorAll('img');
+    const images = slider.querySelectorAll('.slide'); // было 'img'
     if (!images.length) return;
     let index = Array.from(images).findIndex(img => img.classList.contains('active'));
     if (index === -1) index = 0;
