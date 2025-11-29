@@ -38,7 +38,7 @@
       padding: 24px 16px 80px;
     }
 
-    /* GLOBAL LINKS */
+    /* GLOBAL LINKS — убираем фиолетовый visited */
     a,
     a:visited {
       color: var(--accent);
@@ -199,7 +199,7 @@
 
     .hero-preview model-viewer {
       width: 100%;
-      max-width: 360px;
+      max-width: 360px; /* уменьшил визуальный размер */
       height: 360px;
       --progress-bar-color: transparent;
       --progress-bar-height: 0px;
@@ -235,10 +235,12 @@
       border-color: rgba(0,0,0,0.18);
     }
 
-    /* TEMPLE HIGHLIGHT */
+    /* ХАЙЛАЙТ ДЛЯ TEMPLE OF THE MIND */
     .project-card-highlight {
       position: relative;
-      background: radial-gradient(circle at top left, rgba(15,92,77,0.18), transparent 55%), var(--bg);
+      background:
+        radial-gradient(circle at top left, rgba(15,92,77,0.18), transparent 55%),
+        var(--bg);
       border: 1px solid rgba(15,92,77,0.6);
       box-shadow: 0 18px 40px rgba(0,0,0,0.16);
       margin-bottom: 32px;
@@ -289,7 +291,7 @@
       border: 1px solid rgba(15,92,77,0.4);
     }
 
-    /* MEDIA BLOCKS */
+    /* ЕДИНЫЙ ФОРМАТ МЕДИА-БЛОКОВ 16:9, БЕЗ ПОЛЕЙ ПО БОКАМ */
     .project-image,
     .slider,
     .project-video {
@@ -302,12 +304,24 @@
       border: 1px solid var(--border);
     }
 
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
     .slider {
       position: relative;
       background: #DDD;
     }
 
-    .slider img {
+    .project-video {
+      position: relative;
+      background: #DDD;
+    }
+
+    .slider .slide {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -316,21 +330,15 @@
       transition: opacity 0.25s ease;
     }
 
-    .slider img.active {
+    .slider .slide.active {
       display: block;
       opacity: 1;
     }
 
-    /* FIX: remove black borders for video */
-    .slider iframe {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: none;
-    }
-
-    .slider iframe.active {
-      display: block;
+    /* МАССШТАБ ТОЛЬКО ДЛЯ ВИДЕО ZONECITY */
+    #slider-zonecity iframe.slide {
+      transform: scale(1.35);
+      transform-origin: center center;
     }
 
     .slider-btn {
@@ -357,6 +365,59 @@
 
     .slider-btn.left { left: 8px; }
     .slider-btn.right { right: 8px; }
+
+    .project-video iframe {
+      width: 100%;
+      height: 100%;
+      border-radius: 14px;
+      display: block;
+    }
+
+    /* CTA BUTTON */
+    .project-cta,
+    .project-cta:visited {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 18px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .project-cta:hover {
+      background: #0A4A3E;
+      transform: translateY(-2px);
+      color: #fff;
+    }
+
+    /* ABOUT / CONTACT */
+    .about {
+      background: var(--bg-alt);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 18px 18px 16px;
+      margin-top: 16px;
+    }
+
+    #about { margin-top: 40px; }
+
+    #contact { margin-top: 32px; }
+
+    .contact-block a,
+    .contact-block a:visited {
+      color: var(--accent);
+    }
+
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
   </style>
 </head>
 
@@ -387,8 +448,7 @@
       <div class="hero-name">Yegor Artsev · Level Designer</div>
 
       <p class="hero-sub">
-        Level Designer with experience in mobile hybrid-casual games, VR simulators
-        and atmospheric 3D environments for PC-style projects.
+        Level Designer with experience in mobile hybrid-casual games, VR simulators and atmospheric 3D environments for PC-style projects.
       </p>
 
       <div class="hero-tags">
@@ -402,7 +462,20 @@
     </div>
 
     <div class="hero-preview">
-      <model-viewer src="assets/hero/hero-dance.glb" autoplay loop camera-controls="false" disable-zoom interaction-prompt="none" scale="0.012 0.012 0.012" camera-orbit="0deg 80deg 8m" field-of-view="30deg" camera-target="0m -0,5m 0m" exposure="1.1" shadow-intensity="0.8" style="background-color: transparent;"></model-viewer>
+      <model-viewer
+        src="assets/hero/hero-dance.glb"
+        autoplay loop
+        camera-controls="false"
+        disable-zoom
+        interaction-prompt="none"
+        scale="0.012 0.012 0.012"
+        camera-orbit="0deg 80deg 8m"
+        field-of-view="30deg"
+        camera-target="0m -0,5m 0m"
+        exposure="1.1"
+        shadow-intensity="0.8"
+        style="background-color: transparent;">
+      </model-viewer>
     </div>
   </section>
 
@@ -420,9 +493,8 @@
 
       <div class="project-name">Temple of the Mind</div>
       <div class="project-meta">
-        Personal project in development built in Unity.
-        First-person puzzle adventure built in Unity.
-        You explore an ancient temple that connects 3 unique biomes, each filled with environmental puzzles inspired by The Witness, The Room and Uncharted. All clues are embedded directly into architecture, materials and symbols, creating a slow, atmospheric journey through a mystical forgotten civilization.
+        Personal project in development built in Unity (URP). First-person puzzle adventure built in Unity (URP).
+        You explore an ancient temple that connects five unique biomes, each filled with environmental puzzles inspired by The Witness, The Room and Uncharted. All clues are embedded directly into architecture, materials and symbols, creating a slow, atmospheric journey through a mystical forgotten civilization.
       </div>
 
       <div class="project-tags">
@@ -437,26 +509,27 @@
     <!-- ZONECITY RUNNER -->
     <article class="project-card">
       <div class="slider" id="slider-zonecity">
-        
         <span class="slider-btn left" onclick="prevSlide('slider-zonecity')">←</span>
         <span class="slider-btn right" onclick="nextSlide('slider-zonecity')">→</span>
 
-        <!-- FIRST SLIDE: YOUTUBE VIDEO -->
-        <iframe class="active" src="https://www.youtube.com/embed/zwzeJUWJRWY"
-                title="ZoneCity Level"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen></iframe>
+        <!-- ВИДЕО КАК ПЕРВЫЙ СЛАЙД -->
+        <iframe
+          class="slide active"
+          src="https://www.youtube.com/embed/zwzeJUWJRWY"
+          title="ZoneCity playthrough"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
 
-        <!-- IMAGES KEEP EXACTLY SAME ORDER -->
-        <img src="assets/zonecity/assets/zonecity/Step1.png" alt="ZoneCity step 1">
-        <img src="assets/zonecity/assets/zonecity/Step2.png" alt="ZoneCity step 2">
-        <img src="assets/zonecity/assets/zonecity/Step3.png" alt="ZoneCity step 3">
-        <img src="assets/zonecity/assets/zonecity/Step4.png" alt="ZoneCity step 4">
-        <img src="assets/zonecity/assets/zonecity/Step5.png" alt="ZoneCity step 5">
-        <img src="assets/zonecity/assets/zonecity/Step6.png" alt="ZoneCity step 6">
-        <img src="assets/zonecity/assets/zonecity/Step7.png" alt="ZoneCity step 7">
-
+        <!-- СТАРЫЕ КАДРЫ, ТОЛЬКО ДОБАВЛЕН class="slide" -->
+        <img src="assets/zonecity/assets/zonecity/Step1.png" class="slide" alt="ZoneCity step 1">
+        <img src="assets/zonecity/assets/zonecity/Step2.png" class="slide" alt="ZoneCity step 2">
+        <img src="assets/zonecity/assets/zonecity/Step3.png" class="slide" alt="ZoneCity step 3">
+        <img src="assets/zonecity/assets/zonecity/Step4.png" class="slide" alt="ZoneCity step 4">
+        <img src="assets/zonecity/assets/zonecity/Step5.png" class="slide" alt="ZoneCity step 5">
+        <img src="assets/zonecity/assets/zonecity/Step6.png" class="slide" alt="ZoneCity step 6">
+        <img src="assets/zonecity/assets/zonecity/Step7.png" class="slide" alt="ZoneCity step 7">
       </div>
 
       <div class="project-name">ZoneCity</div>
@@ -507,15 +580,15 @@
       <span class="slider-btn left" onclick="prevSlide('slider-medical')">←</span>
       <span class="slider-btn right" onclick="nextSlide('slider-medical')">→</span>
 
-      <img src="assets/medical/1.jpg" class="active" alt="Medical VR shot 1">
-      <img src="assets/medical/2.JPG" alt="Medical VR shot 2">
-      <img src="assets/medical/3.jpg" alt="Medical VR shot 3">
-      <img src="assets/medical/4.jpg" alt="Medical VR shot 4">
-      <img src="assets/medical/5.jpg" alt="Medical VR shot 5">
-      <img src="assets/medical/6.JPG" alt="Medical VR shot 6">
-      <img src="assets/medical/7.JPG" alt="Medical VR shot 7">
-      <img src="assets/medical/8.JPG" alt="Medical VR shot 8">
-      <img src="assets/medical/9.JPG" alt="Medical VR shot 9">
+      <img src="assets/medical/1.jpg" class="slide active" alt="Medical VR shot 1">
+      <img src="assets/medical/2.JPG" class="slide" alt="Medical VR shot 2">
+      <img src="assets/medical/3.jpg" class="slide" alt="Medical VR shot 3">
+      <img src="assets/medical/4.jpg" class="slide" alt="Medical VR shot 4">
+      <img src="assets/medical/5.jpg" class="slide" alt="Medical VR shot 5">
+      <img src="assets/medical/6.JPG" class="slide" alt="Medical VR shot 6">
+      <img src="assets/medical/7.JPG" class="slide" alt="Medical VR shot 7">
+      <img src="assets/medical/8.JPG" class="slide" alt="Medical VR shot 8">
+      <img src="assets/medical/9.JPG" class="slide" alt="Medical VR shot 9">
     </div>
 
     <div class="project-name">Medical VR Training Simulator</div>
@@ -577,7 +650,7 @@
   function nextSlide(id) {
     const slider = document.getElementById(id);
     if (!slider) return;
-    const slides = slider.querySelectorAll('img, iframe');
+    const slides = slider.querySelectorAll('.slide');
     if (!slides.length) return;
     let index = Array.from(slides).findIndex(el => el.classList.contains('active'));
     if (index === -1) index = 0;
@@ -589,7 +662,7 @@
   function prevSlide(id) {
     const slider = document.getElementById(id);
     if (!slider) return;
-    const slides = slider.querySelectorAll('img, iframe');
+    const slides = slider.querySelectorAll('.slide');
     if (!slides.length) return;
     let index = Array.from(slides).findIndex(el => el.classList.contains('active'));
     if (index === -1) index = 0;
