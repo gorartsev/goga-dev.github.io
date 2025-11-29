@@ -342,22 +342,24 @@
     }
 
     .slider-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(255,255,255,0.8);
-      border: 1px solid rgba(0,0,0,0.2);
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 12px;
-      transition: 0.2s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0;
-    }
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.8);
+  border: 1px solid rgba(0,0,0,0.2);
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 12px;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  z-index: 5; /* ← ВОТ ЭТА СТРОКА */
+}
+
 
     .slider-btn:hover {
       background: white;
