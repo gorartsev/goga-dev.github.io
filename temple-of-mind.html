@@ -134,16 +134,16 @@
       padding: 16px;
     }
 
-    /* HERO VIDEO – НОВЫЙ БЛОК */
+    /* HERO VIDEO – узкий, кинематографичный блок */
     .hero-video {
       width: 100%;
-      max-width: 100%;
-      aspect-ratio: 16/9;
+      max-width: 900px;      /* чуть уже контейнера страницы */
+      aspect-ratio: 21/9;    /* более узкий формат */
       border-radius: 20px;
       overflow: hidden;
       background: #000;
       border: 1px solid var(--border);
-      margin: 24px 0 32px;
+      margin: 24px auto 32px; /* центрируем по горизонтали */
     }
     .hero-video iframe {
       width: 100%;
@@ -357,6 +357,14 @@
         font-size: 13px;
         padding: 12px;
         margin-bottom: 24px;
+      }
+
+      /* На мобилке делаем видео обычным 16:9, чтобы не было слишком тонким */
+      .hero-video {
+        max-width: 100%;
+        aspect-ratio: 16/9;
+        border-radius: 16px;
+        margin: 20px 0 24px;
       }
 
       /* Sections */
