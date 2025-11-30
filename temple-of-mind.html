@@ -114,7 +114,7 @@
     .hero-meta {
       font-size: 13px;
       color: var(--text-muted);
-      margin-bottom: 24px;
+      margin-bottom: 16px;
     }
     .hero-meta span { display: inline-block; margin-right: 16px; }
 
@@ -134,16 +134,16 @@
       padding: 16px;
     }
 
-    /* HERO VIDEO – узкий, кинематографичный блок */
+    /* HERO VIDEO – по краям как контент, чуть более узкий по высоте */
     .hero-video {
       width: 100%;
-      max-width: 900px;      /* чуть уже контейнера страницы */
-      aspect-ratio: 21/9;    /* более узкий формат */
-      border-radius: 20px;
+      max-width: 100%;
+      aspect-ratio: 21/9;
+      border-radius: var(--radius);
       overflow: hidden;
       background: #000;
       border: 1px solid var(--border);
-      margin: 24px auto 32px; /* центрируем по горизонтали */
+      margin: 8px 0 4px; /* почти без отступа снизу */
     }
     .hero-video iframe {
       width: 100%;
@@ -164,6 +164,12 @@
       color: var(--text-muted);
       margin-top: 4px;
       margin-bottom: 0;
+    }
+
+    /* подпись под видео – вообще минимальный отступ */
+    .section-text-caption {
+      margin-top: 2px;
+      margin-bottom: 4px;
     }
 
     .block {
@@ -284,12 +290,10 @@
 
     /* ==================== MOBILE TYPOGRAPHY ==================== */
     @media (max-width: 600px) {
-      /* Page */
       .page {
         padding: 24px 16px 80px;
       }
 
-      /* Nav - синхронизировано с главной */
       .nav-inner {
         padding: 10px 12px;
       }
@@ -307,7 +311,6 @@
         padding: 5px 10px;
       }
 
-      /* Back link */
       .back-link {
         font-size: 12px;
         margin-bottom: 12px;
@@ -317,7 +320,6 @@
         font-size: 16px;
       }
 
-      /* Hero */
       .hero-head {
         margin-top: 16px;
         margin-bottom: 20px;
@@ -342,7 +344,7 @@
 
       .hero-meta {
         font-size: 12px;
-        margin-bottom: 20px;
+        margin-bottom: 14px;
       }
 
       .hero-meta span {
@@ -359,15 +361,12 @@
         margin-bottom: 24px;
       }
 
-      /* На мобилке делаем видео обычным 16:9, чтобы не было слишком тонким */
       .hero-video {
-        max-width: 100%;
         aspect-ratio: 16/9;
         border-radius: 16px;
-        margin: 20px 0 24px;
+        margin: 8px 0 4px;
       }
 
-      /* Sections */
       .section-title {
         font-size: 22px;
         margin-top: 24px;
@@ -385,7 +384,6 @@
         margin-top: 14px;
       }
 
-      /* Carousel */
       .carousel {
         border-radius: 14px;
         margin-top: 14px;
@@ -422,7 +420,6 @@
         width: 12px;
       }
 
-      /* Gallery items */
       .gallery-item {
         min-height: 100px;
         font-size: 12px;
@@ -430,7 +427,6 @@
         border-radius: 12px;
       }
 
-      /* Footer CTA */
       .footer-cta {
         margin-top: 32px;
         padding: 16px;
@@ -490,7 +486,7 @@
     </iframe>
   </div>
 
-  <p class="section-text">
+  <p class="section-text section-text-caption">
     Level 1 environment showcase — the first chamber leading toward the central temple hub.
     Focus: composition, lighting, mood, stone material language.
   </p>
@@ -639,7 +635,7 @@
       });
 
       function update() {
-        imgEl.src = images[index]; // моментальная подмена
+        imgEl.src = images[index];
         dots.forEach((dot, i) => {
           dot.classList.toggle('is-active', i === index);
         });
