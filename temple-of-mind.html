@@ -166,12 +166,10 @@
       margin-bottom: 0;
     }
     .section-text-caption {
-  margin-top: 2px;
-  margin-bottom: 4px;
-  text-align: center;
-}
-
-  
+      margin-top: 2px;
+      margin-bottom: 4px;
+      text-align: center;
+    }
 
     .block {
       margin-top: 16px;
@@ -465,10 +463,12 @@
 
     <p class="hero-sub">
       <strong>Temple of the Mind</strong> is a first-person <strong>puzzle adventure</strong>
-      built in <strong>Unity</strong>. The player explores an ancient temple hub and
-      opens ritual gates to <strong>two biomes</strong>, each with its own architecture and
-      environmental puzzles. My focus is on spatial readability, environmental storytelling and
-      puzzle design without UI hints.
+      built in <strong>Unity</strong>. The player wakes up in an old cursed temple, solves
+      a set of ritual puzzles to escape and then steps into a sunny, slightly stylised
+      forest clearing – the <strong>Heart of the Forest</strong>. In the centre stands an
+      ancient stump-altar with three slots for artefacts. From this hub the player chooses
+      between two seasonal forest paths – an autumn grove and a frozen winter woods – to
+      complete the ritual and unlock the way to a distant castle on the hill.
     </p>
 
     <div class="hero-meta">
@@ -488,23 +488,27 @@
   </div>
 
   <p class="section-text section-text-caption">
-    Level 1 environment showcase — the first chamber leading toward the central temple hub.
-    Focus: composition, lighting, mood, stone material language.
+    Level 1 environment showcase — the intro sequence leading from the cursed temple
+    toward the first glimpse of the outside world. Focus: composition, lighting, mood,
+    stone material language.
   </p>
 
   <!-- WORLD BUILDING -->
   <section>
     <h2 class="section-title">Worldbuilding & Fantasy</h2>
     <p class="section-text">
-      The temple is a forgotten ritual complex in the desert. At its centre lies the
-      <strong>"Riddle of Humanity"</strong> – an artefact sealed behind a multi-stage ritual.
-      To reach it, the player must activate the hub, travel through two biomes and return
-      with fragments of a single key.
+      The world combines light horror with fairytale fantasy. The game opens in an
+      <strong>old ritual temple</strong> where a failed ceremony has trapped the protagonist.
+      To escape, the player must reactivate parts of the ritual, find a way to open the
+      main gate and step out of the oppressive stone corridors.
     </p>
     <p class="section-text" style="margin-top:8px;">
-      The tone is calm and mystical: stone, sand and distant echoes instead of loud music.
-      Architecture carries most of the story – walls, pillars and floors hide mechanisms and
-      clues rather than relying on dialogue or UI.
+      Outside, the tone shifts into a calm, magical forest. On a bright clearing the player
+      finds the <strong>Heart of the Forest</strong> – a massive stump with a carved, sleeping
+      face and three slots for artefacts. One artefact is found here, two are hidden deeper
+      in the woods: in an autumn forest and a cold, snowy forest. When all three artefacts
+      are returned to the stump, ancient gates open the path toward a castle visible high on
+      a distant hill.
     </p>
   </section>
 
@@ -512,57 +516,58 @@
   <section>
     <h2 class="section-title">Structure, Flow & Puzzles</h2>
     <p class="section-text">
-      The game is built around a <strong>central hub</strong> and <strong>two biomes</strong>:
-      Forest and Desert, followed by the final Tomb.
-      Each biome adds a small twist to the same environmental puzzle language and still serves
-      one goal: assemble the key and unlock the heart of the temple.
+      The structure is a short, focused sequence of spaces: the <strong>cursed temple intro</strong>,
+      the <strong>forest hub clearing with the stump-altar</strong>, two seasonal forest branches
+      and a planned follow-up chapter set in the <strong>castle</strong>. All locations reuse
+      the same ritual language: find artefacts, read the environment, complete the altar to
+      move forward.
     </p>
 
     <div class="block">
       <p class="section-text">
         <strong>Gameplay loop:</strong><br>
-        • read a clue in the hub → open a gate<br>
-        • explore a biome and solve 2–3 architecture-driven puzzles<br>
-        • earn a key fragment and return to the hub<br>
-        • activate a slot and light a new "energy channel" in the architecture<br>
-        • when all channels are active, the final tomb opens
+        • wake up in the cursed temple and solve a ritual puzzle to reach the outside<br>
+        • step onto the sunny forest clearing and discover the stump-altar + first artefact<br>
+        • choose a direction: left into the autumn grove, right into the snowy winter woods<br>
+        • in each branch, solve 1–2 environmental puzzles to earn an artefact<br>
+        • return to the stump and place all three artefacts to open the gate toward the castle
       </p>
 
       <p class="section-text" style="margin-top:10px;">
         <strong>Puzzle language:</strong><br>
-        • clues are embedded in walls, floors and props – no floating markers<br>
+        • clues are carved or painted on walls, floors, tree trunks and the stump itself – no floating markers<br>
         • the goal of each puzzle is readable in a few seconds<br>
-        • strong feedback: stone movement, light shifts, rumbling audio<br>
-        • later puzzles reuse previous knowledge instead of adding new rules
+        • strong feedback: stone movement, light shifts, rumbling audio, forest ambience<br>
+        • later puzzles reuse previously learned patterns instead of adding new rules
       </p>
     </div>
   </section>
 
   <!-- LEVEL PLANS -->
-<section>
-  <h2 class="section-title">Level Plans</h2>
+  <section>
+    <h2 class="section-title">Level Plans</h2>
     <div
-    class="carousel"
-    data-images="assets/plan/level plan 1.jpg,
-                 assets/plan/level plan.jpg"
-  >
-    <div class="carousel-inner">
-      <button class="carousel-btn prev" type="button" aria-label="Previous image">←</button>
-      <img class="carousel-image" src="" alt="Level Plans">
-      <button class="carousel-btn next" type="button" aria-label="Next image">→</button>
-      <div class="carousel-dots"></div>
+      class="carousel"
+      data-images="assets/plan/level plan 1.jpg,
+                   assets/plan/level plan.jpg"
+    >
+      <div class="carousel-inner">
+        <button class="carousel-btn prev" type="button" aria-label="Previous image">←</button>
+        <img class="carousel-image" src="" alt="Level Plans">
+        <button class="carousel-btn next" type="button" aria-label="Next image">→</button>
+        <div class="carousel-dots"></div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-  
   <!-- BLOCKING FIRST LOCATION – CAROUSEL -->
   <section>
-    <h2 class="section-title">Blocking – First Location (Hub Approach)</h2>
+    <h2 class="section-title">Blocking – Intro: Cursed Temple</h2>
     <p class="section-text">
-      This is the first playable area leading up to the temple hub. In greybox I focus on
-      player height, sightlines to the main vista, safe framing for the temple silhouette
-      and a clear but slightly winding critical path.
+      This is the first playable area inside the temple. In greybox I focus on player height,
+      tight sightlines, silhouettes of key doors and a clear but slightly winding path toward
+      the escape point. The goal is to create a feeling of tension and mystery while still
+      keeping navigation readable.
     </p>
 
     <div
@@ -580,7 +585,7 @@
     >
       <div class="carousel-inner">
         <button class="carousel-btn prev" type="button" aria-label="Previous image">←</button>
-        <img class="carousel-image" src="" alt="Blocking – first location">
+        <img class="carousel-image" src="" alt="Blocking – cursed temple intro">
         <button class="carousel-btn next" type="button" aria-label="Next image">→</button>
         <div class="carousel-dots"></div>
       </div>
@@ -588,55 +593,56 @@
   </section>
 
 
-  <!-- BLOCKING – SECOND LOCATION (The Enchanted Forest) -->
-<section>
-  <h2 class="section-title">Blocking – Second Location (The Enchanted Forest)</h2>
-
-  <p class="section-text">
-    The second location takes the player deeper into the <strong>Enchanted Forest biome</strong>.
-    The layout creates an illusion of boundless woods while gently steering the player back
-    toward the intended path. The goal of this blocking stage is to test silhouettes,
-    spacing, looping boundaries and the feeling of “mystical disorientation” without losing control.
-  </p>
-
-  <p class="section-text" style="margin-top:8px;">
-    The forest geometry focuses on rhythm: clusters of trees, controlled sightlines,
-    fog pockets and subtle framing toward future points of interest. This greybox validates
-    player navigation before adding atmosphere, FX and lighting.
-  </p>
-
-  <div
-    class="carousel"
-    data-images="assets/forest/1.png,
-                 assets/forest/2.png,
-                 assets/forest/3.png,
-                 assets/forest/4.png,
-                 assets/forest/5.png,
-                 assets/forest/6.png"
-  >
-    <div class="carousel-inner">
-      <button class="carousel-btn prev" type="button" aria-label="Previous image">←</button>
-      <img class="carousel-image" src="" alt="Blocking – Enchanted Forest">
-      <button class="carousel-btn next" type="button" aria-label="Next image">→</button>
-      <div class="carousel-dots"></div>
-    </div>
-  </div>
-</section>
-
-  <!-- FINAL ENVIRONMENT SHOTS – ENCHANTED FOREST -->
+  <!-- BLOCKING – SECOND LOCATION (Forest Hub & Seasonal Paths) -->
   <section>
-    <h2 class="section-title">Final Environment Shots — The Enchanted Forest</h2>
+    <h2 class="section-title">Blocking – Forest Hub & Seasonal Paths</h2>
 
     <p class="section-text">
-      After validating the layout and navigation in greybox, the Enchanted Forest moved into its
-      visual pass. The focus here is on atmosphere, depth and readability while keeping the biome
-      calm, mysterious and slightly disorienting.
+      The second major location takes the player into the <strong>Heart of the Forest</strong>
+      and the first iteration of the surrounding woods. The layout creates an illusion of
+      boundless forest while gently steering the player back toward the hub and the stump-altar.
+      The player can choose a path that eventually loops back without feeling like they hit a wall.
     </p>
 
     <p class="section-text" style="margin-top:8px;">
-      These shots show the first lighting and fog layers, vegetation density tests and early
-      composition choices for guiding the player toward key points of interest. The goal is to
-      define the visual identity of the biome before a full art and polish pass.
+      In blocking I focus on rhythm: clusters of trees, controlled sightlines toward the stump,
+      fog pockets and subtle framing of future points of interest. This greybox validates how the
+      hub, the “left” and the “right” paths (autumn and winter forest branches) connect and how
+      the player naturally returns to the clearing after each puzzle.
+    </p>
+
+    <div
+      class="carousel"
+      data-images="assets/forest/1.png,
+                   assets/forest/2.png,
+                   assets/forest/3.png,
+                   assets/forest/4.png,
+                   assets/forest/5.png,
+                   assets/forest/6.png"
+    >
+      <div class="carousel-inner">
+        <button class="carousel-btn prev" type="button" aria-label="Previous image">←</button>
+        <img class="carousel-image" src="" alt="Blocking – forest hub and seasonal paths">
+        <button class="carousel-btn next" type="button" aria-label="Next image">→</button>
+        <div class="carousel-dots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL ENVIRONMENT SHOTS – HEART OF THE FOREST -->
+  <section>
+    <h2 class="section-title">Final Environment Shots — Heart of the Forest</h2>
+
+    <p class="section-text">
+      After validating the layout and navigation in greybox, the forest moves into its visual pass.
+      The focus here is on atmosphere, depth and readability while keeping the biome calm, magical
+      and slightly disorienting – the player should feel safe but not fully in control.
+    </p>
+
+    <p class="section-text" style="margin-top:8px;">
+      These shots show early lighting and fog layers, vegetation density tests and first composition
+      passes for guiding the player between the clearing, side paths and key puzzle spots. The stump-altar
+      and the idea of seasonal contrast (warmer vs. colder areas) drive the final art direction for this biome.
     </p>
 
     <div
@@ -648,7 +654,7 @@
     >
       <div class="carousel-inner">
         <button class="carousel-btn prev" type="button" aria-label="Previous image">←</button>
-        <img class="carousel-image" src="" alt="Final shots — Enchanted Forest">
+        <img class="carousel-image" src="" alt="Final shots — Heart of the Forest">
         <button class="carousel-btn next" type="button" aria-label="Next image">→</button>
         <div class="carousel-dots"></div>
       </div>
@@ -660,8 +666,10 @@
   <section>
     <h2 class="section-title">Final Gallery (planned)</h2>
     <p class="section-text">
-      As the project evolves, this section will show in-engine shots: the hub in different
-      lighting states, biome entrances and close-ups of key puzzle setups.
+      As the project evolves, this section will show in-engine shots: the cursed temple intro,
+      the forest clearing with the stump-altar in different lighting states, seasonal forest
+      branches, close-ups of key puzzle setups and, later, vistas of the castle towering above
+      the forest.
     </p>
   </section>
 
