@@ -12,11 +12,11 @@
 
   <style>
     :root {
-      --cream: #F5F0E8;
-      --cream-dark: #EDE6DA;
-      --red: #C41E3A;
-      --red-dark: #8B0000;
-      --red-light: rgba(196, 30, 58, 0.15);
+      --bg: #F0EDEE;
+      --bg-dark: #E4E1E2;
+      --red: #69140E;
+      --red-dark: #4A0E0A;
+      --red-light: rgba(105, 20, 14, 0.12);
       --black: #1A1A1A;
       --gray: #4A4A4A;
       --gray-light: #8A8A8A;
@@ -34,7 +34,7 @@
 
     body {
       font-family: 'Crimson Pro', Georgia, serif;
-      background: var(--cream);
+      background: var(--bg);
       color: var(--black);
       line-height: 1.7;
       position: relative;
@@ -51,8 +51,18 @@
       height: 100%;
       pointer-events: none;
       z-index: 1000;
-      opacity: 0.03;
+      opacity: 0.025;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    a {
+      color: var(--red);
+      text-decoration: none;
+      transition: opacity 0.3s;
+    }
+
+    a:hover {
+      opacity: 0.7;
     }
 
     /* ============ NAV ============ */
@@ -66,7 +76,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: linear-gradient(to bottom, var(--cream) 60%, transparent);
+      background: linear-gradient(to bottom, var(--bg) 60%, transparent);
     }
 
     .nav-logo {
@@ -94,6 +104,7 @@
 
     .nav-links a:hover {
       color: var(--red);
+      opacity: 1;
     }
 
     /* ============ HERO ============ */
@@ -256,6 +267,38 @@
 
     .section-text strong {
       color: var(--black);
+    }
+
+    /* ============ LOCATION HEADER ============ */
+    .location-header {
+      padding: 120px 0 60px;
+      text-align: center;
+      border-top: 3px solid var(--red);
+      margin-top: 80px;
+    }
+
+    .location-number {
+      font-family: 'Space Mono', monospace;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: var(--red);
+      margin-bottom: 16px;
+    }
+
+    .location-title {
+      font-family: 'Permanent Marker', cursive;
+      font-size: clamp(36px, 8vw, 72px);
+      color: var(--black);
+      margin-bottom: 16px;
+      transform: rotate(-1deg);
+    }
+
+    .location-subtitle {
+      font-size: 18px;
+      color: var(--gray);
+      max-width: 500px;
+      margin: 0 auto;
     }
 
     /* ============ LEVEL PLAN ============ */
@@ -532,7 +575,7 @@
 
     /* ============ FOOTER CTA ============ */
     .footer-cta {
-      background: var(--cream-dark);
+      background: var(--bg-dark);
       border: 2px solid var(--red);
       padding: 60px;
       margin: 80px 0;
@@ -546,7 +589,7 @@
       top: -15px;
       left: 50%;
       transform: translateX(-50%);
-      background: var(--cream);
+      background: var(--bg);
       padding: 0 20px;
       font-size: 24px;
       color: var(--red);
@@ -586,32 +629,7 @@
     .footer-cta-links a:hover {
       background: var(--red);
       color: white;
-    }
-
-    /* ============ BACK LINK ============ */
-    .back-link {
-      position: fixed;
-      top: 20px;
-      left: 40px;
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--gray);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      z-index: 101;
-      transition: color 0.3s;
-    }
-
-    .back-link:hover {
-      color: var(--red);
-    }
-
-    .back-link::before {
-      content: '←';
+      opacity: 1;
     }
 
     /* ============ MOBILE ============ */
@@ -679,11 +697,6 @@
         gap: 12px;
       }
 
-      .back-link {
-        position: static;
-        margin: 20px;
-      }
-
       .carousel-btn {
         width: 40px;
         height: 40px;
@@ -696,6 +709,14 @@
 
       .flow-list li::before {
         font-size: 22px;
+      }
+
+      .location-header {
+        padding: 80px 0 40px;
+      }
+
+      .location-title {
+        font-size: 36px;
       }
     }
   </style>
@@ -735,12 +756,22 @@
 
 <main class="page">
 
+  <!-- ========================================== -->
+  <!-- LOCATION 1: ANCIENT TEMPLE -->
+  <!-- ========================================== -->
+
+  <div class="location-header">
+    <div class="location-number">Location 01</div>
+    <h2 class="location-title">Ancient Temple</h2>
+    <p class="location-subtitle">A dark ritual chamber where the journey begins. Escape the curse and find the way out.</p>
+  </div>
+
   <!-- Video Showcase -->
   <section class="section">
     <div class="section-number">00</div>
     <h2 class="section-title">Environment Showcase</h2>
     <p class="section-text">
-      Level 1 environment walkthrough — the final rendered look of the temple interior 
+      Level 1 environment walkthrough showing the final rendered look of the temple interior 
       before the player steps outside. Focus on composition, lighting, mood, and material language.
     </p>
     <div class="video-wrapper">
@@ -758,8 +789,8 @@
     <div class="section-number">01</div>
     <h2 class="section-title">Level Plan: Ancient Temple</h2>
     <p class="section-text">
-      The temple layout follows a <strong>three-zone structure</strong>: Entrance Corridor (Zone C) → 
-      Main Temple Hall (Zone B) → Puzzle Room (Zone A). Each zone serves a specific purpose in the 
+      The temple layout follows a <strong>three-zone structure</strong>: Entrance Corridor (Zone C), 
+      Main Temple Hall (Zone B), and Puzzle Room (Zone A). Each zone serves a specific purpose in the 
       player's learning journey before they face the central puzzle monument.
     </p>
     
@@ -782,14 +813,14 @@
         <div class="decision-title">Exploration as Reward</div>
         <div class="decision-text">
           Four symbols scattered across three zones encourage players to explore the full space. 
-          Each symbol location rewards attention to environmental detail — at guardian feet, between columns, in corners.
+          Each symbol location rewards attention to environmental detail: at guardian feet, between columns, in corners.
         </div>
       </div>
       <div class="decision-card">
         <div class="decision-label">Design Challenge</div>
         <div class="decision-title">Readable Sightlines</div>
         <div class="decision-text">
-          From the entrance corridor, players can glimpse the main hall through a narrow opening — 
+          From the entrance corridor, players can glimpse the main hall through a narrow opening, 
           creating anticipation while framing the destination. The locked gate remains visible as a constant goal.
         </div>
       </div>
@@ -801,13 +832,13 @@
     <div class="section-number">02</div>
     <h2 class="section-title">Player Flow</h2>
     <p class="section-text">
-      The level guides players through a carefully paced sequence — from disorientation to discovery to mastery.
+      The level guides players through a carefully paced sequence, from disorientation to discovery to mastery.
     </p>
     
     <ol class="flow-list">
       <li><strong>Spawn in the corridor.</strong> Torches draw the eye forward. The narrow space creates tension and establishes scale.</li>
       <li><strong>Enter the Main Temple Hall.</strong> Columns frame the space. Bodies on the floor suggest a failed ritual. The glowing artifact above hints at what went wrong.</li>
-      <li><strong>Climb the staircase.</strong> Elevation change signals transition to the puzzle zone. The locked gate becomes visible — the goal is now clear.</li>
+      <li><strong>Climb the staircase.</strong> Elevation change signals transition to the puzzle zone. The locked gate becomes visible, and the goal is now clear.</li>
       <li><strong>Find the Grimoire.</strong> Positioned before the puzzle panel so players read the clue first. The hint shows which four symbols to find.</li>
       <li><strong>Search for symbols.</strong> Scattered through all three zones: at the guardian's feet (Zone A), between columns (Zone B), and in corners. Exploration rewarded.</li>
       <li><strong>Solve the puzzle.</strong> Enter symbols in the correct order. The gate opens. Strong audio and visual feedback confirms success.</li>
@@ -820,7 +851,7 @@
     <h2 class="section-title">Blockout Phase</h2>
     <p class="section-text">
       Greybox validation focuses on <strong>sightlines</strong>, <strong>player scale</strong>, and <strong>pacing</strong> 
-      before any art pass. These shots show early geometry tests for the temple interior — checking how 
+      before any art pass. These shots show early geometry tests for the temple interior, checking how 
       columns frame views, how corridors control player movement, and where key landmarks draw attention.
     </p>
 
@@ -897,11 +928,165 @@
     </div>
   </section>
 
+  <!-- ========================================== -->
+  <!-- LOCATION 2: THE ENCHANTED FOREST -->
+  <!-- ========================================== -->
+
+  <div class="location-header">
+    <div class="location-number">Location 02</div>
+    <h2 class="location-title">The Enchanted Forest</h2>
+    <p class="location-subtitle">A magical clearing with four seasons meeting at the center. Collect three relics to unlock the gate to the castle.</p>
+  </div>
+
+  <!-- Level Plan -->
+  <section class="section">
+    <div class="section-number">01</div>
+    <h2 class="section-title">Level Plan: The Enchanted Forest</h2>
+    <p class="section-text">
+      The forest uses a <strong>hub-and-spoke layout</strong> with the Central Clearing as the main anchor point. 
+      Players exit the temple, find the first relic on the path, then explore two puzzle areas (Stone Circle and Ancient Tree) 
+      to collect the remaining relics. All paths return to the hub where the altar awaits.
+    </p>
+    
+    <div class="level-plan">
+      <img src="assets/forest/level_plan.jpg" alt="Level Plan: The Enchanted Forest">
+      <div class="level-plan-caption">Hub-based layout with puzzle loops</div>
+    </div>
+
+    <div class="decisions-grid">
+      <div class="decision-card">
+        <div class="decision-label">Structure</div>
+        <div class="decision-title">Hub as Anchor</div>
+        <div class="decision-text">
+          The Central Clearing serves as a constant reference point. No matter which puzzle the player 
+          pursues, all paths lead back to the altar. This prevents disorientation in an open environment.
+        </div>
+      </div>
+      <div class="decision-card">
+        <div class="decision-label">Progression</div>
+        <div class="decision-title">Non-Linear Choice</div>
+        <div class="decision-text">
+          After placing the first relic, players choose between Puzzle 1 (Stone Circle) or Puzzle 2 (Ancient Tree). 
+          Both are visible from the hub, giving players agency while maintaining clear goals.
+        </div>
+      </div>
+      <div class="decision-card">
+        <div class="decision-label">Boundaries</div>
+        <div class="decision-title">Forest as Wall</div>
+        <div class="decision-text">
+          Dense tree lines form natural boundaries. Players understand they cannot pass through the forest, 
+          so they stay on the paths. No invisible walls needed.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Player Flow -->
+  <section class="section">
+    <div class="section-number">02</div>
+    <h2 class="section-title">Player Flow</h2>
+    <p class="section-text">
+      The forest level introduces freedom after the linear temple. Players learn the loop: explore, solve, return, place.
+    </p>
+    
+    <ol class="flow-list">
+      <li><strong>Exit the Temple.</strong> The doors close behind the player. A dirt path leads forward through dense trees. The first relic glows on the ground ahead.</li>
+      <li><strong>Find Relic 1.</strong> Placed directly on the main path so every player picks it up naturally. This teaches the core mechanic: collect and carry.</li>
+      <li><strong>Reach the Central Clearing.</strong> The hub opens up with the altar in the center. Three slots visible. The player places Relic 1 and sees two more are needed.</li>
+      <li><strong>Choose a direction.</strong> Two paths lead to two puzzle areas. Stone Circle to the left, Ancient Tree to the right. Both visible from the clearing.</li>
+      <li><strong>Solve Puzzle 1 or Puzzle 2.</strong> Each puzzle has its own logic and rewards a relic. After solving, the player returns to the hub and places the relic.</li>
+      <li><strong>Complete the ritual.</strong> All three relics placed. The gate to the castle opens. Strong visual and audio feedback marks the victory moment.</li>
+    </ol>
+  </section>
+
+  <!-- Blockout -->
+  <section class="section">
+    <div class="section-number">03</div>
+    <h2 class="section-title">Blockout Phase</h2>
+    <p class="section-text">
+      The forest greybox validates <strong>scale</strong>, <strong>path clarity</strong>, and <strong>landmark visibility</strong>. 
+      Simple cylinder trees establish the boundary density. The altar and puzzle locations are tested for 
+      sightlines from every approach angle.
+    </p>
+
+    <div class="carousel-section">
+      <div class="carousel-label">Blockout Screenshots</div>
+      <div class="carousel" id="carousel-forest-blockout">
+        <div class="carousel-inner">
+          <button class="carousel-btn prev" type="button" aria-label="Previous">←</button>
+          <img class="carousel-image" src="" alt="Forest blockout phase">
+          <button class="carousel-btn next" type="button" aria-label="Next">→</button>
+          <div class="carousel-counter"><span class="current">1</span> / <span class="total">6</span></div>
+          <div class="carousel-dots"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <p class="quote-text">
+        "The hub must feel like a clearing, not a crossroads. Players should want to stay, 
+        look around, and then choose where to go next."
+      </p>
+      <div class="quote-source">Design Intent</div>
+    </div>
+  </section>
+
+  <!-- Final Environment -->
+  <section class="section">
+    <div class="section-number">04</div>
+    <h2 class="section-title">Final Environment</h2>
+    <p class="section-text">
+      The forest features <strong>four seasons meeting at the center</strong>: spring greens, autumn golds, winter whites, 
+      and the magical lake. Each puzzle area has a distinct seasonal mood. Giant mushrooms, flowering meadows, 
+      and the Ancient Tree create memorable landmarks that players use for navigation.
+    </p>
+
+    <div class="carousel-section">
+      <div class="carousel-label">Final Screenshots</div>
+      <div class="carousel" id="carousel-forest-final">
+        <div class="carousel-inner">
+          <button class="carousel-btn prev" type="button" aria-label="Previous">←</button>
+          <img class="carousel-image" src="" alt="Forest final environment">
+          <button class="carousel-btn next" type="button" aria-label="Next">→</button>
+          <div class="carousel-counter"><span class="current">1</span> / <span class="total">10</span></div>
+          <div class="carousel-dots"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="decisions-grid">
+      <div class="decision-card">
+        <div class="decision-label">Color Coding</div>
+        <div class="decision-title">Seasons as Zones</div>
+        <div class="decision-text">
+          Each area has a distinct color palette. Autumn orange for the mushroom zone, winter white near the castle, 
+          spring green at the temple exit. Players always know where they are.
+        </div>
+      </div>
+      <div class="decision-card">
+        <div class="decision-label">Landmarks</div>
+        <div class="decision-title">The Ancient Tree</div>
+        <div class="decision-text">
+          A massive tree with a carved face dominates one puzzle area. It holds the relic slots and 
+          serves as a landmark visible from the central clearing. Players never lose orientation.
+        </div>
+      </div>
+      <div class="decision-card">
+        <div class="decision-label">Reward</div>
+        <div class="decision-title">Beauty as Motivation</div>
+        <div class="decision-text">
+          After the dark temple, the vibrant forest feels like a reward. Colorful mushrooms, flowers, and 
+          magical lighting encourage exploration purely for the joy of seeing what is around the next bend.
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer CTA -->
   <section class="footer-cta">
     <div class="footer-cta-title">Temple of the Mind is in active development</div>
     <p class="footer-cta-text">
-      For playable builds, level design breakdowns, or collaboration inquiries — let's talk.
+      For playable builds, level design breakdowns, or collaboration inquiries, let's talk.
     </p>
     <div class="footer-cta-links">
       <a href="mailto:gorartsev@gmail.com">Email</a>
@@ -972,7 +1157,7 @@
 
   // Initialize carousels on load
   document.addEventListener('DOMContentLoaded', () => {
-    // Blockout images
+    // Temple Blockout images
     initCarousel('carousel-blockout', [
       'assets/blocking/image.png',
       'assets/blocking/image (1).png',
@@ -986,7 +1171,7 @@
       'assets/blocking/image (9).png'
     ]);
 
-    // Final environment images
+    // Temple Final environment images
     initCarousel('carousel-final', [
       'assets/final/Screenshot_1.png',
       'assets/final/Screenshot_6.png',
@@ -995,6 +1180,30 @@
       'assets/final/Screenshot_9.png',
       'assets/final/Screenshot_10.png',
       'assets/final/Screenshot_11.png'
+    ]);
+
+    // Forest Blockout images
+    initCarousel('carousel-forest-blockout', [
+      'assets/forest/blockout/1.png',
+      'assets/forest/blockout/2.png',
+      'assets/forest/blockout/3.png',
+      'assets/forest/blockout/4.png',
+      'assets/forest/blockout/5.png',
+      'assets/forest/blockout/6.png'
+    ]);
+
+    // Forest Final environment images
+    initCarousel('carousel-forest-final', [
+      'assets/forest/final/1.png',
+      'assets/forest/final/2.png',
+      'assets/forest/final/3.png',
+      'assets/forest/final/4.png',
+      'assets/forest/final/5.png',
+      'assets/forest/final/6.png',
+      'assets/forest/final/7.png',
+      'assets/forest/final/8.png',
+      'assets/forest/final/9.png',
+      'assets/forest/final/10.png'
     ]);
   });
 </script>
