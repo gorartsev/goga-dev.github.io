@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>Yegor Artsev – Level Designer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Portfolio of Level Designer Yegor Artsev: Unity & Unreal Engine projects, hybrid-casual runners, VR simulators and atmospheric 3D environments.">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,83 +16,45 @@
   <style>
     :root {
       --bg: #F0EDEE;
-      --bg-dark: #E4E1E2;
       --red: #69140E;
       --red-dark: #4A0E0A;
-      --red-light: rgba(105, 20, 14, 0.12);
       --black: #1A1A1A;
       --gray: #4A4A4A;
       --gray-light: #8A8A8A;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: 'Crimson Pro', Georgia, serif;
+      font-family: 'Crimson Pro', serif;
       background: var(--bg);
       color: var(--black);
       line-height: 1.7;
-      position: relative;
       overflow-x: hidden;
     }
 
-    /* Noise texture overlay */
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 1000;
-      opacity: 0.025;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    }
+    a { color: var(--red); text-decoration: none; }
 
-    a {
-      color: var(--red);
-      text-decoration: none;
-      transition: opacity 0.3s;
-    }
-
-    a:hover {
-      opacity: 0.7;
-    }
-
-    /* ============ NAV ============ */
+    /* NAV */
     .nav {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
+      inset: 0 0 auto 0;
       padding: 20px 40px;
       display: flex;
       justify-content: space-between;
-      align-items: center;
       background: linear-gradient(to bottom, var(--bg) 60%, transparent);
+      z-index: 100;
     }
 
     .nav-logo {
       font-family: 'Permanent Marker', cursive;
-      font-size: 18px;
-      color: var(--red);
-      text-decoration: none;
       letter-spacing: 2px;
+      color: var(--red);
     }
 
     .nav-links {
       display: flex;
-      gap: 32px;
+      gap: 28px;
       align-items: center;
     }
 
@@ -103,80 +64,48 @@
       text-transform: uppercase;
       letter-spacing: 2px;
       color: var(--gray);
-      text-decoration: none;
-      transition: color 0.3s;
     }
 
-    .nav-links a:hover {
-      color: var(--red);
-      opacity: 1;
-    }
-
-    .nav-links a.nav-primary {
+    .nav-links .nav-primary {
       background: var(--red);
       color: white;
-      padding: 10px 20px;
+      padding: 10px 18px;
       font-weight: 700;
     }
 
-    .nav-links a.nav-primary:hover {
-      background: var(--red-dark);
-      color: white;
-    }
-
-    /* ============ HERO ============ */
+    /* HERO */
     .hero {
       min-height: 100vh;
       display: grid;
       grid-template-columns: 1.2fr 1fr;
-      gap: 60px;
       align-items: center;
-      padding: 120px 60px 80px;
+      gap: 60px;
+      padding: 140px 60px 80px;
       max-width: 1400px;
       margin: 0 auto;
-    }
-
-    .hero-content {
-      position: relative;
     }
 
     .hero-kicker {
       font-family: 'Space Mono', monospace;
       font-size: 11px;
-      text-transform: uppercase;
       letter-spacing: 4px;
       color: var(--red);
       margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .hero-kicker::before {
-      content: '';
-      width: 40px;
-      height: 1px;
-      background: var(--red);
     }
 
     .hero-title {
       font-family: 'Permanent Marker', cursive;
       font-size: clamp(40px, 8vw, 72px);
-      line-height: 1.05;
-      color: var(--black);
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       transform: rotate(-1deg);
     }
 
-    .hero-title span {
-      color: var(--red);
-    }
+    .hero-title span { color: var(--red); }
 
     .hero-name {
       font-family: 'Space Mono', monospace;
-      font-size: 13px;
-      text-transform: uppercase;
       letter-spacing: 3px;
+      font-size: 13px;
       color: var(--gray-light);
       margin-bottom: 24px;
     }
@@ -188,57 +117,25 @@
       margin-bottom: 32px;
     }
 
-    .hero-tags {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 32px;
-    }
-
-    .tag {
-      font-family: 'Space Mono', monospace;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      padding: 8px 16px;
-      background: white;
-      border: 1px solid rgba(0,0,0,0.1);
-      color: var(--gray);
-    }
-
     .btn-main {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
       font-family: 'Space Mono', monospace;
       font-size: 12px;
-      text-transform: uppercase;
       letter-spacing: 2px;
       background: var(--red);
       color: white;
       padding: 16px 32px;
-      text-decoration: none;
-      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
     }
 
-    .btn-main:hover {
-      background: var(--red-dark);
-      transform: translateY(-2px);
-      opacity: 1;
-    }
-
-    .btn-main::after {
-      content: '↓';
-      font-size: 14px;
-    }
-
-    /* Hero 3D - LOWERED */
+    /* === 3D HERO (ОПУЩЕН) === */
     .hero-visual {
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
       position: relative;
-      padding-top: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      transform: translateY(90px); /* ← ВОТ ТУТ ОПУСКАНИЕ */
     }
 
     .hero-visual::before {
@@ -249,446 +146,31 @@
       border: 2px solid var(--red);
       opacity: 0.15;
       transform: rotate(12deg);
-      bottom: 50px;
+      bottom: 0;
     }
 
-    .hero-visual model-viewer {
+    model-viewer {
       width: 100%;
       max-width: 400px;
       height: 450px;
-      --progress-bar-color: transparent;
       --progress-bar-height: 0px;
     }
 
-    model-viewer::part(default-progress-bar) {
-      display: none;
-    }
-
-    /* ============ MAIN CONTENT ============ */
-    .page {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 40px;
-    }
-
-    /* ============ SECTION ============ */
-    .section {
-      padding: 100px 0;
-      border-top: 1px solid rgba(0,0,0,0.08);
-    }
-
-    .section-header {
-      display: flex;
-      align-items: baseline;
-      gap: 24px;
-      margin-bottom: 48px;
-    }
-
-    .section-number {
-      font-family: 'Permanent Marker', cursive;
-      font-size: 72px;
-      color: var(--red);
-      opacity: 0.15;
-      line-height: 1;
-    }
-
-    .section-title {
-      font-family: 'Permanent Marker', cursive;
-      font-size: 36px;
-      color: var(--black);
-      position: relative;
-    }
-
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: 4px;
-      left: 0;
-      width: 100%;
-      height: 6px;
-      background: var(--red);
-      opacity: 0.25;
-      transform: skewX(-12deg);
-    }
-
-    /* ============ PROJECT CARDS ============ */
-    .projects-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 48px;
-    }
-
-    .project-card {
-      background: white;
-      border: 1px solid rgba(0,0,0,0.08);
-      padding: 0;
-      position: relative;
-      transition: transform 0.4s, box-shadow 0.4s;
-      overflow: hidden;
-    }
-
-    .project-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 40px 80px rgba(0,0,0,0.12);
-    }
-
-    /* Featured project */
-    .project-card-featured {
-      border: 2px solid var(--red);
-      background: linear-gradient(135deg, var(--red-light) 0%, white 50%);
-    }
-
-    .project-card-featured::before {
-      content: 'FEATURED';
-      position: absolute;
-      top: 24px;
-      left: 24px;
-      font-family: 'Space Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 2px;
-      background: var(--red);
-      color: white;
-      padding: 6px 14px;
-      z-index: 10;
-    }
-
-    .project-media {
-      width: 100%;
-      aspect-ratio: 16/9;
-      overflow: hidden;
-      background: var(--black);
-      position: relative;
-    }
-
-    .project-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s;
-    }
-
-    .project-card:hover .project-media img {
-      transform: scale(1.05);
-    }
-
-    .project-media iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    /* Slider */
-    .slider {
-      position: relative;
-      width: 100%;
-      height: 100%;
-    }
-
-    .slider .slide {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: none;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-
-    .slider .slide.active {
-      display: block;
-    }
-
-    .slider-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: var(--red);
-      border: none;
-      color: white;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 14px;
-      transition: all 0.3s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 10;
-    }
-
-    .slider-btn:hover {
-      background: var(--red-dark);
-      transform: translateY(-50%) scale(1.1);
-    }
-
-    .slider-btn.left { left: 16px; }
-    .slider-btn.right { right: 16px; }
-
-    .project-content {
-      padding: 32px;
-    }
-
-    .project-name {
-      font-family: 'Permanent Marker', cursive;
-      font-size: 28px;
-      color: var(--black);
-      margin-bottom: 12px;
-    }
-
-    .project-meta {
-      font-size: 16px;
-      color: var(--gray);
-      line-height: 1.7;
-      margin-bottom: 20px;
-      max-width: 600px;
-    }
-
-    .project-tags {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 20px;
-    }
-
-    .tag-soft {
-      font-family: 'Space Mono', monospace;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      padding: 6px 14px;
-      background: var(--red-light);
-      color: var(--red);
-      border: 1px solid rgba(105, 20, 14, 0.3);
-    }
-
-    .project-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--red);
-      text-decoration: none;
-      padding: 12px 0;
-      border-bottom: 2px solid var(--red);
-      transition: all 0.3s;
-    }
-
-    .project-cta:hover {
-      padding-left: 12px;
-      opacity: 1;
-    }
-
-    .project-cta::after {
-      content: '→';
-    }
-
-    /* ============ ABOUT ============ */
-    .about-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-    }
-
-    .about-text {
-      font-size: 17px;
-      color: var(--gray);
-    }
-
-    .about-text p {
-      margin-bottom: 20px;
-    }
-
-    .about-text strong {
-      color: var(--black);
-    }
-
-    .about-highlight {
-      background: var(--red);
-      color: white;
-      padding: 40px;
-      position: relative;
-      transform: rotate(1deg);
-    }
-
-    .about-highlight::before {
-      content: '✦';
-      position: absolute;
-      top: -15px;
-      right: 30px;
-      font-size: 24px;
-      color: var(--bg);
-    }
-
-    .about-highlight-title {
-      font-family: 'Permanent Marker', cursive;
-      font-size: 24px;
-      margin-bottom: 16px;
-    }
-
-    .about-highlight-text {
-      font-size: 15px;
-      line-height: 1.6;
-      opacity: 0.9;
-    }
-
-    /* ============ CONTACT ============ */
-    .contact-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-    }
-
-    .contact-info {
-      font-size: 16px;
-      color: var(--gray);
-    }
-
-    .contact-item {
-      margin-bottom: 20px;
-    }
-
-    .contact-label {
-      font-family: 'Space Mono', monospace;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--red);
-      margin-bottom: 4px;
-    }
-
-    .contact-value a {
-      color: var(--black);
-      font-size: 18px;
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.3s;
-    }
-
-    .contact-value a:hover {
-      border-bottom-color: var(--red);
-      opacity: 1;
-    }
-
-    .contact-cta {
-      background: var(--bg-dark);
-      border: 2px solid var(--red);
-      padding: 40px;
-      text-align: center;
-    }
-
-    .contact-cta-title {
-      font-family: 'Permanent Marker', cursive;
-      font-size: 24px;
-      color: var(--black);
-      margin-bottom: 12px;
-    }
-
-    .contact-cta-text {
-      color: var(--gray);
-      margin-bottom: 24px;
-    }
-
-    .contact-cta .btn-main {
-      display: inline-flex;
-    }
-
-    .contact-cta .btn-main::after {
-      content: '↗';
-    }
-
-    /* ============ FOOTER ============ */
-    footer {
-      padding: 40px;
-      text-align: center;
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--gray-light);
-      border-top: 1px solid rgba(0,0,0,0.08);
-    }
-
-    /* ============ MOBILE ============ */
+    /* MOBILE */
     @media (max-width: 900px) {
       .hero {
         grid-template-columns: 1fr;
-        padding: 100px 24px 60px;
-        min-height: auto;
+        padding: 120px 24px 60px;
       }
 
       .hero-visual {
         order: -1;
-        padding-top: 40px;
+        transform: translateY(40px);
       }
 
-      .hero-visual model-viewer {
+      model-viewer {
         max-width: 280px;
         height: 320px;
-      }
-
-      .hero-title {
-        font-size: 36px;
-      }
-
-      .nav {
-        padding: 16px 20px;
-      }
-
-      .nav-links {
-        gap: 16px;
-      }
-
-      .nav-links a:not(.nav-primary) {
-        display: none;
-      }
-
-      .page {
-        padding: 0 20px;
-      }
-
-      .section {
-        padding: 60px 0;
-      }
-
-      .section-header {
-        flex-direction: column;
-        gap: 8px;
-      }
-
-      .section-number {
-        font-size: 48px;
-      }
-
-      .section-title {
-        font-size: 28px;
-      }
-
-      .project-name {
-        font-size: 22px;
-      }
-
-      .project-content {
-        padding: 24px;
-      }
-
-      .about-content,
-      .contact-content {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
-
-      .about-highlight {
-        transform: rotate(0);
-      }
-
-      .slider-btn {
-        width: 32px;
-        height: 32px;
-        font-size: 12px;
       }
     }
   </style>
@@ -696,9 +178,8 @@
 
 <body>
 
-<!-- Navigation -->
 <header class="nav">
-  <a href="#top" class="nav-logo">YEGOR ARTSEV</a>
+  <a class="nav-logo" href="#">YEGOR ARTSEV</a>
   <nav class="nav-links">
     <a href="#projects">Projects</a>
     <a href="#about">About</a>
@@ -707,9 +188,8 @@
   </nav>
 </header>
 
-<!-- Hero -->
-<section class="hero" id="top">
-  <div class="hero-content">
+<section class="hero">
+  <div>
     <div class="hero-kicker">Level Designer</div>
     <h1 class="hero-title">
       Designing readable,<br>
@@ -717,249 +197,29 @@
     </h1>
     <div class="hero-name">Yegor Artsev · Level Designer</div>
     <p class="hero-sub">
-      Building spaces that guide, teach and immerse — from hybrid-casual mobile games 
-      to VR simulators and atmospheric first-person adventures.
+      Building spaces that guide, teach and immerse — from hybrid-casual games
+      to VR simulators and atmospheric adventures.
     </p>
-    <div class="hero-tags">
-      <span class="tag">Unity</span>
-      <span class="tag">Unreal Engine</span>
-      <span class="tag">Hybrid-Casual</span>
-      <span class="tag">VR / Simulators</span>
-    </div>
     <a class="btn-main" href="#projects">View Projects</a>
   </div>
 
   <div class="hero-visual">
     <model-viewer
       src="assets/hero/hero-dance.glb"
-      autoplay loop
-      camera-controls="false"
+      autoplay
+      loop
       disable-zoom
+      camera-controls="false"
       interaction-prompt="none"
       scale="0.012 0.012 0.012"
       camera-orbit="0deg 75deg 8m"
-      field-of-view="30deg"
       camera-target="0m -0.8m 0m"
+      field-of-view="30deg"
       exposure="1.1"
-      shadow-intensity="0.8"
-      style="background-color: transparent;">
+      shadow-intensity="0.8">
     </model-viewer>
   </div>
 </section>
-
-<main class="page">
-
-  <!-- Projects -->
-  <section class="section" id="projects">
-    <div class="section-header">
-      <div class="section-number">01</div>
-      <h2 class="section-title">Selected Projects</h2>
-    </div>
-
-    <div class="projects-grid">
-
-      <!-- TEMPLE OF THE MIND -->
-      <article class="project-card project-card-featured">
-        <div class="project-media">
-          <img src="assets/temple/mind.png" alt="Temple of the Mind">
-        </div>
-        <div class="project-content">
-          <div class="project-name">Temple of the Mind</div>
-          <p class="project-meta">
-            First-person puzzle adventure built in Unity. Escape a cursed ritual temple, 
-            step into a magical forest clearing, and complete an ancient ritual to unlock the path 
-            toward a mysterious castle. Focus on environmental storytelling, readability, and atmosphere.
-          </p>
-          <div class="project-tags">
-            <span class="tag-soft">Unity</span>
-            <span class="tag-soft">PC-style Exploration</span>
-            <span class="tag-soft">Atmosphere & Mood</span>
-          </div>
-          <a href="temple-of-mind.html" class="project-cta">View Full Breakdown</a>
-        </div>
-      </article>
-
-      <!-- ZONECITY -->
-      <article class="project-card">
-        <div class="project-media">
-          <div class="slider" id="slider-zonecity">
-            <button class="slider-btn left" onclick="prevSlide('slider-zonecity')">←</button>
-            <button class="slider-btn right" onclick="nextSlide('slider-zonecity')">→</button>
-            <iframe class="slide active" src="https://www.youtube.com/embed/zwzeJUWJRWY" title="ZoneCity" allowfullscreen></iframe>
-            <img src="assets/zonecity/Step1.png" class="slide" alt="ZoneCity">
-            <img src="assets/zonecity/Step2.png" class="slide" alt="ZoneCity">
-            <img src="assets/zonecity/Step3.png" class="slide" alt="ZoneCity">
-          </div>
-        </div>
-        <div class="project-content">
-          <div class="project-name">ZoneCity</div>
-          <p class="project-meta">
-            Runner prototype built around exploring a compact city surrounded by dense forest. 
-            Clean lane patterns, clear visual markers and rhythmic environmental changes maintain 
-            readability along the entire route.
-          </p>
-          <div class="project-tags">
-            <span class="tag-soft">Unity</span>
-            <span class="tag-soft">Hybrid-Casual</span>
-            <span class="tag-soft">Patterns & Progression</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- RUNNER PROTOTYPE -->
-      <article class="project-card">
-        <div class="project-media">
-          <iframe src="https://www.youtube.com/embed/yW1VZEHcZSM" title="Runner Prototype" allowfullscreen></iframe>
-        </div>
-        <div class="project-content">
-          <div class="project-name">Runner Prototype</div>
-          <p class="project-meta">
-            Three-lane runner prototype focusing on camera feel, speed curves, 
-            hazard telegraphing and smooth game rhythm.
-          </p>
-          <div class="project-tags">
-            <span class="tag-soft">Unity</span>
-            <span class="tag-soft">Runner</span>
-            <span class="tag-soft">Lane Gameplay</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- MEDICAL VR -->
-      <article class="project-card">
-        <div class="project-media">
-          <div class="slider" id="slider-medical">
-            <button class="slider-btn left" onclick="prevSlide('slider-medical')">←</button>
-            <button class="slider-btn right" onclick="nextSlide('slider-medical')">→</button>
-            <img src="assets/medical/1.jpg" class="slide active" alt="Medical VR">
-            <img src="assets/medical/2.JPG" class="slide" alt="Medical VR">
-            <img src="assets/medical/3.jpg" class="slide" alt="Medical VR">
-            <img src="assets/medical/4.jpg" class="slide" alt="Medical VR">
-            <img src="assets/medical/5.jpg" class="slide" alt="Medical VR">
-          </div>
-        </div>
-        <div class="project-content">
-          <div class="project-name">Medical VR Training Simulator</div>
-          <p class="project-meta">
-            VR simulator for Khalifa University focused on clear learning flow, 
-            realistic spatial layout and stable 72+ FPS performance. Built training environments 
-            and designed in-VR UI/UX for medical student practice tasks.
-          </p>
-          <div class="project-tags">
-            <span class="tag-soft">Unreal Engine 5</span>
-            <span class="tag-soft">VR Simulator</span>
-            <span class="tag-soft">Level Layout & Flow</span>
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- About -->
-  <section class="section" id="about">
-    <div class="section-header">
-      <div class="section-number">02</div>
-      <h2 class="section-title">About</h2>
-    </div>
-
-    <div class="about-content">
-      <div class="about-text">
-        <p>
-          I'm a <strong>Level Designer</strong> focused on building readable, atmospheric spaces 
-          for games and simulations. I work with <strong>Unity</strong> and <strong>Unreal Engine 5</strong>, 
-          creating everything from hybrid-casual runners to first-person puzzle adventures and VR training environments.
-        </p>
-        <p>
-          My experience includes production-ready level design at <strong>24 Play LLC</strong>, 
-          VR medical simulators for <strong>Khalifa University</strong>, interactive 3D tours 
-          for commercial projects and environment-driven UX for e-commerce platforms.
-        </p>
-        <p>
-          I combine technical understanding, strong visual composition and player-centric thinking 
-          to design spaces that guide, teach and immerse.
-        </p>
-      </div>
-      <div class="about-highlight">
-        <div class="about-highlight-title">Currently Building</div>
-        <p class="about-highlight-text">
-          Temple of the Mind — a first-person puzzle adventure with five biomes, 
-          environmental riddles and a focus on architectural storytelling. 
-          Moving toward full exploration-based experiences for PC and console.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section class="section" id="contact">
-    <div class="section-header">
-      <div class="section-number">03</div>
-      <h2 class="section-title">Contact</h2>
-    </div>
-
-    <div class="contact-content">
-      <div class="contact-info">
-        <div class="contact-item">
-          <div class="contact-label">Email</div>
-          <div class="contact-value"><a href="mailto:gorartsev@gmail.com">gorartsev@gmail.com</a></div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-label">Telegram</div>
-          <div class="contact-value"><a href="https://t.me/grarchimp" target="_blank">@grarchimp</a></div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-label">LinkedIn</div>
-          <div class="contact-value"><a href="https://www.linkedin.com/in/yegor-artsev/" target="_blank">linkedin.com/in/yegor-artsev</a></div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-label">CV</div>
-          <div class="contact-value"><a href="assets/cv/CV_Artcev%20Yegor_ENG.pdf" target="_blank">Download PDF</a></div>
-        </div>
-      </div>
-      <div class="contact-cta">
-        <div class="contact-cta-title">Let's Work Together</div>
-        <p class="contact-cta-text">
-          Open to remote level design positions, contract work, or collaboration opportunities.
-        </p>
-        <a class="btn-main" href="mailto:gorartsev@gmail.com">Get in Touch</a>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer>
-  © <span id="year"></span> Yegor Artsev · Level Designer
-</footer>
-
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  function nextSlide(id) {
-    const slider = document.getElementById(id);
-    if (!slider) return;
-    const slides = slider.querySelectorAll('.slide');
-    if (!slides.length) return;
-    let index = Array.from(slides).findIndex(el => el.classList.contains('active'));
-    if (index === -1) index = 0;
-    slides[index].classList.remove('active');
-    index = (index + 1) % slides.length;
-    slides[index].classList.add('active');
-  }
-
-  function prevSlide(id) {
-    const slider = document.getElementById(id);
-    if (!slider) return;
-    const slides = slider.querySelectorAll('.slide');
-    if (!slides.length) return;
-    let index = Array.from(slides).findIndex(el => el.classList.contains('active'));
-    if (index === -1) index = 0;
-    slides[index].classList.remove('active');
-    index = (index - 1 + slides.length) % slides.length;
-    slides[index].classList.add('active');
-  }
-</script>
 
 </body>
 </html>
