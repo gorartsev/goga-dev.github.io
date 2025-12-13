@@ -130,7 +130,7 @@
       display: grid;
       grid-template-columns: 1.2fr 1fr;
       gap: 60px;
-      align-items: center;
+      align-items: start;
       padding: 120px 60px 80px;
       max-width: 1400px;
       margin: 0 auto;
@@ -238,7 +238,8 @@
       align-items: flex-end;
       justify-content: center;
       position: relative;
-      padding-top: 180px;
+      padding-top: 80px;
+      margin-top: 100px;
     }
 
     .hero-visual::before {
@@ -249,13 +250,13 @@
       border: 2px solid var(--red);
       opacity: 0.15;
       transform: rotate(12deg);
-      bottom: 30px;
+      bottom: -60px;
     }
 
     .hero-visual model-viewer {
       width: 100%;
-      max-width: 480px;
-      height: 520px;
+      max-width: 500px;
+      height: 550px;
       --progress-bar-color: transparent;
       --progress-bar-height: 0px;
     }
@@ -622,12 +623,13 @@
 
       .hero-visual {
         order: -1;
-        padding-top: 60px;
+        padding-top: 40px;
+        margin-top: 60px;
       }
 
       .hero-visual model-viewer {
-        max-width: 320px;
-        height: 380px;
+        max-width: 340px;
+        height: 400px;
       }
 
       .hero-title {
@@ -736,10 +738,10 @@
       camera-controls="false"
       disable-zoom
       interaction-prompt="none"
-      scale="0.014 0.014 0.014"
-      camera-orbit="0deg 75deg 7m"
-      field-of-view="32deg"
-      camera-target="0m -0.6m 0m"
+      scale="0.015 0.015 0.015"
+      camera-orbit="0deg 65deg 6m"
+      field-of-view="35deg"
+      camera-target="0m 0.5m 0m"
       exposure="1.1"
       shadow-intensity="0.8"
       style="background-color: transparent;">
