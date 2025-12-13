@@ -376,6 +376,15 @@
       width: 100%;
       height: 100%;
       border: none;
+      object-fit: cover;
+    }
+
+    /* Crop video to remove letterboxing */
+    .slider .slide.video-crop {
+      width: 100%;
+      height: 150%;
+      left: 0;
+      top: -25%;
     }
 
     /* Slider */
@@ -787,7 +796,7 @@
           <div class="slider" id="slider-zonecity">
             <button class="slider-btn left" onclick="prevSlide('slider-zonecity')">←</button>
             <button class="slider-btn right" onclick="nextSlide('slider-zonecity')">→</button>
-            <iframe class="slide active" src="https://www.youtube.com/embed/zwzeJUWJRWY" title="ZoneCity" allowfullscreen></iframe>
+            <iframe class="slide active video-crop" src="https://www.youtube.com/embed/zwzeJUWJRWY" title="ZoneCity" allowfullscreen></iframe>
             <img src="assets/zonecity/Step1.png" class="slide" alt="ZoneCity">
             <img src="assets/zonecity/Step2.png" class="slide" alt="ZoneCity">
             <img src="assets/zonecity/Step3.png" class="slide" alt="ZoneCity">
