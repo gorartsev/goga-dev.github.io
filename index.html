@@ -11,9 +11,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Space+Mono:wght@400;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 
-  <!-- 3D viewer -->
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-
   <style>
     :root {
       --bg: #F0EDEE;
@@ -127,12 +124,13 @@
     /* ============ HERO ============ */
     .hero {
       min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 60px;
-      align-items: start;
-      padding: 120px 60px 80px;
-      max-width: 1400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 120px 40px 80px;
+      max-width: 1000px;
       margin: 0 auto;
     }
 
@@ -146,9 +144,10 @@
       text-transform: uppercase;
       letter-spacing: 4px;
       color: var(--red);
-      margin-bottom: 20px;
+      margin-bottom: 24px;
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 16px;
     }
 
@@ -192,6 +191,7 @@
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
+      justify-content: center;
       margin-bottom: 32px;
     }
 
@@ -230,39 +230,6 @@
     .btn-main::after {
       content: '↓';
       font-size: 14px;
-    }
-
-    /* Hero 3D - LOWERED */
-    .hero-visual {
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      position: relative;
-      padding-top: 80px;
-      margin-top: 160px;
-    }
-
-    .hero-visual::before {
-      content: '';
-      position: absolute;
-      width: 320px;
-      height: 320px;
-      border: 2px solid var(--red);
-      opacity: 0.15;
-      transform: rotate(12deg);
-      bottom: -100px;
-    }
-
-    .hero-visual model-viewer {
-      width: 100%;
-      max-width: 500px;
-      height: 550px;
-      --progress-bar-color: transparent;
-      --progress-bar-height: 0px;
-    }
-
-    model-viewer::part(default-progress-bar) {
-      display: none;
     }
 
     /* ============ MAIN CONTENT ============ */
@@ -630,17 +597,6 @@
         min-height: auto;
       }
 
-      .hero-visual {
-        order: -1;
-        padding-top: 40px;
-        margin-top: 60px;
-      }
-
-      .hero-visual model-viewer {
-        max-width: 340px;
-        height: 400px;
-      }
-
       .hero-title {
         font-size: 36px;
       }
@@ -738,23 +694,6 @@
       <span class="tag">VR / Simulators</span>
     </div>
     <a class="btn-main" href="#projects">View Projects</a>
-  </div>
-
-  <div class="hero-visual">
-    <model-viewer
-      src="assets/hero/hero-dance.glb"
-      autoplay loop
-      camera-controls="false"
-      disable-zoom
-      interaction-prompt="none"
-      scale="0.016 0.016 0.016"
-      camera-orbit="0deg 60deg 5.5m"
-      field-of-view="38deg"
-      camera-target="0m 1.2m 0m"
-      exposure="1.1"
-      shadow-intensity="0.8"
-      style="background-color: transparent;">
-    </model-viewer>
   </div>
 </section>
 
