@@ -238,24 +238,24 @@
       align-items: flex-end;
       justify-content: center;
       position: relative;
-      padding-top: 100px;
+      padding-top: 180px;
     }
 
     .hero-visual::before {
       content: '';
       position: absolute;
-      width: 300px;
-      height: 300px;
+      width: 320px;
+      height: 320px;
       border: 2px solid var(--red);
       opacity: 0.15;
       transform: rotate(12deg);
-      bottom: 50px;
+      bottom: 30px;
     }
 
     .hero-visual model-viewer {
       width: 100%;
-      max-width: 400px;
-      height: 450px;
+      max-width: 480px;
+      height: 520px;
       --progress-bar-color: transparent;
       --progress-bar-height: 0px;
     }
@@ -622,12 +622,12 @@
 
       .hero-visual {
         order: -1;
-        padding-top: 40px;
+        padding-top: 60px;
       }
 
       .hero-visual model-viewer {
-        max-width: 280px;
-        height: 320px;
+        max-width: 320px;
+        height: 380px;
       }
 
       .hero-title {
@@ -736,10 +736,10 @@
       camera-controls="false"
       disable-zoom
       interaction-prompt="none"
-      scale="0.012 0.012 0.012"
-      camera-orbit="0deg 75deg 8m"
-      field-of-view="30deg"
-      camera-target="0m -0.8m 0m"
+      scale="0.014 0.014 0.014"
+      camera-orbit="0deg 75deg 7m"
+      field-of-view="32deg"
+      camera-target="0m -0.6m 0m"
       exposure="1.1"
       shadow-intensity="0.8"
       style="background-color: transparent;">
@@ -902,7 +902,7 @@
       <div class="contact-info">
         <div class="contact-item">
           <div class="contact-label">Email</div>
-          <div class="contact-value"><a href="mailto:gorartsev@gmail.com">gorartsev@gmail.com</a></div>
+          <div class="contact-value"><a href="/cdn-cgi/l/email-protection#91f6fee3f0e3e5e2f4e7d1f6fcf0f8fdbff2fefc"><span class="__cf_email__" data-cfemail="a5c2cad7c4d7d1d6c0d3e5c2c8c4ccc98bc6cac8">[email&#160;protected]</span></a></div>
         </div>
         <div class="contact-item">
           <div class="contact-label">Telegram</div>
@@ -922,7 +922,7 @@
         <p class="contact-cta-text">
           Open to remote level design positions, contract work, or collaboration opportunities.
         </p>
-        <a class="btn-main" href="mailto:gorartsev@gmail.com">Get in Touch</a>
+        <a class="btn-main" href="/cdn-cgi/l/email-protection#1e79716c7f6c6a6d7b685e79737f7772307d7173">Get in Touch</a>
       </div>
     </div>
   </section>
@@ -933,7 +933,7 @@
   © <span id="year"></span> Yegor Artsev · Level Designer
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
   function nextSlide(id) {
@@ -953,13 +953,4 @@
     if (!slider) return;
     const slides = slider.querySelectorAll('.slide');
     if (!slides.length) return;
-    let index = Array.from(slides).findIndex(el => el.classList.contains('active'));
-    if (index === -1) index = 0;
-    slides[index].classList.remove('active');
-    index = (index - 1 + slides.length) % slides.length;
-    slides[index].classList.add('active');
-  }
-</script>
-
-</body>
-</html>
+    let in
